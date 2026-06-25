@@ -1,0 +1,84 @@
+/* Estilos básicos e reset */
+body {
+    font-family: 'Helvetica Now', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3eee6;
+    color: #0e305c;
+    
+    /* Cria um layout flexível vertical para a página toda */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+/* Barra de navegação */
+.navbar {
+    background-color: #5c0e30;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: #f3eee6;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #305c0e;
+}
+
+/* Configuração do título principal bem grande */
+.titulo-principal {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #305c0e;
+}
+
+/* Container dos Cards - Totalmente Centralizado */
+.container-cards {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente no espaço disponível */
+    gap: 25px;
+    flex-wrap: wrap;         /* Permite que os cards quebrem de linha em telas menores */
+    
+    flex-grow: 1;            /* Faz o container ocupar todo o espaço vertical restante */
+    max-width: 1200px;
+    margin: 0 auto;          /* Centraliza o bloco do container na tela */
+    padding: 20px;
+}
+
+/* Estilização individual dos cards */
+.card {
+    background-color: #5c0e30;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #f3eee6;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: #f3eee6;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
