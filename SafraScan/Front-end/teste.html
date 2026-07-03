@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Celular</title>
+    <style>
+        /* Fundo da página */
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Caixa que simula o celular */
+        .smartphone {
+            width: 375px;
+            height: 667px;
+            background-color: white;
+            border: 16px solid #333;
+            border-radius: 36px;
+            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+            overflow: hidden; /* Esconde o que passar da tela */
+            position: relative;
+        }
+
+        /* Tela dentro do celular */
+        .conteudo-tela {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto; /* Permite rolar a tela */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- O "Celular" -->
+    <div class="smartphone">
+        <div class="conteudo-tela">
+            <h1>Minha Tela</h1>
+            <p>Este é o seu site rodando dentro de um simulador de celular em HTML.</p>
+        </div>
+    </div>
+
+</body>
+</html>
