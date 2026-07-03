@@ -1,12 +1,14 @@
+@charset "UTF-8";
+
 /* Estilos básicos e reset */
 body {
-    font-family: 'Helvetica Now', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Aplicando a tipografia oficial do projeto */
+    font-family: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3eee6;
-    color: #0e305c;
+    background-color: #f7f9f6; /* Fundo claro e limpo para dar destaque */
+    color: #1a2e1a; /* Texto principal em tom verde-escuro quase preto */
     
-    /* Cria um layout flexível vertical para a página toda */
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
@@ -14,71 +16,93 @@ body {
 
 /* Barra de navegação */
 .navbar {
-    background-color: #5c0e30;
-    padding: 15px 0;
-    text-align: center;
+    background-color: #ffffff; /* Fundo branco para destacar os elementos e o logo */
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between; /* Alinha o logo à esquerda e os links à direita */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra leve */
 }
 
-.navbar a {
-    color: #f3eee6;
+/* Container do Logotipo na Navbar */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px; /* Altura ideal para não distorcer a barra */
+    width: auto;
+}
+
+/* Links de Navegação */
+.navbar-menu a {
+    color: #2e5a2e; /* Verde institucional para os links */
     text-decoration: none;
-    margin: 0 20px;
-    font-size: 1.1rem;
+    margin-left: 30px;
+    font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.2s;
+    padding-bottom: 5px;
 }
 
-.navbar a:hover {
-    color: #305c0e;
+.navbar-menu a:hover {
+    color: #4a8c4a; /* Tom de verde mais claro/vivo ao passar o mouse */
+    border-bottom: 2px solid #4a8c4a;
 }
 
-/* Configuração do título principal bem grande */
+/* Configuração do título principal */
 .titulo-principal {
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 10px;
-    color: #305c0e;
+    color: #1c3b1c; /* Verde escuro forte e imponente */
+    font-weight: 700;
 }
 
-/* Container dos Cards - Totalmente Centralizado */
+/* Container dos Cards */
 .container-cards {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente no espaço disponível */
-    gap: 25px;
-    flex-wrap: wrap;         /* Permite que os cards quebrem de linha em telas menores */
+    justify-content: center; 
+    align-items: center;     
+    gap: 30px;
+    flex-wrap: wrap;         
     
-    flex-grow: 1;            /* Faz o container ocupar todo o espaço vertical restante */
+    flex-grow: 1;            
     max-width: 1200px;
-    margin: 0 auto;          /* Centraliza o bloco do container na tela */
-    padding: 20px;
+    margin: 0 auto;          
+    padding: 40px 20px;
 }
 
-/* Estilização individual dos cards */
+/* Estilização individual dos cards (Identidade SafraScan) */
 .card {
-    background-color: #5c0e30;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e1e8e1; /* Borda suave */
+    border-radius: 12px; /* Cantos um pouco mais arredondados e modernos */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.03);
+    padding: 35px 25px;
     width: 280px;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(46, 90, 46, 0.12); /* Sombra verde sutil no hover */
+    border-color: #c2dec2;
 }
 
 .card h2 {
-    color: #f3eee6;
+    color: #2e5a2e; /* Títulos dos cards em verde */
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .card p {
-    color: #f3eee6;
+    color: #556b55; /* Texto interno em um tom cinza-esverdeado suave */
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 0;
 }
