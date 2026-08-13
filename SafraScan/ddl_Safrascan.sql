@@ -77,6 +77,18 @@ CREATE TABLE ajuda (
   quantidade_visualizacao INT DEFAULT VALUE
 );
 
+CREATE TABLE ir_para_o_aplicativo (
+    id_redirecionamento INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    id_usuario INT NOT NULL,
+    url_aplicativo VARCHAR(255) NOT NULL,
+    plataforma VARCHAR(100) NOT NULL,
+    status_redirecionamento BOOLEAN NOT NULL,
+    data_acesso DATE DEFAULT CURRENT_DATE,
+    data_ultimo_acesso DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    quantidade_redirecionamento DECIMAL DEFAULT 0,
+    FOREIGN KEY (id_usuario) REFERENCES Cadastro(id_cadastro)
+);
+
 CREATE TABLE dashboard (
   id SERIAL PRIMARY KEY, INT
   id_usuario SERIAL FOREIGN KEY, INT
