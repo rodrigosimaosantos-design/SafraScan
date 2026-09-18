@@ -1,0 +1,109 @@
+-- ============================================
+-- CONSULTAS SQL - SAFRASCAN
+-- ============================================
+
+
+-- 1. Quais sensores estão instalados em cada
+-- propriedade e qual é o seu status?
+
+SELECT
+    p.nome_propriedade,
+    t.id_talhao,
+    s.id_sensor,
+    s.tipo_sensor,
+    s.status_sensor
+FROM propriedade p
+INNER JOIN talhao t
+    ON p.id_propriedade = t.id_propriedade
+INNER JOIN sensor s
+    ON t.id_talhao = s.id_talhao
+WHERE s.status_sensor IS NOT NULL
+ORDER BY
+    p.nome_propriedade ASC,
+    s.status_sensor ASC;
+
+
+-- ============================================
+-- 2. Qual foi a média de umidade do solo
+-- registrada em cada talhão?
+
+SELECT
+    t.id_talhao,
+    p.nome_propriedade,
+    ROUND(AVG(ls.valor_leitura), 2) AS media_umidade_solo
+FROM talhao t
+INNER JOIN propriedade p
+    ON t.id_propriedade = p.id_propriedade
+INNER JOIN sensor s
+    ON t.id_talhao = s.id_talhao
+INNER JOIN leitura_sensor ls
+    ON s.id_sensor = ls.id_sensor
+INNER JOIN grandeza_fisica gf
+    ON ls.id_grandeza = gf.id_grandeza
+WHERE gf.nome_grandeza = 'Umidade do Solo'
+GROUP BY
+    t.id_talhao,
+    p.nome_propriedade
+ORDER BY
+    media_umidade_solo DESC;
+
+
+-- ============================================
+-- 3. Quais plantios possuem recomendações
+-- ativas que ainda não foram lidas?
+
+SELECT
+    pl.id_plantio,
+    c.nome_cultura,
+    r.id_recomendacao,
+    r.tipo,
+    r.mensagem_recomendacao,
+    r.data_geracao_recomendacao
+FROM plantio pl
+INNER JOIN cultura c
+    ON pl.id_cultura = c.id_cultura
+INNER JOIN recomendacao r
+    ON pl.id_plantio = r.id_plantio
+WHERE r.status_recomendacao = 'ATIVA'
+  AND r.lida_recomendacao = FALSE
+ORDER BY
+    r.data_geracao_recomendacao DESC;
+
+
+-- ============================================
+-- 4. Quantos sensores existem em cada status?
+
+SELECT
+    s.status_sensor,
+    COUNT(s.id_sensor) AS quantidade_sensores
+FROM sensor s
+WHERE s.status_sensor IS NOT NULL
+GROUP BY
+    s.status_sensor
+ORDER BY
+    quantidade_sensores DESC;
+
+
+-- ============================================
+-- 5. Quais propriedades pertencem a cada usuário
+-- e qual é a área total cultivada?
+
+SELECT
+    u.id_usuario,
+    u.nome_usuario,
+    p.id_propriedade,
+    p.nome_propriedade,
+    COALESCE(SUM(t.area_ha), 0) AS area_total_cultivada_ha
+FROM usuario u
+INNER JOIN propriedade p
+    ON u.id_usuario = p.id_usuario
+INNER JOIN talhao t
+    ON p.id_propriedade = t.id_propriedade
+GROUP BY
+    u.id_usuario,
+    u.nome_usuario,
+    p.id_propriedade,
+    p.nome_propriedade
+ORDER BY
+    u.nome_usuario ASC,
+    p.nome_propriedade ASC;
