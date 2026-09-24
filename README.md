@@ -1,4 +1,8 @@
+#NÃO ABAXAR O .ENV
+
+
 # SafraScan
+
 # Projeto FastAPI com Front-end HTML
 
 ## Descrição
