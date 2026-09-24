@@ -110,4 +110,5 @@ body {
 .teste{
     color: #1a2e1a;
     font: optional;
+    padding: auto;
 }
