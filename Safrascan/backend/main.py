@@ -1,17 +1,20 @@
 from fastapi import FastAPI
 
-from routes.categories import router as categorias_router
+from routes.cultura import router as cultura_router
+
 
 app = FastAPI(
-    title="API do Projeto Integrador",
-    description="Backend FastAPI conectado ao PostgreSQL no Supabase",
-    version="0.1.0",
+    title="SafraScan API",
+    description="API do projeto SafraScan",
+    version="1.0.0"
 )
 
-# Registra as rotas de categorias em /categorias
-app.include_router(categorias_router, prefix="/categorias", tags=["Categorias"])
+
+app.include_router(cultura_router)
 
 
 @app.get("/")
-def raiz():
-    return {"mensagem": "API funcionando. Acesse /docs para ver as rotas."}
+def inicio():
+    return {
+        "mensagem": "API SafraScan funcionando!"
+    }

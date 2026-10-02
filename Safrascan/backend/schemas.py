@@ -14,9 +14,14 @@ class UsuarioCreate(BaseModel):
     ativo_usuario: bool = True
 
 
-class UsuarioResponse(UsuarioCreate):
+class UsuarioResponse(BaseModel):
     id_usuario: int
+    nome_usuario: str
+    email_usuario: str
+    telefone_usuario: str
+    tipo_usuario: str
     data_cadastro: str
+    ativo_usuario: bool
 
     model_config = ConfigDict(from_attributes=True)
 
