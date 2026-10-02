@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safrascan - Registre-se</title>
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+    <main class="pagina-login">
+        <div class="login-card">
+            
+            <div class="card-cabecalho">
+                <h1>Registre-se</h1>
+                <a href="login.html" class="botao-voltar" aria-label="Voltar">←</a>
+            </div>
+
+            <form onsubmit="event.preventDefault();">
+    
+                <div class="campo">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+     
+                <div class="campo">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+
+                <button type="submit" class="botao-login" aria-label="Avançar">→</button>
+
+                <div>
+                    <button type="submit" class="registrar-btn">Registrar-se</button>
+                </div>
+            </form>
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-esquerda">
+            <img src="../img/safra_logo_pricipal.svg" class="logo">
+
+            <div class="informacoes">
+                <p>Contato: (12) 3456-7890</p>
+                <p>©Todos os direitos reservados.</p>
+            </div>
+        </div>
+
+        <a href="#" class="ajuda">Precisa de ajuda?</a>
+    </footer>
+
+</body>
+</html> 
