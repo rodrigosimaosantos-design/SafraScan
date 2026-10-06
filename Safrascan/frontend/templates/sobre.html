@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafraScan</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            background: #f3f0e7;
+            color: #305c0e;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            height: 143px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 310px;
+            height: auto;
+            display: block;
+        }
+
+        .header-left,
+        .header-right {
+            position: absolute;
+            top: 68px;
+
+            font-size: 11px;
+            line-height: 1;
+        }
+
+        .header-left {
+            left: calc(50% - 453px);
+        }
+
+        .header-right {
+            right: calc(50% - 453px);
+
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-link {
+            color: #76002b;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-link:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-card {
+            width: 938px;
+            min-height: 600px;
+
+            background: #f7f4eb;
+
+            border-radius: 49px 49px 0 0;
+
+            padding: 31px 40px 45px 40px;
+
+            display: grid;
+            grid-template-columns: 1fr 286px;
+            column-gap: 44px;
+
+            overflow: hidden;
+
+            box-shadow: 0 0 55px rgba(74, 72, 55, 0.13);
+        }
+
+        .text-column {
+            padding-top: 1px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.3;
+
+            margin-bottom: 23px;
+
+            color: #305c0e;
+        }
+
+        .text-block {
+            width: 100%;
+            max-width: 500px;
+
+            font-size: 17px;
+            line-height: 1.51;
+            font-weight: 400;
+
+            color: #305c0e;
+        }
+
+        .text-block + .text-block {
+            margin-top: 35px;
+        }
+
+        .image-column {
+            display: flex;
+            flex-direction: column;
+
+            padding-top: 11px;
+        }
+
+        .image-wrapper {
+            width: 286px;
+            height: 217px;
+
+            overflow: hidden;
+
+            border-radius: 76px;
+
+            background: #ddd;
+        }
+
+        .image-wrapper + .image-wrapper {
+            margin-top: 43px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+        }
+
+
+        @media (max-width: 1000px) {
+
+            .header-left {
+                left: 30px;
+            }
+
+            .header-right {
+                right: 30px;
+            }
+
+            .content-card {
+                width: calc(100% - 40px);
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            header {
+                height: 120px;
+            }
+
+            .logo svg {
+                width: 230px;
+            }
+
+            .header-left {
+                top: 28px;
+                left: 25px;
+            }
+
+            .header-right {
+                top: 28px;
+                right: 25px;
+            }
+
+            .content-card {
+                width: calc(100% - 30px);
+
+                grid-template-columns: 1fr;
+
+                padding: 30px;
+
+                border-radius: 35px 35px 0 0;
+            }
+
+            .text-column {
+                order: 1;
+            }
+
+            .image-column {
+                order: 2;
+
+                margin-top: 35px;
+                align-items: center;
+            }
+
+            .image-wrapper {
+                width: min(100%, 360px);
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .header-left,
+            .header-right {
+                font-size: 9px;
+            }
+
+            .header-left {
+                left: 15px;
+            }
+
+            .header-right {
+                right: 15px;
+                gap: 10px;
+            }
+
+            .logo svg {
+                width: 190px;
+            }
+
+            .content-card {
+                width: calc(100% - 20px);
+                padding: 25px 22px;
+            }
+
+            .section-title {
+                font-size: 17px;
+            }
+
+            .text-block {
+                font-size: 16px;
+            }
+
+            .image-wrapper {
+                width: 100%;
+                height: 210px;
+                border-radius: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#" class="header-link header-left">
+            Sobre nos
+        </a>
+
+        <!-- Logo Safrascan -->
+        <div class="logo">
+            <svg
+                viewBox="0 0 320 82"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Safrascan"
+            >
+
+                <!-- Simbolo -->
+                <g fill="#08752b">
+
+                    <!-- folha superior -->
+                    <path d="
+                        M24 9
+                        C27 2, 34 1, 38 7
+                        C40 11, 35 16, 29 17
+                        C25 16, 23 13, 24 9Z
+                    "/>
+
+                    <!-- folha esquerda -->
+                    <path d="
+                        M7 27
+                        C12 25, 18 28, 24 35
+                        C20 38, 15 38, 11 35
+                        C8 33, 6 30, 7 27Z
+                    "/>
+
+                    <!-- folha direita -->
+                    <path d="
+                        M37 25
+                        C43 20, 49 21, 53 25
+                        C52 31, 47 36, 40 37
+                        C38 34, 37 30, 37 25Z
+                    "/>
+
+                    <!-- simbolo inferior -->
+                    <path d="
+                        M4 42
+                        C12 43, 20 49, 27 57
+                        C34 49, 43 43, 52 42
+                        C51 51, 44 59, 35 65
+                        L35 78
+                        L27 82
+                        L27 65
+                        C17 60, 9 52, 4 42Z
+                    "/>
+
+                </g>
+
+                <!-- Nome -->
+                <text
+                    x="60"
+                    y="57"
+                    font-family="Arial, Helvetica, sans-serif"
+                    font-size="48"
+                    font-weight="400"
+                    letter-spacing="-3"
+                    fill="#08752b"
+                >
+                    safrascan
+                </text>
+
+            </svg>
+        </div>
+
+        <div class="header-right">
+            <a href="#" class="header-link">Login</a>
+            <a href="#" class="header-link">Cadastre-se</a>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="content-card">
+
+            <!-- COLUNA DE TEXTO -->
+            <div class="text-column">
+
+                <h1 class="section-title">
+                    Nossos recursos
+                </h1>
+
+                <p class="text-block">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+
+                <p class="text-block">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+
+            </div>
+
+
+            <!-- COLUNA DE IMAGENS -->
+            <div class="image-column">
+
+                <div class="image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=700&q=80"
+                        alt="Tecnologia e analise de dados"
+                    >
+                </div>
+
+                <div class="image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80"
+                        alt="Sensor eletronico"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
