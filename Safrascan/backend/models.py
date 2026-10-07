@@ -1,12 +1,11 @@
-from sqlalchemy import Integer, String, Boolean, DateTime
+from datetime import datetime
+
+from sqlalchemy import Boolean, DateTime, Integer, String, func
+
 from sqlalchemy.orm import Mapped, mapped_column
+
 from database import Base
-import datetime
 
-
-# =========================
-# CULTURA
-# =========================
 
 class Cultura(Base):
     __tablename__ = "cultura"
@@ -17,19 +16,15 @@ class Cultura(Base):
     )
 
     nome_cultura: Mapped[str] = mapped_column(
-        String(100),
+        String,
         nullable=False
     )
 
-    ciclo_medio_dias: Mapped[int] = mapped_column(
+    ciclo_medio_dias: Mapped[int | None] = mapped_column(
         Integer,
-        nullable=False
+        nullable=True
     )
 
-
-# =========================
-# USUARIO
-# =========================
 
 class Usuario(Base):
     __tablename__ = "usuario"
@@ -40,38 +35,59 @@ class Usuario(Base):
     )
 
     nome_usuario: Mapped[str] = mapped_column(
-        String(100),
+        String,
         nullable=False
     )
 
     email_usuario: Mapped[str] = mapped_column(
-        String(150),
-        nullable=False,
-        unique=True
+        String
     )
 
     telefone_usuario: Mapped[str] = mapped_column(
-        String(20),
-        nullable=False
+        String
     )
 
     senha_hash: Mapped[str] = mapped_column(
-        String(255),
+        String,
         nullable=False
     )
 
     tipo_usuario: Mapped[str] = mapped_column(
-        String(30),
+        String,
         nullable=False
     )
 
-    data_cadastro: Mapped[datetime.datetime] = mapped_column(
-        DateTime,
-        nullable=False
+    data_cadastro: Mapped[datetime] = mapped_column(
+    DateTime(timezone=True),
+    nullable=False,
+    server_default=func.current_timestamp()
     )
 
     ativo_usuario: Mapped[bool] = mapped_column(
         Boolean,
-        nullable=False,
-        default=True
+        nullable=False
+    )
+
+
+class GrandezaFisica(Base):
+    __tablename__ = "grandeza_fisica"
+
+    id_grandeza: Mapped[int] = mapped_column(
+        Integer,
+        primary_key=True
+    )
+
+    nome_grandeza: Mapped[str] = mapped_column(
+        String,
+        nullable=False
+    )
+
+    unidade_medida: Mapped[str] = mapped_column(
+        String,
+        nullable=False
+    )
+
+    descricao_grandeza: Mapped[str] = mapped_column(
+        String,
+        nullable=False
     )

@@ -1,9 +1,20 @@
+from datetime import datetime
+
 from pydantic import BaseModel, ConfigDict
 
 
-# =========================
-# USUARIO
-# =========================
+class CulturaCreate(BaseModel):
+    nome_cultura: str
+    ciclo_medio_dias: int | None = None
+
+
+class CulturaResponse(CulturaCreate):
+    id_cultura: int
+
+    model_config = ConfigDict(
+        from_attributes=True
+    )
+
 
 class UsuarioCreate(BaseModel):
     nome_usuario: str
@@ -14,28 +25,24 @@ class UsuarioCreate(BaseModel):
     ativo_usuario: bool = True
 
 
-class UsuarioResponse(BaseModel):
+class UsuarioResponse(UsuarioCreate):
     id_usuario: int
-    nome_usuario: str
-    email_usuario: str
-    telefone_usuario: str
-    tipo_usuario: str
-    data_cadastro: str
-    ativo_usuario: bool
+    data_cadastro: datetime
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True
+    )
 
 
-# =========================
-# CULTURA
-# =========================
-
-class CulturaCreate(BaseModel):
-    nome_cultura: str
-    ciclo_medio_dias: int
+class GrandezaFisicaCreate(BaseModel):
+    nome_grandeza: str
+    unidade_medida: str
+    descricao_grandeza: str
 
 
-class CulturaResponse(CulturaCreate):
-    id_cultura: int
+class GrandezaFisicaResponse(GrandezaFisicaCreate):
+    id_grandeza: int
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True
+    )
