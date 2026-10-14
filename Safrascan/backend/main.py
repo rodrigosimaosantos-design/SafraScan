@@ -13,6 +13,7 @@ app = FastAPI(
 app.include_router(cultura_router)
 app.include_router(usuario_router)
 app.include_router(grandeza_fisica_router)
+app.include_router(propriedade_router)
 
 
 @app.get("/")

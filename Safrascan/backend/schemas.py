@@ -46,3 +46,20 @@ class GrandezaFisicaResponse(GrandezaFisicaCreate):
     model_config = ConfigDict(
         from_attributes=True
     )
+
+class PropriedadeCreate(BaseModel):
+    nome_propriedade: str
+    endereco_propriedade: str
+    municipio_propriedade: str
+    estado_propriedade: str
+    cep_propriedade: str
+    tamanho_ha: float
+    id_usuario: int
+
+class PropriedadeResponse(PropriedadeCreate):
+    id_propriedade: int
+
+    model_config = ConfigDict(
+        from_attributes=True
+    )
+    

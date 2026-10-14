@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Boolean, DateTime, Integer, String, func
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from database import Base
 
@@ -91,3 +91,48 @@ class GrandezaFisica(Base):
         String,
         nullable=False
     )
+
+    class Propriedade(Base):
+        __tablename__ = "propriedade"
+    
+        id_propriedade: Mapped[int] = mapped_column(
+            Integer,
+            primary_key=True
+        )
+    
+        nome_propriedade: Mapped[str] = mapped_column(
+            String,
+            nullable=False
+        )
+    
+        endereco_propriedade: Mapped[str] = mapped_column(
+            String,
+            nullable=False
+        )
+    
+        municipio_propriedade: Mapped[str] = mapped_column(
+            String,
+            nullable=False
+        )
+    
+        estado_propriedade: Mapped[str] = mapped_column(
+            String,
+            nullable=False
+        )
+    
+        cep_propriedade: Mapped[str] = mapped_column(
+            String,
+            nullable=False
+        )
+    
+        tamanho_ha: Mapped[float] = mapped_column(
+            Integer,
+            nullable=False
+        )
+    
+        id_usuario: Mapped[int] = mapped_column(
+            Integer
+            foreign_key=True,
+            nullable=False
+        )
+        usuario = relationship("Usuario", back_populates="propriedades")
