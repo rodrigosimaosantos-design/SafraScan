@@ -15,10 +15,10 @@ SELECT
     u.nome_usuario,
     p.nome_propriedade,
     p.municipio_propriedade,
-    p.estado_propriedade
+    p.estado_propriedade,
+    p.tamanho_ha
 FROM usuario u
-INNER JOIN propriedade p
-    ON u.id_usuario = p.id_usuario
+JOIN propriedade p ON p.id_usuario = u.id_usuario
 ORDER BY u.nome_usuario;
 
 
@@ -29,12 +29,11 @@ ORDER BY u.nome_usuario;
 
 SELECT
     p.nome_propriedade,
-    SUM(t.area_ha) AS area_total_hectares
+    COALESCE(SUM(t.area_ha), 0) AS area_total_talhoes_ha
 FROM propriedade p
-INNER JOIN talhao t
-    ON p.id_propriedade = t.id_propriedade
-GROUP BY p.nome_propriedade
-ORDER BY area_total_hectares DESC;
+LEFT JOIN talhao t ON t.id_propriedade = p.id_propriedade
+GROUP BY p.id_propriedade, p.nome_propriedade
+ORDER BY area_total_talhoes_ha DESC;
 
 
 -- ============================================================
@@ -46,16 +45,14 @@ ORDER BY area_total_hectares DESC;
 SELECT
     p.nome_propriedade,
     t.id_talhao,
+    t.nome AS nome_talhao,
     s.identificador_dispositivo,
-    s.tipo_sensor,
-    s.status_sensor
+    s.tipo,
+    s.status
 FROM propriedade p
-INNER JOIN talhao t
-    ON p.id_propriedade = t.id_propriedade
-INNER JOIN sensor s
-    ON t.id_talhao = s.id_talhao
-ORDER BY p.nome_propriedade,
-         t.id_talhao;
+JOIN talhao t ON t.id_propriedade = p.id_propriedade
+JOIN sensor s ON s.id_talhao = t.id_talhao
+ORDER BY p.nome_propriedade, t.id_talhao, s.identificador_dispositivo;
 
 
 -- ============================================================
@@ -71,10 +68,8 @@ SELECT
     g.unidade_medida,
     ls.timestamp_leitura
 FROM leitura_sensor ls
-INNER JOIN sensor s
-    ON ls.id_sensor = s.id_sensor
-INNER JOIN grandeza_fisica g
-    ON ls.id_grandeza = g.id_grandeza
+JOIN sensor s ON s.id_sensor = ls.id_sensor
+JOIN grandeza_fisica g ON g.id_grandeza = ls.id_grandeza
 ORDER BY ls.timestamp_leitura DESC;
 
 
@@ -86,15 +81,13 @@ ORDER BY ls.timestamp_leitura DESC;
 
 SELECT
     s.identificador_dispositivo,
-    ROUND(AVG(ls.valor_leitura),2) AS media_umidade
+    ROUND(AVG(ls.valor_leitura), 2) AS media_umidade_solo
 FROM leitura_sensor ls
-INNER JOIN sensor s
-    ON ls.id_sensor = s.id_sensor
-INNER JOIN grandeza_fisica g
-    ON ls.id_grandeza = g.id_grandeza
-WHERE g.nome_grandeza = 'Umidade do Solo'
-GROUP BY s.identificador_dispositivo
-ORDER BY media_umidade ASC;
+JOIN sensor s ON s.id_sensor = ls.id_sensor
+JOIN grandeza_fisica g ON g.id_grandeza = ls.id_grandeza
+WHERE LOWER(g.nome_grandeza) = LOWER('Umidade do Solo')
+GROUP BY s.id_sensor, s.identificador_dispositivo
+ORDER BY media_umidade_solo ASC;
 
 
 -- ============================================================
@@ -106,16 +99,15 @@ SELECT
     r.id_recomendacao,
     c.nome_cultura,
     r.tipo,
-    r.mensagem_recomendacao,
-    r.valor_detectado
+    r.mensagem,
+    r.valor_detectado,
+    r.data_geracao,
+    r.status
 FROM recomendacao r
-INNER JOIN plantio pl
-    ON r.id_plantio = pl.id_plantio
-INNER JOIN cultura c
-    ON pl.id_cultura = c.id_cultura
-WHERE r.lida_recomendacao = FALSE
-ORDER BY r.timestamp_recomendacao DESC;
-
+JOIN plantio pl ON pl.id_plantio = r.id_plantio
+JOIN cultura c ON c.id_cultura = pl.id_cultura
+WHERE r.lida = FALSE
+ORDER BY r.data_geracao DESC;
 
 -- ============================================================
 -- PERGUNTA 7
@@ -123,11 +115,11 @@ ORDER BY r.timestamp_recomendacao DESC;
 -- ============================================================
 
 SELECT
-    status_sensor,
-    COUNT(*) AS quantidade
+    status,
+    COUNT(*) AS quantidade_sensores
 FROM sensor
-GROUP BY status_sensor
-ORDER BY quantidade DESC;
+GROUP BY status
+ORDER BY quantidade_sensores DESC;
 
 
 -- ============================================================
@@ -137,19 +129,16 @@ ORDER BY quantidade DESC;
 
 SELECT
     p.nome_propriedade,
+    t.nome AS nome_talhao,
     c.nome_cultura,
     pl.status,
     pl.data_plantio,
     pl.data_colheita_prevista
 FROM plantio pl
-INNER JOIN cultura c
-    ON pl.id_cultura = c.id_cultura
-INNER JOIN talhao t
-    ON pl.id_talhao = t.id_talhao
-INNER JOIN propriedade p
-    ON t.id_propriedade = p.id_propriedade
-ORDER BY p.nome_propriedade;
-
+JOIN cultura c ON c.id_cultura = pl.id_cultura
+JOIN talhao t ON t.id_talhao = pl.id_talhao
+JOIN propriedade p ON p.id_propriedade = t.id_propriedade
+ORDER BY p.nome_propriedade, t.nome, c.nome_cultura;
 
 -- ============================================================
 -- PERGUNTA 9
@@ -157,15 +146,14 @@ ORDER BY p.nome_propriedade;
 -- ============================================================
 
 SELECT
+    u.id_usuario,
     u.nome_usuario,
-    ROUND(SUM(t.area_ha),2) AS area_total
+    ROUND(COALESCE(SUM(t.area_ha), 0), 2) AS area_total_talhoes_ha
 FROM usuario u
-INNER JOIN propriedade p
-    ON u.id_usuario = p.id_usuario
-INNER JOIN talhao t
-    ON p.id_propriedade = t.id_propriedade
-GROUP BY u.nome_usuario
-ORDER BY area_total DESC;
+LEFT JOIN propriedade p ON p.id_usuario = u.id_usuario
+LEFT JOIN talhao t ON t.id_propriedade = p.id_propriedade
+GROUP BY u.id_usuario, u.nome_usuario
+ORDER BY area_total_talhoes_ha DESC;
 
 
 -- ============================================================
@@ -175,8 +163,9 @@ ORDER BY area_total DESC;
 
 SELECT
     identificador_dispositivo,
-    tipo_sensor,
-    status_sensor,
+    tipo,
+    status,
     data_ultima_comunicacao
 FROM sensor
-WHERE status_sensor <> 'ATIVO';
+WHERE UPPER(status) <> 'ATIVO'
+ORDER BY identificador_dispositivo;
