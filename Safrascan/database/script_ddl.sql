@@ -10,19 +10,12 @@
 
 CREATE TABLE usuario (
     id_usuario SERIAL PRIMARY KEY,
-
     nome_usuario VARCHAR(100) NOT NULL,
-
     email_usuario VARCHAR(150) NOT NULL UNIQUE,
-
     telefone_usuario VARCHAR(20) NOT NULL,
-
     senha_hash VARCHAR(255) NOT NULL,
-
     tipo_usuario VARCHAR(30) NOT NULL,
-
     data_cadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
     ativo_usuario BOOLEAN NOT NULL DEFAULT TRUE
 );
 
@@ -33,18 +26,23 @@ CREATE TABLE usuario (
 
 CREATE TABLE cultura (
     id_cultura SERIAL PRIMARY KEY,
-
     nome_cultura VARCHAR(100) NOT NULL,
-
     ciclo_medio_dias INTEGER NOT NULL,
-
-    CONSTRAINT chk_ciclo_medio_dias
-        CHECK (ciclo_medio_dias > 0)
+    CONSTRAINT chk_ciclo_medio_dias CHECK (ciclo_medio_dias > 0)
 );
 
+-- ============================================================
+-- 3. GRANDEZA FISICA
+-- ============================================================
+CREATE TABLE grandeza_fisica (
+    id_grandeza SERIAL PRIMARY KEY,
+    nome_grandeza VARCHAR(100) NOT NULL UNIQUE,
+    unidade_medida VARCHAR(30) NOT NULL,
+    observacao TEXT
+);
 
 -- ============================================================
--- 3. PROPRIEDADE
+-- 4. PROPRIEDADE
 -- ============================================================
 
 CREATE TABLE propriedade (
@@ -66,8 +64,8 @@ CREATE TABLE propriedade (
 );
 
 
--- ============================================================
--- 4. TALHAO
+-- ===========================================================
+-- 5. TALHAO
 -- ============================================================
 
 CREATE TABLE talhao (
@@ -91,7 +89,7 @@ CREATE TABLE talhao (
 
 
 -- ============================================================
--- 5. PLANTIO
+-- 6. PLANTIO
 -- ============================================================
 
 CREATE TABLE plantio (
@@ -125,7 +123,7 @@ CREATE TABLE plantio (
 
 
 -- ============================================================
--- 6. SENSOR
+-- 7. SENSOR
 -- ============================================================
 
 CREATE TABLE sensor (
@@ -150,21 +148,6 @@ CREATE TABLE sensor (
         REFERENCES talhao(id_talhao)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
-);
-
-
--- ============================================================
--- 7. GRANDEZA_FISICA
--- ============================================================
-
-CREATE TABLE grandeza_fisica (
-    id_grandeza SERIAL PRIMARY KEY,
-
-    nome_grandeza VARCHAR(100) NOT NULL UNIQUE,
-
-    unidade_medida VARCHAR(30) NOT NULL,
-
-    descricao_grandeza VARCHAR(255)
 );
 
 
