@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from routes.cultura import router as cultura_router
 from routes.usuario import router as usuario_router
 from routes.grandeza_fisica import router as grandeza_fisica_router
+from routes.propriedade import router as propriedade_router
 
 app = FastAPI(
     title="SafraScan API",

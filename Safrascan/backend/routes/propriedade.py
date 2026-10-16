@@ -7,8 +7,8 @@ from schemas import PropriedadeCreate, PropriedadeResponse
 
 
 router = APIRouter(
-    prefix="/propriedades",
-    tags=["Proproiedade"]
+    prefix="/propriedade",
+    tags=["Propriedade"]
 )
 
 
