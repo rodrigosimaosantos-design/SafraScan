@@ -4,6 +4,7 @@ from routes.cultura import router as cultura_router
 from routes.usuario import router as usuario_router
 from routes.grandeza_fisica import router as grandeza_fisica_router
 from routes.propriedade import router as propriedade_router
+from routes.talhao import router as talhao_router
 
 app = FastAPI(
     title="SafraScan API",
@@ -15,6 +16,7 @@ app.include_router(cultura_router)
 app.include_router(usuario_router)
 app.include_router(grandeza_fisica_router)
 app.include_router(propriedade_router)
+app.include_router(talhao_router)
 
 
 @app.get("/")

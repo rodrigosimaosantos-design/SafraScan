@@ -130,3 +130,32 @@ class Propriedade(Base):
         "Usuario",
         back_populates="propriedades",
     )
+
+    talhoes = relationship(
+        "Talhao",
+        back_populates="propriedade",
+    )
+
+class Talhao(Base):
+    __tablename__ = "talhao"
+
+    id_talhao: Mapped[int] = mapped_column(
+        Integer, primary_key=True
+    )
+    area_ha: Mapped[float] = mapped_column(
+        Float, nullable=False
+    )
+    tipo_solo: Mapped[str] = mapped_column(
+        String, nullable=False
+    )
+    
+    id_propriedade: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("propriedade.id_propriedade"),
+        nullable=False,
+    )
+
+    propriedade = relationship(
+        "Propriedade",
+        back_populates="talhoes",
+    )
