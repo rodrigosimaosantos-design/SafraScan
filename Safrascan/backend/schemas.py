@@ -62,8 +62,6 @@ class PropriedadeResponse(PropriedadeCreate):
     model_config = ConfigDict(
         from_attributes=True
     )
-<<<<<<< HEAD
-    
 class TalhaoCreate(BaseModel):
     area_ha: float
     tipo_solo: str
@@ -75,6 +73,3 @@ class TalhaoResponse(TalhaoCreate):
     model_config = ConfigDict(
         from_attributes=True
     )
-=======
-    
->>>>>>> main
