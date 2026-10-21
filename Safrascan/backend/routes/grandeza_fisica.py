@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
@@ -43,7 +42,6 @@ def criar_grandeza(
 
     return grandeza
 
-=======
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
@@ -88,4 +86,3 @@ def criar_grandeza(
 
     return grandeza
 
->>>>>>> main
