@@ -1,0 +1,443 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel de Monitoramento | SafraScan</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="pagina-painel">
+
+    <!-- CABEÇALHO -->
+    <header class="painel-cabecalho">
+
+        <nav class="menu-principal">
+
+            <a href="configuracoes.html" class="item-menu">
+                <i class="fa-solid fa-gear"></i>
+                <span>Ajustes</span>
+            </a>
+
+            <a href="inicio.html" class="item-menu">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+
+            <a href="plantacao.html" class="item-menu">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Plantação</span>
+            </a>
+
+            <a href="sensores.html" class="item-menu">
+                <i class="fa-solid fa-wifi"></i>
+                <span>Sensores</span>
+            </a>
+
+        </nav>
+
+        <h2 class="painel-fazenda">Joseir’s Farm</h2>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="painel-conteudo">
+
+        <!-- RESUMO DO PLANTIO -->
+        <section class="resumo-topo">
+
+            <article class="card-plantio">
+
+                <h2>Plantio monitorado (%)</h2>
+
+                <div class="grafico-barras">
+
+                    <div class="barra-item">
+                        <span>Milho</span>
+                        <div class="barra-fundo">
+                            <div class="barra barra-1"></div>
+                        </div>
+                    </div>
+
+                    <div class="barra-item">
+                        <span>Soja</span>
+                        <div class="barra-fundo">
+                            <div class="barra barra-2"></div>
+                        </div>
+                    </div>
+
+                    <div class="barra-item">
+                        <span>Trigo</span>
+                        <div class="barra-fundo">
+                            <div class="barra barra-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="barra-item">
+                        <span>Algodão</span>
+                        <div class="barra-fundo">
+                            <div class="barra barra-4"></div>
+                        </div>
+                    </div>
+
+                    <div class="barra-item">
+                        <span>Feijão</span>
+                        <div class="barra-fundo">
+                            <div class="barra barra-5"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="plantio-rodape">
+                    <span>Última atualização: hoje</span>
+
+                    <a href="plantacao.html" class="botao-pequeno">
+                        + Registrar novo
+                    </a>
+                </div>
+
+            </article>
+
+
+            <!-- MÉDIAS DO DIA -->
+            <aside class="resumo-lateral">
+
+                <article class="card-media-topo">
+
+                    <div>
+                        <h3>Solo (média global)</h3>
+                        <p>Umidade: 70%</p>
+                        <p>Temperatura: 18°C</p>
+                    </div>
+
+                    <div>
+                        <h3>Ar (média)</h3>
+                        <p>Umidade: 75%</p>
+                        <p>Temperatura: 23°C</p>
+                    </div>
+
+                </article>
+
+                <a href="talhoes.html" class="botao-talhao">
+                    Talhões <i class="fa-solid fa-circle-chevron-right"></i>
+                </a>
+
+            </aside>
+
+        </section>
+
+
+        <!-- MONITORAMENTO DO AR -->
+        <section class="secao-monitoramento">
+
+            <h2 class="titulo-secao">Ar</h2>
+
+            <div class="linha-monitoramento">
+
+                <article class="card-grafico">
+
+                    <h3>Temperaturas</h3>
+
+                    <div class="legenda-grafico">
+                        <span><i class="ponto azul"></i>Temperatura mín.</span>
+                        <span><i class="ponto vermelho"></i>Temperatura máx.</span>
+                        <span><i class="ponto verde"></i>Temperatura méd.</span>
+                    </div>
+
+                    <!-- GRÁFICO DE TEMPERATURA -->
+                    <div class="grafico-linha">
+
+                        <svg viewBox="0 0 420 150"
+                             role="img"
+                             aria-label="Gráfico de temperaturas durante a semana">
+
+                            <g class="linhas-grade">
+                                <line x1="35" y1="15" x2="405" y2="15"/>
+                                <line x1="35" y1="35" x2="405" y2="35"/>
+                                <line x1="35" y1="55" x2="405" y2="55"/>
+                                <line x1="35" y1="75" x2="405" y2="75"/>
+                                <line x1="35" y1="95" x2="405" y2="95"/>
+                                <line x1="35" y1="115" x2="405" y2="115"/>
+                            </g>
+
+                            <g class="eixo-texto">
+                                <text x="5" y="19">35</text>
+                                <text x="5" y="39">30</text>
+                                <text x="5" y="59">25</text>
+                                <text x="5" y="79">20</text>
+                                <text x="5" y="99">15</text>
+                                <text x="5" y="119">10</text>
+                            </g>
+
+                            <polyline class="linha temperatura-min"
+                                points="35,94 95,83 155,105 215,67 275,63 335,59 395,64"/>
+
+                            <polyline class="linha temperatura-max"
+                                points="35,72 95,49 155,83 215,35 275,32 335,28 395,34"/>
+
+                            <polyline class="linha temperatura-med"
+                                points="35,84 95,67 155,94 215,44 275,42 335,39 395,43"/>
+
+                            <g class="pontos azul-pontos">
+                                <circle cx="35" cy="94" r="3"/>
+                                <circle cx="95" cy="83" r="3"/>
+                                <circle cx="155" cy="105" r="3"/>
+                                <circle cx="215" cy="67" r="3"/>
+                                <circle cx="275" cy="63" r="3"/>
+                                <circle cx="335" cy="59" r="3"/>
+                                <circle cx="395" cy="64" r="3"/>
+                            </g>
+
+                            <g class="pontos vermelho-pontos">
+                                <circle cx="35" cy="72" r="3"/>
+                                <circle cx="95" cy="49" r="3"/>
+                                <circle cx="155" cy="83" r="3"/>
+                                <circle cx="215" cy="35" r="3"/>
+                                <circle cx="275" cy="32" r="3"/>
+                                <circle cx="335" cy="28" r="3"/>
+                                <circle cx="395" cy="34" r="3"/>
+                            </g>
+
+                            <g class="pontos verde-pontos">
+                                <circle cx="35" cy="84" r="3"/>
+                                <circle cx="95" cy="67" r="3"/>
+                                <circle cx="155" cy="94" r="3"/>
+                                <circle cx="215" cy="44" r="3"/>
+                                <circle cx="275" cy="42" r="3"/>
+                                <circle cx="335" cy="39" r="3"/>
+                                <circle cx="395" cy="43" r="3"/>
+                            </g>
+
+                            <g class="eixo-texto dias">
+                                <text x="35" y="137">seg</text>
+                                <text x="95" y="137">ter</text>
+                                <text x="155" y="137">qua</text>
+                                <text x="215" y="137">qui</text>
+                                <text x="275" y="137">sex</text>
+                                <text x="335" y="137">sáb</text>
+                                <text x="395" y="137">hoje</text>
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3 class="titulo-umidade">Umidade</h3>
+
+                    <div class="grafico-umidade">
+
+                        <div class="barra-umidade">
+                            <span style="height: 70%"></span>
+                            <small>seg</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 85%"></span>
+                            <small>ter</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 45%"></span>
+                            <small>qua</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 50%"></span>
+                            <small>qui</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 75%"></span>
+                            <small>sex</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 78%"></span>
+                            <small>sáb</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 90%"></span>
+                            <small>hoje</small>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MÉDIA SEMANAL DO AR -->
+                <aside class="card-media-semanal">
+
+                    <h3>Média semanal (físico)</h3>
+
+                    <p>Temperatura: <strong>23°C</strong></p>
+                    <p>Umidade: <strong>68%</strong></p>
+
+                    <div class="indicador-progresso">
+                        <span style="width: 68%"></span>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- MONITORAMENTO DO TALHÃO -->
+        <section class="secao-monitoramento">
+
+            <h2 class="titulo-secao">Talhão 01 - Milho</h2>
+
+            <div class="linha-monitoramento">
+
+                <article class="card-grafico">
+
+                    <h3>Temperaturas</h3>
+
+                    <div class="legenda-grafico">
+                        <span><i class="ponto azul"></i>Temperatura mín.</span>
+                        <span><i class="ponto vermelho"></i>Temperatura máx.</span>
+                        <span><i class="ponto verde"></i>Temperatura méd.</span>
+                    </div>
+
+                    <div class="grafico-linha">
+
+                        <svg viewBox="0 0 420 150"
+                             role="img"
+                             aria-label="Gráfico de temperaturas do Talhão 01">
+
+                            <g class="linhas-grade">
+                                <line x1="35" y1="15" x2="405" y2="15"/>
+                                <line x1="35" y1="35" x2="405" y2="35"/>
+                                <line x1="35" y1="55" x2="405" y2="55"/>
+                                <line x1="35" y1="75" x2="405" y2="75"/>
+                                <line x1="35" y1="95" x2="405" y2="95"/>
+                                <line x1="35" y1="115" x2="405" y2="115"/>
+                            </g>
+
+                            <g class="eixo-texto">
+                                <text x="5" y="19">35</text>
+                                <text x="5" y="39">30</text>
+                                <text x="5" y="59">25</text>
+                                <text x="5" y="79">20</text>
+                                <text x="5" y="99">15</text>
+                                <text x="5" y="119">10</text>
+                            </g>
+
+                            <polyline class="linha temperatura-min"
+                                points="35,94 95,83 155,105 215,67 275,63 335,59 395,64"/>
+
+                            <polyline class="linha temperatura-max"
+                                points="35,72 95,49 155,83 215,35 275,32 335,28 395,34"/>
+
+                            <polyline class="linha temperatura-med"
+                                points="35,84 95,67 155,94 215,44 275,42 335,39 395,43"/>
+
+                            <g class="pontos azul-pontos">
+                                <circle cx="35" cy="94" r="3"/>
+                                <circle cx="95" cy="83" r="3"/>
+                                <circle cx="155" cy="105" r="3"/>
+                                <circle cx="215" cy="67" r="3"/>
+                                <circle cx="275" cy="63" r="3"/>
+                                <circle cx="335" cy="59" r="3"/>
+                                <circle cx="395" cy="64" r="3"/>
+                            </g>
+
+                            <g class="pontos vermelho-pontos">
+                                <circle cx="35" cy="72" r="3"/>
+                                <circle cx="95" cy="49" r="3"/>
+                                <circle cx="155" cy="83" r="3"/>
+                                <circle cx="215" cy="35" r="3"/>
+                                <circle cx="275" cy="32" r="3"/>
+                                <circle cx="335" cy="28" r="3"/>
+                                <circle cx="395" cy="34" r="3"/>
+                            </g>
+
+                            <g class="pontos verde-pontos">
+                                <circle cx="35" cy="84" r="3"/>
+                                <circle cx="95" cy="67" r="3"/>
+                                <circle cx="155" cy="94" r="3"/>
+                                <circle cx="215" cy="44" r="3"/>
+                                <circle cx="275" cy="42" r="3"/>
+                                <circle cx="335" cy="39" r="3"/>
+                                <circle cx="395" cy="43" r="3"/>
+                            </g>
+
+                            <g class="eixo-texto dias">
+                                <text x="35" y="137">seg</text>
+                                <text x="95" y="137">ter</text>
+                                <text x="155" y="137">qua</text>
+                                <text x="215" y="137">qui</text>
+                                <text x="275" y="137">sex</text>
+                                <text x="335" y="137">sáb</text>
+                                <text x="395" y="137">hoje</text>
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3 class="titulo-umidade">Umidade</h3>
+
+                    <div class="grafico-umidade">
+
+                        <div class="barra-umidade">
+                            <span style="height: 70%"></span>
+                            <small>seg</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 85%"></span>
+                            <small>ter</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 45%"></span>
+                            <small>qua</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 50%"></span>
+                            <small>qui</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 75%"></span>
+                            <small>sex</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 78%"></span>
+                            <small>sáb</small>
+                        </div>
+
+                        <div class="barra-umidade">
+                            <span style="height: 90%"></span>
+                            <small>hoje</small>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MÉDIA SEMANAL DO TALHÃO -->
+                <aside class="card-media-semanal">
+
+                    <h3>Média semanal (físico)</h3>
+
+                    <p>Temperatura: <strong>22°C</strong></p>
+                    <p>Umidade: <strong>68

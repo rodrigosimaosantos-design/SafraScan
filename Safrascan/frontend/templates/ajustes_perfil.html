@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Conta | SafraScan</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="pagina-conta">
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho-conta">
+
+        <nav class="menu-principal">
+
+            <a href="configuracoes.html" class="item-menu">
+                <i class="fa-solid fa-gear"></i>
+                <span>Ajustes</span>
+            </a>
+
+            <a href="inicio.html" class="item-menu">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+
+            <a href="plantacao.html" class="item-menu">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Plantação</span>
+            </a>
+
+            <a href="sensores.html" class="item-menu">
+                <i class="fa-solid fa-wifi"></i>
+                <span>Sensores</span>
+            </a>
+
+        </nav>
+
+        <h2 class="nome-fazenda">Joseir’s Farm</h2>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-conta">
+
+        <section class="conta-card">
+
+            <!-- TÍTULO DO CARTÃO -->
+            <div class="conta-cabecalho">
+
+                <div class="titulo-conta">
+                    <i class="fa-regular fa-user"></i>
+                    <h1>Minha Conta</h1>
+                </div>
+
+                <a href="inicio.html"
+                   class="botao-voltar-conta"
+                   aria-label="Voltar">
+                    ←
+                </a>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES DO PRODUTOR -->
+            <div class="dados-produtor">
+
+                <h2>Olá, Joseir Sversutti!</h2>
+                <p class="tipo-usuario">Produtor</p>
+
+                <div class="informacoes-pessoais">
+
+                    <p>
+                        E-mail: joseirsversutti@conta.com
+                    </p>
+
+                    <p>
+                        Telefone: (12) 3456-7890
+                    </p>
+
+                    <p>
+                        Senha: <span id="senha">************</span>
+                    </p>
+
+                </div>
+
+                <div class="acoes-conta">
+
+                    <button type="button"
+                            class="link-conta"
+                            id="mostrar-senha">
+                        Mostrar senha
+                    </button>
+
+                    <a href="editar-dados.html" class="link-conta">
+                        Editar Dados
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES DA PROPRIEDADE -->
+            <div class="dados-propriedade">
+
+                <h3>Propriedade</h3>
+
+                <p>Nome: Joseir's Farm</p>
+
+                <p>Município/Estado: Maringá-PR</p>
+
+                <a href="editar-propriedade.html"
+                   class="link-conta editar-propriedade">
+                    Editar Propriedade
+                </a>
+
+            </div>
+
+
+            <!-- SAIR DA CONTA -->
+            <a href="login.html" class="botao-logout">
+                LogOut →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape rodape-conta">
+
+        <div class="rodape-esquerda">
+
+            <img src="img/logo.png"
+                 alt="Logo SafraScan"
+                 class="logo">
+
+            <div class="informacoes">
+                <p>Contato: (12) 3456-7890</p>
+                <p>© Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+
+        <a href="ajuda.html" class="ajuda">
+            Precisa de ajuda?
+        </a>
+
+    </footer>
+
+
+    <!-- INTERAÇÃO PARA MOSTRAR/OCULTAR SENHA -->
+    <script>
+        const botaoSenha = document.getElementById("mostrar-senha");
+        const campoSenha = document.getElementById("senha");
+
+        let senhaVisivel = false;
+
+        botaoSenha.addEventListener("click", function () {
+            senhaVisivel = !senhaVisivel;
+
+            campoSenha.textContent = senhaVisivel
+                ? "Senha não disponível"
+                : "************";
+
+            botaoSenha.textContent = senhaVisivel
+                ? "Ocultar senha"
+                : "Mostrar senha";
+        });
+    </script>
+
+</body>
+</html>
