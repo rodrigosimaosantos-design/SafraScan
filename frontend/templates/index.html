@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Esta parte ajuda o navegador a mostrar os acentos e a página no celular. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SafraScan: acompanhamento simples para a sua lavoura.">
+
+    <title>SafraScan | Agricultura acompanhada de perto</title>
+
+    <!-- O mesmo visual é compartilhado por todas as telas do SafraScan. -->
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- Este arquivo verifica a API e aplica movimentos discretos na tela. -->
+    <script src="../js/app.js" defer></script>
+</head>
+<body class="pagina-inicial">
+    <!-- Cabeçalho: atalhos para as áreas mais importantes do sistema. -->
+    <header class="navbar">
+        <a class="navbar-brand" href="/index.html" aria-label="Voltar ao início">SafraScan</a>
+
+        <nav class="navbar-menu" aria-label="Navegação principal">
+            <a href="#visao-geral">Visão geral</a>
+            <a href="/frontend/templates/plantacao.html">Plantação</a>
+            <a href="/frontend/templates/sensores.html">Sensores</a>
+            <a href="/frontend/templates/sobre.html">Sobre</a>
+        </nav>
+    </header>
+
+    <!-- Apresentação curta para a pessoa entender o objetivo antes de entrar no sistema. -->
+    <main id="visao-geral">
+        <section class="apresentacao" aria-labelledby="titulo-principal">
+            <p class="selo">Tecnologia que cabe no campo</p>
+            <h1 id="titulo-principal">Acompanhe a lavoura sem complicar a rotina.</h1>
+            <p class="texto-apresentacao">
+                O SafraScan reúne as informações da sua propriedade em um só lugar,
+                para facilitar decisões do dia a dia.
+            </p>
+
+            <div class="acoes-apresentacao">
+                <a class="botao-principal" href="/frontend/templates/login.html">Entrar no painel</a>
+                <a class="botao-secundario" href="/frontend/templates/sobre.html">Conhecer o SafraScan</a>
+            </div>
+
+            <!-- Esta mensagem muda sozinha quando o back-end responde. -->
+            <p id="api-status" class="status-api" role="status" aria-live="polite">
+                Verificando o servidor...
+            </p>
+        </section>
+
+        <!-- Pequenos resumos para apresentar as principais áreas da plataforma. -->
+        <section class="container-cards" aria-label="Recursos do SafraScan">
+            <article class="card">
+                <span class="numero-card">01</span>
+                <h2>Plantação</h2>
+                <p>Organize culturas, ciclos e talhões sem perder o histórico da propriedade.</p>
+            </article>
+
+            <article class="card">
+                <span class="numero-card">02</span>
+                <h2>Monitoramento</h2>
+                <p>Veja com clareza os dados que ajudam a acompanhar solo, ar e sensores.</p>
+            </article>
+
+            <article class="card">
+                <span class="numero-card">03</span>
+                <h2>Decisões no tempo certo</h2>
+                <p>Use as informações da lavoura para agir com mais segurança no campo.</p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Rodapé simples com a identificação do projeto. -->
+    <footer class="rodape-inicial">
+        <p>SafraScan · Agricultura acompanhada de perto.</p>
+        <a href="/frontend/templates/sobre.html">Saiba mais</a>
+    </footer>
+</body>
+</html>

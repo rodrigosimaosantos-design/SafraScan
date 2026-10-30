@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafraScan - Ajustes</title>
+    <!-- Conexão com os arquivos do projeto -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- Movimento discreto e comportamento compartilhado entre as telas. -->
+    <script src="../js/app.js" defer></script>
+</head>
+<body>
+
+    <header class="cabecalho-topo">
+        <nav class="nav-pilula">
+            <a href="tela_ajustes.html" class="nav-link active">
+                <span class="icon">⚙️</span>
+                <span class="label">Ajustes</span>
+            </a>
+            <a href="index.html" class="nav-link">
+                <span class="icon">🏠</span>
+                <span class="label">Início</span>
+            </a>
+            <a href="plantacao.html" class="nav-link">
+                <span class="icon">🌱</span>
+                <span class="label">Plantação</span>
+            </a>
+            <a href="sensores.html" class="nav-link">
+                <span class="icon">📡</span>
+                <span class="label">Sensores</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- ÁREA PRINCIPAL DA PÁGINA -->
+    <main class="pagina-conteudo">
+        <!-- CARD PRINCIPAL BRANCO SOMBREADO -->
+        <div class="card-ajustes">
+            
+            <!-- Título e Linha Divisória Superior -->
+            <div class="card-ajustes-header">
+                <h1>Ajustes</h1>
+                <hr class="divisor-ajustes">
+            </div>
+
+            <!-- Conteúdo Interno em Grade/Duas Colunas -->
+            <div class="card-ajustes-body">
+                
+                <!-- Coluna Esquerda: Opções e Botão Logout -->
+                <div class="coluna-opcoes">
+                    <nav class="lista-opcoes">
+                        <a href="#minha-conta" class="opcao-item">
+                            <span class="icon-opcao">👤</span>
+                            <span>Minha Conta</span>
+                        </a>
+                        <a href="#aparencia" class="opcao-item">
+                            <span class="icon-opcao">🌓</span>
+                            <span>Aparência</span>
+                        </a>
+                        <a href="#unidades" class="opcao-item">
+                            <span class="icon-opcao">📏</span>
+                            <span>Unidades</span>
+                        </a>
+                    </nav>
+
+                    <a href="#logout" class="link-logout">LogOut →</a>
+                </div>
+
+                <!-- Coluna Direita: Relato de Problemas e Card Interno de Suporte -->
+                <div class="coluna-suporte">
+                    <a href="#relatar-problema" class="link-relatar">Relatar um problema?</a>
+                    
+                    <!-- CARD INTERNO BRANCO SOMBREADO (AJUDA ESPECIALIZADA) -->
+                    <div class="card-suporte-box">
+                        <p>Precisa de ajuda especializada?<br>Entre em contato conosco!</p>
+                        <button class="btn-seta-circulo" aria-label="Entre em contato">→</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ (ESTRUTURADO CONFORME O BASE.CSS) -->
+    <footer class="rodape">
+
+        <div class="rodape-esquerda">
+            <img src="../img/safra_logo_pricipal.svg" class="logo">
+
+            <div class="informacoes">
+                <p>Contato: (12) 3456-7890</p>
+                <p>©Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+
+        <a href="#" class="ajuda">
+            Precisa de ajuda?
+        </a>
+
+    </footer>
+
+</body>
+</html>

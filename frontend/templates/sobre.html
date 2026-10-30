@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Esta configuração permite acentos e uma boa leitura no celular. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a proposta do SafraScan para a agricultura de precisão.">
+
+    <title>Sobre o SafraScan</title>
+
+    <!-- Todo o visual do projeto vive neste único arquivo compartilhado. -->
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- Comportamentos simples e animações suaves compartilhados pelas páginas. -->
+    <script src="../js/app.js" defer></script>
+</head>
+<body class="pagina-sobre">
+    <!-- Cabeçalho com os caminhos principais para quem ainda não entrou no painel. -->
+    <header class="cabecalho-sobre">
+        <a class="marca-sobre" href="index.html" aria-label="Voltar para a página inicial">
+            <img src="../img/safra_logo_pricipal.svg" alt="SafraScan">
+        </a>
+
+        <nav class="navegacao-sobre" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="login.html">Entrar</a>
+            <a class="link-destaque" href="registrar_user.html">Criar conta</a>
+        </nav>
+    </header>
+
+    <!-- Explica a proposta do SafraScan e apresenta uma cena do campo. -->
+    <main class="conteudo-sobre">
+        <section class="apresentacao-sobre" aria-labelledby="titulo-sobre">
+            <div class="texto-sobre">
+                <p class="selo">Sobre o SafraScan</p>
+                <h1 id="titulo-sobre">Informação clara para cuidar melhor da lavoura.</h1>
+                <p>
+                    O SafraScan auxilia no monitoramento e no gerenciamento de plantações.
+                    A plataforma organiza informações importantes sobre propriedades, culturas
+                    e sensores para facilitar decisões no campo.
+                </p>
+                <p>
+                    A ideia é aproximar a agricultura de precisão de pequenos e médios
+                    produtores, com uma experiência simples e útil no dia a dia.
+                </p>
+                <a class="botao-principal" href="registrar_user.html">Começar agora</a>
+            </div>
+
+            <!-- Este painel junta uma imagem do campo com exemplos do que a plataforma acompanha. -->
+            <aside class="painel-sobre" aria-label="Resumo do que o SafraScan acompanha">
+                <!-- Foto externa de uma lavoura monitorada por máquinas de precisão. -->
+                <figure class="foto-sobre">
+                    <img
+                        src="https://images.unsplash.com/photo-1627920769541-daa658ed6b59?auto=format&fit=crop&w=1000&q=85"
+                        alt="Máquinas trabalhando em uma lavoura verde vista de cima"
+                        loading="lazy"
+                    >
+                    <figcaption>Campo e tecnologia trabalhando lado a lado.</figcaption>
+                </figure>
+
+                <span class="etiqueta-painel">Acompanhamento</span>
+                <div class="linha-painel">
+                    <span>Solo</span>
+                    <strong>Umidade e temperatura</strong>
+                </div>
+                <div class="linha-painel">
+                    <span>Ar</span>
+                    <strong>Condições do ambiente</strong>
+                </div>
+                <div class="linha-painel">
+                    <span>Talhões</span>
+                    <strong>Visão da propriedade</strong>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <!-- Rodapé igual ao das demais telas para manter o projeto consistente. -->
+    <footer class="rodape">
+        <div class="rodape-esquerda">
+            <img src="../img/safra_logo_pricipal.svg" class="logo" alt="SafraScan">
+            <div class="informacoes">
+                <p>Contato: (12) 3456-7890</p>
+                <p>© Todos os direitos reservados.</p>
+            </div>
+        </div>
+
+        <a href="mailto:contato@safrascan.com" class="ajuda">Precisa de ajuda?</a>
+    </footer>
+</body>
+</html>

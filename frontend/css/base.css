@@ -1,0 +1,1770 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3eee6;
+    color: #315f1b;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   PÁGINA INICIAL
+========================= */
+
+.pagina-inicial {
+    display: block;
+    padding-bottom: 48px;
+}
+
+.pagina-inicial .navbar {
+    min-height: 72px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #315f1b;
+}
+
+.pagina-inicial .navbar-brand::before {
+    content: "SafraScan";
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.pagina-inicial .navbar-menu {
+    display: flex;
+    gap: 24px;
+}
+
+.pagina-inicial .navbar-menu a {
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.pagina-inicial .navbar-menu a:hover {
+    text-decoration: underline;
+}
+
+.pagina-inicial .titulo-principal {
+    margin: 56px 20px 12px;
+    color: #315f1b;
+    font-size: clamp(32px, 5vw, 52px);
+    text-align: center;
+}
+
+.pagina-inicial #api-status {
+    margin: 0 auto 36px;
+    color: #50783d;
+    text-align: center;
+}
+
+.pagina-inicial .container-cards {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.pagina-inicial .card {
+    max-width: none;
+    min-height: 210px;
+    padding: 28px;
+    border-radius: 20px;
+}
+
+.pagina-inicial .card h2 {
+    margin-bottom: 14px;
+    font-size: 21px;
+}
+
+.pagina-inicial .card p {
+    line-height: 1.55;
+    color: #4a4a4a;
+}
+
+.pagina-inicial canvas {
+    width: 100%;
+    min-height: 110px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #dce7d3, #f3eee6);
+}
+
+@media (max-width: 760px) {
+    .pagina-inicial .navbar {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 16px;
+        flex-direction: column;
+    }
+
+    .pagina-inicial .navbar-menu {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .pagina-inicial .container-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.pagina-conteudo,
+.pagina-login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   CARTÃO BASE REUTILIZÁVEL
+========================= */
+
+.card,
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    min-height: 263px;
+    background-color: #f3eee6;
+    border-radius: 40px;
+    padding: 46px 42px 30px 42px;
+    box-shadow: 0 12px 35px rgba(70, 60, 50, 0.18);
+}
+
+/* Modificadores de tamanho para ecrãs com mais conteúdo */
+.card--largo {
+    max-width: 700px;
+}
+
+.card--extra-largo {
+    max-width: 950px;
+}
+
+
+/* =========================
+   CABEÇALHO DO CARTÃO
+========================= */
+
+.card-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card h1,
+.login-card h1 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #315f1b;
+}
+
+.botao-voltar {
+    color: #315f1b;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: 300;
+    transition: transform 0.2s ease;
+}
+
+.botao-voltar:hover {
+    transform: translateX(-3px);
+}
+
+
+/* =========================
+   CAMPOS DE FORMULÁRIO
+========================= */
+
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    margin-left: 16px;
+    margin-bottom: 3px;
+    font-size: 13px;
+    color: #315f1b;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: #dcd9d3;
+    padding: 0 12px;
+    font-size: 13px;
+    color: #333;
+    font-family: inherit;
+}
+
+.campo textarea {
+    height: auto;
+    padding: 8px 12px;
+    resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    background-color: #d5d2cc;
+    box-shadow: 0 0 0 1px #315f1b;
+}
+
+
+/* =========================
+   BOTÕES E LINKS
+========================= */
+
+.botao-login {
+    display: block;
+    margin-left: auto;
+    margin-top: 8px;
+    width: 30px;
+    height: 25px;
+    border: none;
+    background: transparent;
+    color: #315f1b;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.botao-login:hover {
+    transform: translateX(3px);
+}
+
+.registrar,
+.registrar-btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    margin-top: 10px;
+    color: #93435e;
+    font-size: 13px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.registrar:hover,
+.registrar-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.rodape {
+    width: 100%;
+    min-height: 88px;
+    background-color: #5c0e30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 18px clamp(24px, 8vw, 120px);
+    border-top: 3px solid rgba(243, 238, 230, 0.22);
+    color: white;
+}
+
+.rodape-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    /* O arquivo do logo tem uma margem transparente grande.
+       "cover" mostra somente a parte útil, sem esticar as letras. */
+    width: 170px;
+    height: 42px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0) invert(1);
+}
+
+.informacoes {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #f5edf0;
+}
+
+.informacoes p {
+    margin: 0;
+}
+
+.ajuda {
+    color: white;
+    font-size: 13px;
+    font-style: italic;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.ajuda:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
+    .card,
+    .login-card {
+        width: 90%;
+        max-width: 395px;
+    }
+
+    .rodape {
+        height: auto;
+        min-height: 0;
+        padding: 18px 24px;
+        gap: 16px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .rodape-esquerda {
+        gap: 8px;
+    }
+
+    .logo {
+        width: 142px;
+        height: 35px;
+    }
+
+    .informacoes,
+    .ajuda {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================
+   PADRÃO VISUAL COMPARTILHADO
+   Estas regras deixam as páginas com a mesma aparência, sem mudar o texto
+   ou os formulários que já existem em cada uma delas.
+========================= */
+
+:root {
+    --verde-escuro: #254d32;
+    --verde: #3f6d48;
+    --verde-claro: #dfe9d9;
+    --creme: #f8f6f0;
+    --areia: #ede7da;
+    --texto: #27332a;
+    --vinho: #7b364c;
+    --linha: #d8d2c5;
+    --sombra-suave: 0 12px 30px rgba(37, 77, 50, 0.10);
+}
+
+/* Links, campos e botões recebem uma resposta visual simples ao toque ou clique. */
+a,
+button,
+input,
+select,
+textarea {
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease,
+        background-color 180ms ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(63, 109, 72, 0.35);
+    outline-offset: 3px;
+}
+
+/* Cabeçalhos usados nas várias telas recebem a mesma base escura e legível. */
+.header-topo,
+.cabecalho-topo,
+.cabecalho-conta,
+.cabecalho-unidades,
+.painel-cabecalho,
+.sensores-cabecalho,
+.servidores-cabecalho,
+.topo-ajustes {
+    background: var(--verde-escuro);
+    color: #ffffff;
+}
+
+.menu-principal,
+.nav-pilula,
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-principal a,
+.nav-pilula a,
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu-principal a:hover,
+.nav-pilula a:hover,
+.navbar a:hover {
+    opacity: 0.82;
+}
+
+/* Os blocos de conteúdo ganham mais espaço para a leitura ficar confortável. */
+.pagina-conteudo,
+.painel-conteudo,
+.conteudo-principal,
+.conteudo-ajustes,
+.conteudo-sensores,
+.conteudo-servidores {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.card,
+.login-card,
+.card-media-topo,
+.card-media-semanal,
+.card-grafico,
+.sensor-card,
+.servidor-card,
+.opcao-ajuste,
+.opcao-item {
+    border: 1px solid rgba(216, 210, 197, 0.8);
+    box-shadow: var(--sombra-suave);
+}
+
+/* =========================
+   PÁGINA INICIAL
+   A área de apresentação é simples: explica o produto e mostra os próximos passos.
+========================= */
+
+.pagina-inicial {
+    min-height: 100vh;
+    padding-bottom: 0;
+    background: var(--creme);
+    color: var(--texto);
+}
+
+.pagina-inicial .navbar {
+    min-height: 76px;
+    padding: 0 7vw;
+    justify-content: space-between;
+    background: var(--verde-escuro);
+    color: #ffffff;
+}
+
+.pagina-inicial .navbar-brand,
+.pagina-inicial .navbar-brand::before {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+/* O nome já está escrito no HTML; esta regra evita que ele apareça duas vezes. */
+.pagina-inicial .navbar-brand::before {
+    content: none;
+}
+
+.pagina-inicial .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.pagina-inicial .navbar-menu a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.pagina-inicial main {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.apresentacao {
+    max-width: 730px;
+    padding: 92px 0 58px;
+}
+
+.selo {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.apresentacao h1 {
+    max-width: 680px;
+    color: var(--verde-escuro);
+    font-size: clamp(38px, 6vw, 68px);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.texto-apresentacao {
+    max-width: 570px;
+    margin-top: 24px;
+    color: #59625a;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.acoes-apresentacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.botao-principal,
+.botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 19px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.botao-principal {
+    background: var(--verde-escuro);
+    color: #ffffff;
+}
+
+.botao-secundario {
+    border: 1px solid var(--linha);
+    color: var(--verde-escuro);
+}
+
+.botao-principal:hover,
+.botao-secundario:hover {
+    transform: translateY(-2px);
+}
+
+.status-api {
+    margin-top: 24px;
+    color: #718075;
+    font-size: 13px;
+}
+
+.status-api::before {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #b48a46;
+    content: "";
+}
+
+.status-api.status-conectado::before {
+    background: #4e8a57;
+}
+
+.status-api.status-indisponivel::before {
+    background: var(--vinho);
+}
+
+.pagina-inicial .container-cards {
+    width: 100%;
+    margin: 0 0 90px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pagina-inicial .card {
+    min-height: 218px;
+    padding: 26px;
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.pagina-inicial .card:hover {
+    transform: translateY(-4px);
+}
+
+.numero-card {
+    display: block;
+    margin-bottom: 34px;
+    color: #8da08d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pagina-inicial .card h2 {
+    margin-bottom: 10px;
+    color: var(--verde-escuro);
+    font-size: 21px;
+}
+
+.pagina-inicial .card p {
+    color: #5d665e;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.rodape-inicial {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 7vw;
+    background: #e7e1d5;
+    color: #5b655d;
+    font-size: 13px;
+}
+
+.rodape-inicial a {
+    color: var(--verde-escuro);
+    font-weight: 700;
+}
+
+/* Em telas estreitas, os cards ficam um abaixo do outro para continuar fáceis de ler. */
+@media (max-width: 760px) {
+    .pagina-inicial .navbar {
+        padding: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagina-inicial .navbar-menu {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .apresentacao {
+        padding: 62px 0 42px;
+    }
+
+    .pagina-inicial .container-cards {
+        grid-template-columns: 1fr;
+        margin-bottom: 56px;
+    }
+
+    .rodape-inicial {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Quando o dispositivo pede menos animação, o site fica totalmente estável. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================
+   TELAS INTERNAS
+   Estes blocos reaproveitam a mesma linguagem visual nas páginas de ajustes,
+   sensores, conta e plantação. Assim, cada tela não precisa criar um CSS próprio.
+========================= */
+
+.cabecalho-topo,
+.cabecalho-conta,
+.cabecalho-unidades,
+.painel-cabecalho,
+.sensores-cabecalho,
+.servidores-cabecalho,
+.topo-ajustes,
+.header-topo {
+    min-height: 76px;
+    padding: 12px clamp(20px, 5vw, 76px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.menu-principal,
+.nav-pilula {
+    flex-wrap: wrap;
+}
+
+.item-menu,
+.nav-item,
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 11px;
+    border-radius: 8px;
+    color: inherit;
+    font-size: 14px;
+}
+
+.item-menu:hover,
+.nav-item:hover,
+.nav-link:hover,
+.item-menu.ativo,
+.nav-item.active,
+.nav-link.active,
+.menu-ativo {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.nome-fazenda,
+.sensores-fazenda,
+.painel-fazenda {
+    margin-left: auto;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.conteudo-conta,
+.conteudo-unidades,
+.sensores-conteudo,
+.pagina-ajustes,
+.pagina-conteudo,
+.painel-conteudo {
+    flex: 1;
+    padding: 42px 20px;
+}
+
+.conta-card,
+.unidades-card,
+.sensores-card,
+.painel-ajustes,
+.card-ajustes,
+.card-suporte-box,
+.cartao-ajuda {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid var(--linha);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: var(--sombra-suave);
+}
+
+.conta-cabecalho,
+.unidades-cabecalho,
+.sensores-titulo,
+.titulo-ajustes,
+.card-ajustes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.conta-cabecalho h1,
+.unidades-cabecalho h1,
+.sensores-titulo h1,
+.titulo-ajustes h1,
+.card-ajustes-header h1,
+.titulo-conta,
+.titulo-unidades {
+    color: var(--verde-escuro);
+    font-size: clamp(22px, 3vw, 30px);
+}
+
+.botao-voltar-conta,
+.seta-voltar,
+.sensores-voltar {
+    color: var(--verde-escuro);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.dados-produtor,
+.lista-unidades,
+.sensores-lista,
+.opcoes-ajustes,
+.lista-opcoes {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.linha-unidade,
+.sensor-item,
+.opcao-ajuste,
+.opcao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    background: var(--creme);
+    color: var(--texto);
+    text-decoration: none;
+}
+
+.opcao-ajuste:hover,
+.opcao-item:hover,
+.sensor-item:hover {
+    border-color: rgba(63, 109, 72, 0.45);
+    transform: translateY(-2px);
+}
+
+.sensor-dados h3,
+.dados-produtor h2,
+.descricao-unidade {
+    color: var(--verde-escuro);
+}
+
+.sensor-status {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sensor-status.online {
+    color: #3f7d48;
+}
+
+.sensor-status.offline {
+    color: var(--vinho);
+}
+
+.sensores-acoes,
+.acoes-conta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.sensor-botao,
+.link-conta,
+.botao-logout,
+.relatar-problema {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+    color: var(--verde-escuro);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sensor-botao:hover,
+.link-conta:hover,
+.botao-logout:hover,
+.relatar-problema:hover {
+    border-color: var(--verde);
+    background: var(--verde-claro);
+}
+
+
+/* =========================
+   PÁGINA SOBRE
+   Todo o estilo desta tela fica aqui, junto do restante do projeto.
+========================= */
+
+.pagina-sobre {
+    min-height: 100vh;
+    background: var(--creme);
+    color: var(--texto);
+}
+
+.cabecalho-sobre {
+    min-height: 78px;
+    padding: 14px clamp(24px, 7vw, 112px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--linha);
+    background: rgba(248, 246, 240, 0.92);
+}
+
+.marca-sobre {
+    display: block;
+    width: 152px;
+    height: 38px;
+    overflow: hidden;
+}
+
+.marca-sobre img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.navegacao-sobre {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navegacao-sobre a {
+    color: var(--verde-escuro);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navegacao-sobre .link-destaque {
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--verde-escuro);
+    color: #ffffff;
+}
+
+.conteudo-sobre {
+    width: min(1120px, calc(100% - 40px));
+    flex: 1;
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 112px) 0;
+}
+
+.apresentacao-sobre {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    align-items: center;
+    gap: clamp(34px, 7vw, 96px);
+}
+
+.texto-sobre h1 {
+    max-width: 650px;
+    margin-bottom: 24px;
+    color: var(--verde-escuro);
+    font-size: clamp(38px, 5.2vw, 62px);
+    letter-spacing: -0.045em;
+    line-height: 1;
+}
+
+.texto-sobre > p:not(.selo) {
+    max-width: 640px;
+    margin-bottom: 18px;
+    color: #5b645c;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.texto-sobre .botao-principal {
+    margin-top: 12px;
+}
+
+.painel-sobre {
+    padding: 24px;
+    border: 1px solid #cfdcc9;
+    border-radius: 16px;
+    background: var(--verde-claro);
+    box-shadow: var(--sombra-suave);
+}
+
+.foto-sobre {
+    margin: 0 0 24px;
+}
+
+.foto-sobre img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: saturate(0.86) contrast(1.04);
+}
+
+.foto-sobre figcaption {
+    margin-top: 10px;
+    color: #647966;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.etiqueta-painel {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--verde-escuro);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.linha-painel {
+    display: grid;
+    gap: 5px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(37, 77, 50, 0.16);
+}
+
+.linha-painel span {
+    color: #647966;
+    font-size: 13px;
+}
+
+.linha-painel strong {
+    color: var(--verde-escuro);
+    font-size: 16px;
+}
+
+@media (max-width: 760px) {
+    .cabecalho-topo,
+    .cabecalho-conta,
+    .cabecalho-unidades,
+    .painel-cabecalho,
+    .sensores-cabecalho,
+    .servidores-cabecalho,
+    .topo-ajustes,
+    .header-topo,
+    .cabecalho-sobre {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nome-fazenda,
+    .sensores-fazenda,
+    .painel-fazenda {
+        margin-left: 0;
+    }
+
+    .navegacao-sobre {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .apresentacao-sobre {
+        grid-template-columns: 1fr;
+    }
+
+    .conteudo-sobre {
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .navegacao-sobre a {
+        font-size: 12px;
+    }
+
+    .navegacao-sobre .link-destaque {
+        padding: 8px 10px;
+    }
+}
+
+
+/* =========================
+   PAINÉIS, LISTAS E GRÁFICOS
+   Os nomes abaixo já existiam no HTML. Estas regras apenas dão a eles uma
+   organização visual consistente, para todas as áreas parecerem parte do mesmo site.
+========================= */
+
+.pagina-painel,
+.pagina-conta,
+.pagina-unidades,
+.pagina-sensores,
+.pagina-servidores {
+    min-height: 100vh;
+    background: var(--creme);
+    color: var(--texto);
+}
+
+.resumo-topo,
+.linha-monitoramento,
+.card-ajustes-body,
+.servidores-resumo,
+.servidores-listas {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
+    gap: 20px;
+}
+
+.card-plantio,
+.resumo-lateral,
+.card-grafico,
+.card-media-topo,
+.card-media-semanal,
+.servidores-card-principal,
+.card-aparencia,
+.temas-container,
+.coluna-opcoes,
+.coluna-suporte {
+    padding: 24px;
+    border: 1px solid var(--linha);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: var(--sombra-suave);
+}
+
+.card-plantio h2,
+.card-grafico h3,
+.card-media-topo h3,
+.card-media-semanal h3,
+.servidores-card-principal h2,
+.titulo-aparencia,
+.titulo-categoria {
+    color: var(--verde-escuro);
+}
+
+.grafico-barras,
+.grafico-umidade {
+    display: grid;
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.barra-item {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    align-items: center;
+    gap: 12px;
+    color: #59625a;
+    font-size: 13px;
+}
+
+.barra-fundo,
+.indicador-progresso {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e5e7e0;
+}
+
+.barra,
+.indicador-progresso span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--verde);
+}
+
+.barra-1 { width: 76%; }
+.barra-2 { width: 64%; }
+.barra-3 { width: 48%; }
+.barra-4 { width: 31%; }
+.barra-5 { width: 22%; }
+
+.plantio-rodape,
+.sensores-acoes,
+.servidores-resumo,
+.opcoes-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.botao-pequeno,
+.botao-talhao,
+.btn-voltar,
+.btn-seta-circulo,
+.botao-config,
+.botao-ajuda {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0 13px;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--verde-escuro);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.botao-pequeno:hover,
+.botao-talhao:hover,
+.btn-voltar:hover,
+.btn-seta-circulo:hover,
+.botao-config:hover,
+.botao-ajuda:hover {
+    background: var(--verde-claro);
+    transform: translateY(-2px);
+}
+
+.grafico-linha {
+    margin: 18px 0 24px;
+    padding: 12px;
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    background: #fcfcfa;
+}
+
+.grafico-linha svg {
+    width: 100%;
+    height: auto;
+}
+
+.linhas-grade line {
+    stroke: #dce3d8;
+    stroke-width: 1;
+}
+
+.eixo-texto text {
+    fill: #718075;
+    font-size: 10px;
+}
+
+.linha {
+    fill: none;
+    stroke-width: 3;
+}
+
+.temperatura-min { stroke: #4f7db6; }
+.temperatura-max { stroke: #bd5d5d; }
+.temperatura-med { stroke: #4e8a57; }
+.azul-pontos { fill: #4f7db6; }
+.vermelho-pontos { fill: #bd5d5d; }
+.verde-pontos { fill: #4e8a57; }
+
+.grafico-umidade {
+    grid-template-columns: repeat(7, 1fr);
+    min-height: 130px;
+    align-items: end;
+    padding: 14px 8px 0;
+    border-radius: 12px;
+    background: #fcfcfa;
+}
+
+.barra-umidade {
+    display: grid;
+    align-items: end;
+    gap: 8px;
+    height: 112px;
+    text-align: center;
+}
+
+.barra-umidade span {
+    width: 100%;
+    min-height: 8px;
+    border-radius: 5px 5px 0 0;
+    background: #7eaa7b;
+}
+
+.barra-umidade small {
+    color: #718075;
+    font-size: 10px;
+}
+
+.legenda-grafico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #667167;
+    font-size: 12px;
+}
+
+.ponto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-radius: 50%;
+}
+
+.ponto.azul { background: #4f7db6; }
+.ponto.vermelho { background: #bd5d5d; }
+.ponto.verde { background: #4e8a57; }
+
+.lista-sensores,
+.lista-disponiveis,
+.servidores-listas,
+.temas-container,
+.categoria-temas {
+    display: grid;
+    gap: 14px;
+}
+
+.temas-container {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.card-tema,
+.preview-box,
+.dispositivo-info,
+.resumo-item {
+    padding: 16px;
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    background: var(--creme);
+}
+
+.card-tema:hover,
+.dispositivo-info:hover {
+    border-color: var(--verde);
+}
+
+.paleta-cores {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cor-circulo {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--linha);
+}
+
+.status-online,
+.status-tema-atual {
+    color: #3f7d48;
+    font-weight: 700;
+}
+
+.status-offline,
+.dispositivo-offline {
+    color: var(--vinho);
+    font-weight: 700;
+}
+
+@media (max-width: 820px) {
+    .resumo-topo,
+    .linha-monitoramento,
+    .card-ajustes-body,
+    .servidores-resumo,
+    .servidores-listas {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-conteudo,
+    .conteudo-conta,
+    .conteudo-unidades,
+    .sensores-conteudo,
+    .pagina-ajustes,
+    .painel-conteudo {
+        width: 100%;
+        padding: 28px 16px;
+    }
+}
+
+
+/* Detalhes menores das telas internas, mantidos juntos para facilitar a manutenção. */
+.servidores-conteudo {
+    flex: 1;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 42px 0;
+}
+
+.servidores-fazenda {
+    margin-left: auto;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.dispositivo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.aparencia-header,
+.tema-info,
+.opcoes-unidade,
+.informacoes-pessoais,
+.dados-propriedade,
+.area-ajuda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.dados-produtor,
+.dados-propriedade {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--creme);
+}
+
+.informacoes-pessoais {
+    display: grid;
+    justify-content: initial;
+    gap: 8px;
+    margin-top: 14px;
+    color: #5b645c;
+}
+
+.tipo-usuario,
+.unidade-selecionada,
+.nome-tema {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.divisor-ajustes {
+    margin: 18px 0;
+    border: 0;
+    border-top: 1px solid var(--linha);
+}
+
+.preview-box {
+    min-height: 104px;
+    display: flex;
+    align-items: flex-end;
+    margin: 12px 0;
+    overflow: hidden;
+    background: #f6f6f3;
+}
+
+.preview-escuro { background: #263b2e; }
+.preview-azul-aco { background: #e0e8f1; }
+.preview-salvia { background: #e0eadb; }
+.preview-grena { background: #f1e1e6; }
+
+.preview-content {
+    width: 100%;
+    padding: 12px;
+}
+
+.preview-label {
+    color: #526052;
+    font-size: 11px;
+}
+
+.preview-escuro .preview-label { color: #edf3e9; }
+
+.preview-bars {
+    display: grid;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+.preview-bars .bar {
+    display: block;
+    height: 7px;
+    border-radius: 999px;
+    background: #78a171;
+}
+
+.preview-bars .b1 { width: 88%; }
+.preview-bars .b2 { width: 65%; }
+.preview-bars .b3 { width: 44%; }
+
+.tema-info {
+    align-items: flex-end;
+}
+
+.logo-safrascan {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+}
+
+.simbolo-logo svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+.texto-logo {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.titulo-secao {
+    margin: 38px 0 18px;
+    color: var(--verde-escuro);
+    font-size: 24px;
+}
+
+.titulo-umidade {
+    margin-top: 28px;
+}
+
+.link-logout,
+.link-relatar {
+    color: var(--vinho);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 820px) {
+    .servidores-conteudo {
+        width: 100%;
+        padding: 28px 16px;
+    }
+
+    .servidores-fazenda {
+        margin-left: 0;
+    }
+}
+
+
+/* =========================
+   PAINEL DE PLANTAÇÃO
+   Estes ajustes organizam os gráficos e os resumos desta tela. Eles não mudam
+   os valores mostrados: apenas deixam a leitura mais clara em qualquer tela.
+========================= */
+
+.pagina-painel .painel-cabecalho {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 18px rgba(22, 52, 31, 0.16);
+}
+
+/* Destaca a seção atual para a pessoa saber onde está no painel. */
+.pagina-painel .item-menu[href="plantacao.html"] {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.pagina-painel .painel-conteudo {
+    padding-top: clamp(28px, 5vw, 52px);
+    padding-bottom: 64px;
+}
+
+.pagina-painel .resumo-topo,
+.pagina-painel .linha-monitoramento {
+    align-items: stretch;
+}
+
+.pagina-painel .card-plantio,
+.pagina-painel .card-grafico,
+.pagina-painel .card-media-topo,
+.pagina-painel .card-media-semanal {
+    border-color: rgba(216, 210, 197, 0.9);
+}
+
+.pagina-painel .card-plantio {
+    min-height: 100%;
+}
+
+.pagina-painel .card-plantio h2 {
+    font-size: clamp(20px, 2.4vw, 25px);
+}
+
+.pagina-painel .grafico-barras {
+    gap: 15px;
+    margin: 28px 0;
+}
+
+.pagina-painel .barra-item {
+    grid-template-columns: 86px minmax(0, 1fr);
+    font-size: 14px;
+}
+
+.pagina-painel .barra-fundo {
+    height: 10px;
+    background: #e9eee5;
+}
+
+.pagina-painel .barra {
+    background: linear-gradient(90deg, var(--verde), #70966d);
+}
+
+.pagina-painel .plantio-rodape {
+    padding-top: 18px;
+    border-top: 1px solid var(--linha);
+    color: #69736a;
+    font-size: 13px;
+}
+
+/* A coluna lateral é apenas um agrupador; os cartões internos carregam o fundo. */
+.pagina-painel .resumo-lateral {
+    display: grid;
+    align-content: start;
+    gap: 20px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.pagina-painel .card-media-topo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.pagina-painel .card-media-topo > div + div {
+    padding-left: 18px;
+    border-left: 1px solid var(--linha);
+}
+
+.pagina-painel .card-media-topo h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.pagina-painel .card-media-topo p,
+.pagina-painel .card-media-semanal p {
+    color: #647066;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.pagina-painel .botao-talhao {
+    min-height: 60px;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-color: rgba(63, 109, 72, 0.25);
+    background: var(--verde-claro);
+}
+
+.pagina-painel .botao-talhao i {
+    font-size: 18px;
+}
+
+.pagina-painel .secao-monitoramento {
+    margin-top: 46px;
+}
+
+.pagina-painel .titulo-secao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    font-size: clamp(21px, 2.8vw, 26px);
+}
+
+.pagina-painel .titulo-secao::before {
+    width: 7px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--verde);
+    content: "";
+}
+
+.pagina-painel .card-grafico {
+    overflow: hidden;
+}
+
+.pagina-painel .card-grafico h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.pagina-painel .grafico-linha {
+    padding: 16px 12px 12px;
+    background: #fbfcf9;
+}
+
+.pagina-painel .grafico-umidade {
+    margin-bottom: 0;
+    background: #fbfcf9;
+}
+
+.pagina-painel .card-media-semanal {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pagina-painel .card-media-semanal h3 {
+    margin-bottom: 14px;
+}
+
+.pagina-painel .indicador-progresso {
+    height: 10px;
+    margin-top: 16px;
+    background: #e9eee5;
+}
+
+@media (max-width: 820px) {
+    .pagina-painel .resumo-lateral {
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 0.45fr);
+        align-items: stretch;
+    }
+
+    .pagina-painel .botao-talhao {
+        min-height: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .pagina-painel .painel-cabecalho {
+        padding: 16px 20px;
+    }
+
+    .pagina-painel .menu-principal {
+        width: 100%;
+        gap: 6px;
+    }
+
+    .pagina-painel .item-menu {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .pagina-painel .painel-fazenda {
+        font-size: 14px;
+    }
+
+    .pagina-painel .resumo-lateral,
+    .pagina-painel .card-media-topo {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-painel .card-media-topo > div + div {
+        padding-top: 16px;
+        padding-left: 0;
+        border-top: 1px solid var(--linha);
+        border-left: 0;
+    }
+
+    .pagina-painel .botao-talhao {
+        min-height: 54px;
+    }
+
+    .pagina-painel .barra-item {
+        grid-template-columns: 72px minmax(0, 1fr);
+        font-size: 13px;
+    }
+
+    .pagina-painel .legenda-grafico {
+        gap: 8px 10px;
+        font-size: 11px;
+    }
+
+    .pagina-painel .grafico-linha {
+        margin-right: -8px;
+        margin-left: -8px;
+        padding: 12px 6px 8px;
+    }
+}
