@@ -85,4 +85,3 @@ def criar_grandeza(
     db.refresh(grandeza)
 
     return grandeza
-
