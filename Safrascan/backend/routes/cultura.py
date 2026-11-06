@@ -41,4 +41,3 @@ def criar_cultura(
     db.refresh(cultura)
 
     return cultura
-
