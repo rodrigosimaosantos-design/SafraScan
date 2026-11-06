@@ -1,38 +1,19 @@
 import os
-
+from pathlib import Path
 from dotenv import load_dotenv
+from supabase import Client, create_client
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
+# Lê o .env da pasta deste arquivo.
+caminho_env = Path(__file__).with_name(".env")
+load_dotenv(caminho_env, override=True)
 
+url = os.getenv("SUPABASE_URL")
+chave = os.getenv("SUPABASE_KEY")
 
-load_dotenv()
+if not url or not chave:
+    raise RuntimeError(
+        "Configure SUPABASE_URL e SUPABASE_KEY no arquivo .env."
+    )
 
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL não encontrada.")
-
-
-engine = create_engine(DATABASE_URL)
-
-
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine
-)
-
-
-Base = declarative_base()
-
-
-def get_db():
-    db = SessionLocal()
-
-    try:
-        yield db
-    finally:
-        db.close()
+# Acesso à Data API por HTTPS.
+supabase: Client = create_client(url, chave)

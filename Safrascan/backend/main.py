@@ -1,95 +1,57 @@
-from pathlib import Path
-
-from fastapi import FastAPI
+import logging
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
+from httpx import RequestError
+from postgrest.exceptions import APIError
+from controller.cultura import router as cultura_router
+from controller.usuario import router as usuario_router
+from controller.grandeza_fisica import router as grandeza_router
+from controller.propriedade import router as propriedade_router
 
-from routes.cultura import router as cultura_router
-from routes.usuario import router as usuario_router
-from routes.grandeza_fisica import router as grandeza_fisica_router
-from routes.propriedade import router as propriedade_router
-from routes.talhao import router as talhao_router
-
+logger = logging.getLogger("uvicorn.error")
 app = FastAPI(
-    title="SafraScan API",
-    description="Backend do projeto SafraScan",
-    version="0.1.0",
+    title="Safrascan Backend",
+    description="CRUD com Supabase por HTTPS.",
 )
 
+from fastapi.middleware.cors import CORSMiddleware
 
-# O front-end também pode ser aberto por um servidor de desenvolvimento
-# (por exemplo, o Live Server). Quando ele é servido pelo próprio FastAPI,
-# as requisições são de mesma origem e não dependem de CORS.
+# Depois de app = FastAPI(...):
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5500",
         "http://127.0.0.1:5500",
+        "http://localhost:5500",
     ],
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
 )
 
 
-BACKEND_DIR = Path(__file__).resolve().parent
-FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
-INDEX_FILE = FRONTEND_DIR / "templates" / "index.html"
-
-app.mount(
-    "/frontend",
-    StaticFiles(directory=FRONTEND_DIR),
-    name="frontend",
-)
-app.mount(
-    "/css",
-    StaticFiles(directory=FRONTEND_DIR / "css"),
-    name="css",
-)
-app.mount(
-    "/js",
-    StaticFiles(directory=FRONTEND_DIR / "js"),
-    name="js",
-)
-# Permite que os arquivos de imagem usados pelos HTMLs sejam abertos em /img/...
-# Exemplo: ../img/safra_logo_pricipal.svg, dentro de /login.html, vira /img/... .
-app.mount(
-    "/img",
-    StaticFiles(directory=FRONTEND_DIR / "img"),
-    name="img",
-)
-
 app.include_router(cultura_router)
 app.include_router(usuario_router)
-app.include_router(grandeza_fisica_router)
+app.include_router(grandeza_router)
 app.include_router(propriedade_router)
-app.include_router(talhao_router)
 
+@app.exception_handler(APIError)
+async def tratar_erro_supabase(request: Request, erro: APIError):
+    logger.error("Erro na operação do Supabase: %s", erro)
+    return JSONResponse(
+        status_code=502,
+        content={"detail": (
+            "O Supabase recusou a operação. "
+            "Confira a mensagem no terminal."
+        )},
+    )
 
-@app.get("/index.html", include_in_schema=False)
-def pagina_inicial():
-    return FileResponse(INDEX_FILE)
-
-
-@app.get("/", tags=["Sistema"])
-def raiz():
-    return {
-        "mensagem": "SafraScan API funcionando!"
-    }
-
-
-@app.get("/api/health", tags=["Sistema"])
-def verificar_api():
-    return {
-        "mensagem": "SafraScan API funcionando!"
-    }
-
-
-# Esta montagem fica por último para não esconder as rotas da API acima.
-# Ela entrega qualquer página HTML da pasta "templates" pelo seu próprio nome,
-# como /login.html, /config.html e /sobre.html.
-app.mount(
-    "/",
-    StaticFiles(directory=FRONTEND_DIR / "templates", html=False),
-    name="templates",
-)
+@app.exception_handler(RequestError)
+async def tratar_erro_rede(request: Request, erro: RequestError):
+    logger.error("Falha de comunicação: %s", type(erro).__name__)
+    return JSONResponse(
+        status_code=503,
+        content={"detail": (
+            "Não foi possível acessar o Supabase. "
+            "Verifique a conexão com a internet."
+        )},
+    )
