@@ -46,4 +46,3 @@ def criar_propriedade(
     db.refresh(propriedade)
 
     return propriedade
-
