@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talhao | Talhao de trigo </title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../js/clientes.js" defer>
+  </script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+      <span class="tipos_talhoes">Talhao de trigo</span>
+    </div>
+  </header>
+  <main class="container">
+    <div class="titulo-pagina">
+      <p class="legenda">CADASTROS</p>
+      <h1>Clientes</h1>
+      <p>Cadastre e acompanhe os clientes da mercearia.</p>
+    </div>
+    <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden>
+  </p>
+  <section class="painel" aria-labelledby="titulo-formulario">
+    <div class="painel-titulo">
+      <h2 id="titulo-formulario">Novo cliente</h2>
+      <span class="legenda">DADOS DO CLIENTE</span>
+    </div>
+    <form id="form-cliente" class="formulario">
+      <div class="campos">
+        <div class="campo">
+          <label for="id-cliente">ID</label>
+          <input id="id-cliente" type="text" placeholder="Automático" readonly>
+        </div>
+        <div class="campo">
+          <label for="nome-cliente">Nome do cliente</label>
+          <input id="nome-cliente" type="text" maxlength="150" placeholder="Digite o nome completo" required>
+        </div>
+        <div class="campo">
+          <label for="data-nascimento">Data de nascimento</label>
+          <input id="data-nascimento" type="date" required>
+        </div>
+      </div>
+      <div class="campo campo-limite">
+        <div class="linha">
+          <label for="valor-limite">Limite de crédito</label>
+          <output id="limite-exibido" for="valor-limite">R$ 0,00</output>
+        </div>
+        <input id="valor-limite" type="range" min="0" max="1000" step="0.01" value="0">
+        <div class="escala">
+          <span>R$ 0,00</span>
+          <span>Arraste para escolher o limite</span>
+          <span>R$ 1.000,00</span>
+        </div>
+      </div>
+      <div class="acoes">
+        <button id="botao-salvar" class="botao botao-principal" type="submit">Salvar</button>
+        <button id="botao-limpar" class="botao botao-secundario" type="button">Limpar</button>
+      </div>
+    </form>
+  </section>
+  <section class="painel" aria-labelledby="titulo-lista">
+    <div class="painel-titulo">
+      <h2 id="titulo-lista">Clientes cadastrados</h2>
+      <span id="total-clientes" class="legenda">Carregando...</span>
+    </div>
+    <div class="barra-lista">
+      <form id="form-busca" class="busca">
+        <label for="busca-id">Buscar por ID</label>
+        <input id="busca-id" type="number" min="1" step="1" placeholder="Ex.: 1" required>
+        <button class="botao botao-secundario" type="submit">Consultar</button>
+      </form>
+      <button id="botao-listar" class="botao botao-secundario" type="button">↻ Atualizar lista</button>
+    </div>
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Nascimento</th>
+            <th scope="col">Limite</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="lista-clientes">
+          <tr>
+            <td colspan="5" class="vazio">Carregando clientes...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <footer class="rodape">Mercearia do João · Cadastro de clientes</footer>
+</main>
+</body>
+</html>

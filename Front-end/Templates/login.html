@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SafraScan — acompanhamento inteligente da lavoura.">
+  <title>Entrar | SafraScan</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="pagina-auth">
+<header class="ss-header"><a class="ss-brand" href="index.html"><img src="../img/safra_logo_pricipal.svg" alt=""><span>SafraScan</span></a><nav class="ss-nav"><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="registrar_user.html">Criar conta</a></nav></header>
+<main class="ss-auth-layout">
+  <aside class="ss-auth-aside"><p class="ss-eyebrow" style="color:#e5edcf">Bem-vindo ao SafraScan</p><h1>Sua lavoura, mais perto dos seus dados.</h1><p>Acesse a plataforma para organizar as informações da propriedade e acompanhar os registros da safra.</p></aside>
+  <section class="ss-auth-main"><div class="ss-auth-card"><h2>Entrar</h2><p class="ss-muted">Informe seus dados de acesso.</p>
+    <form id="form-login"><div class="ss-field"><label for="email-login">E-mail</label><input type="email" id="email-login" autocomplete="username" required></div><div class="ss-field"><label for="senha-login">Senha</label><input type="password" id="senha-login" autocomplete="current-password" required></div><button class="ss-btn" type="submit">Entrar</button></form>
+    <div id="login-message" class="ss-note" role="status">A interface de login está pronta. A API enviada ainda não possui uma rota de autenticação; por isso, o acesso não será simulado nem a senha enviada sem validação segura.</div>
+    <p class="ss-auth-switch">Ainda não tem conta? <a href="registrar_user.html">Cadastre-se</a></p>
+  </div></section>
+</main>
+<script src="../js/auth.js" defer></script>
+</body></html>

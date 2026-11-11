@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparência</title>
+    <!-- Conexão com o CSS base -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- Movimento discreto e comportamento compartilhado entre as telas. -->
+    <script src="../js/app.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR (NAVBAR EM PÍLULA E FAZENDA) -->
+    <header class="header-topo">
+        <nav class="nav-pilula">
+            <a href="tela_ajustes.html" class="nav-item active">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">Ajustes</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Início</span>
+            </a>
+            <a href="plantacao.html" class="nav-item">
+                <span class="nav-icon">🌱</span>
+                <span class="nav-text">Plantação</span>
+            </a>
+            <a href="sensores.html" class="nav-item">
+                <span class="nav-icon">📡</span>
+                <span class="nav-text">Sensores</span>
+            </a>
+        </nav>
+
+        <div class="nome-fazenda">Joseir's Farm</div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (TELA DE APARÊNCIA) -->
+    <main class="pagina-conteudo">
+        <div class="card-aparencia">
+            
+            <!-- Cabeçalho do Card com Título e Seta de Voltar -->
+            <div class="aparencia-header">
+                <div class="titulo-aparencia">
+                    <span class="icon-aparencia">🌓</span>
+                    <h1>Aparência</h1>
+                </div>
+                <a href="config.html" class="btn-voltar" aria-label="Voltar para Ajustes">⟵</a>
+            </div>
+            <hr class="divisor-ajustes">
+
+            <!-- Container das Opções de Tema -->
+            <div class="temas-container">
+                
+                <!-- Categoria: Padrão -->
+                <section class="categoria-temas">
+                    <h2 class="titulo-categoria">Padrão</h2>
+                    <div class="opcoes-grid">
+                        
+                        <!-- Tema Claro -->
+                        <label class="card-tema">
+                            <input type="radio" name="tema" value="claro" checked>
+                            <div class="preview-box preview-claro">
+                                <div class="preview-content">
+                                    <span class="preview-label">Plantio monitorado (%)</span>
+                                    <div class="preview-bars">
+                                        <span class="bar b1"></span>
+                                        <span class="bar b2"></span>
+                                        <span class="bar b3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tema-info">
+                                <div class="paleta-cores">
+                                    <span class="cor-circulo" style="background-color: #5c0e30;"></span>
+                                    <span class="cor-circulo" style="background-color: #305c0e;"></span>
+                                    <span class="cor-circulo" style="background-color: #6b8e23;"></span>
+                                </div>
+                                <span class="nome-tema">Claro</span>
+                            </div>
+                        </label>
+
+                        <!-- Tema Escuro -->
+                        <label class="card-tema">
+                            <input type="radio" name="tema" value="escuro">
+                            <div class="preview-box preview-escuro">
+                                <div class="preview-content">
+                                    <span class="preview-label">Plantio monitorado (%)</span>
+                                    <div class="preview-bars">
+                                        <span class="bar b1"></span>
+                                        <span class="bar b2"></span>
+                                        <span class="bar b3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tema-info">
+                                <div class="paleta-cores">
+                                    <span class="cor-circulo" style="background-color: #0e305c;"></span>
+                                    <span class="cor-circulo" style="background-color: #305c0e;"></span>
+                                    <span class="cor-circulo" style="background-color: #6b8e23;"></span>
+                                </div>
+                                <span class="nome-tema">Escuro</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </section>
+
+                <!-- Divisor Vertical entre Categorias -->
+                <div class="divisor-vertical"></div>
+
+                <!-- Categoria: Monocromático -->
+                <section class="categoria-temas">
+                    <h2 class="titulo-categoria">Monocromático</h2>
+                    <div class="opcoes-grid">
+                        
+                        <!-- Tema Azul-Aço -->
+                        <label class="card-tema">
+                            <input type="radio" name="tema" value="azul-aco">
+                            <div class="preview-box preview-azul-aco">
+                                <div class="preview-content">
+                                    <span class="preview-label">Plantio monitorado (%)</span>
+                                    <div class="preview-bars">
+                                        <span class="bar b1"></span>
+                                        <span class="bar b2"></span>
+                                        <span class="bar b3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tema-info">
+                                <div class="paleta-cores">
+                                    <span class="cor-circulo" style="background-color: #1b365d;"></span>
+                                    <span class="cor-circulo" style="background-color: #33537a;"></span>
+                                    <span class="cor-circulo" style="background-color: #5c7ca6;"></span>
+                                </div>
+                                <span class="nome-tema">Azul-Aço</span>
+                            </div>
+                        </label>
+
+                        <!-- Tema Sálvia -->
+                        <label class="card-tema">
+                            <input type="radio" name="tema" value="salvia">
+                            <div class="preview-box preview-salvia">
+                                <div class="preview-content">
+                                    <span class="preview-label">Plantio monitorado (%)</span>
+                                    <div class="preview-bars">
+                                        <span class="bar b1"></span>
+                                        <span class="bar b2"></span>
+                                        <span class="bar b3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tema-info">
+                                <div class="paleta-cores">
+                                    <span class="cor-circulo" style="background-color: #304e2a;"></span>
+                                    <span class="cor-circulo" style="background-color: #4f6f3e;"></span>
+                                    <span class="cor-circulo" style="background-color: #8da47e;"></span>
+                                </div>
+                                <span class="nome-tema">Sálvia</span>
+                            </div>
+                        </label>
+
+                        <!-- Tema Grená -->
+                        <label class="card-tema">
+                            <input type="radio" name="tema" value="grena">
+                            <div class="preview-box preview-grena">
+                                <div class="preview-content">
+                                    <span class="preview-label">Plantio monitorado (%)</span>
+                                    <div class="preview-bars">
+                                        <span class="bar b1"></span>
+                                        <span class="bar b2"></span>
+                                        <span class="bar b3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tema-info">
+                                <div class="paleta-cores">
+                                    <span class="cor-circulo" style="background-color: #5c0e30;"></span>
+                                    <span class="cor-circulo" style="background-color: #8c2a52;"></span>
+                                    <span class="cor-circulo" style="background-color: #b86b88;"></span>
+                                </div>
+                                <span class="nome-tema">Grená</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Rodapé do Card (Tema Atual) -->
+            <div class="status-tema-atual">
+                <p>Tema atual: <span id="nome-tema-ativo">claro</span></p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer class="rodape">
+
+        <div class="rodape-esquerda">
+            <img src="../img/safra_logo_pricipal.svg" class="logo">
+
+            <div class="informacoes">
+                <p>Contato: (12) 3456-7890</p>
+                <p>©Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+
+        <a href="#" class="ajuda">
+            Precisa de ajuda?
+        </a>
+
+    </footer>
+
+</body>
+</html>

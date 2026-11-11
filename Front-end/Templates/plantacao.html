@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SafraScan — acompanhamento inteligente da lavoura.">
+  <title>Plantios | SafraScan</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="pagina-plantio">
+<header class="ss-header">
+  <a class="ss-brand" href="index.html"><img src="../img/safra_logo_pricipal.svg" alt=""><span>SafraScan</span></a>
+  <nav class="ss-nav"><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="plantacao.html">Plantio</a><a href="login.html">Entrar</a></nav>
+</header>
+<main class="ss-wrap">
+  <section class="ss-page-title"><p class="ss-eyebrow">Área de gestão</p><h1>Plantios</h1><p>Cadastre e consulte os plantios vinculados aos talhões e às culturas.</p></section>
+  <section class="ss-panel">
+    <h2 id="titulo-form">Cadastrar plantio</h2>
+    <div id="plantio-message" class="ss-message" role="status" aria-live="polite"></div>
+    <form id="form-plantio">
+      <div class="ss-form-grid">
+        <div class="ss-field"><label for="data_plantio">Data do plantio</label><input type="date" id="data_plantio" name="data_plantio" required></div>
+        <div class="ss-field"><label for="id_talhao">Talhão</label><select id="id_talhao" name="id_talhao" required><option value="">Carregando talhões...</option></select></div>
+        <div class="ss-field"><label for="id_cultura">Cultura</label><select id="id_cultura" name="id_cultura" required><option value="">Carregando culturas...</option></select></div>
+        <div class="ss-field"><label for="data_colheita_prevista">Previsão de colheita</label><input type="date" id="data_colheita_prevista" name="data_colheita_prevista" required></div>
+        <div class="ss-field"><label for="status_sensor">Status do sensor</label><input type="text" id="status_sensor" name="status_sensor" maxlength="50" placeholder="Ex.: Ativo, em manutenção..." required></div>
+      </div>
+      <div class="ss-form-actions"><button class="ss-btn" type="submit" id="btn-salvar">Salvar plantio</button><button class="ss-btn ss-btn-outline" type="reset" id="btn-cancelar" hidden>Cancelar edição</button></div>
+    </form>
+  </section>
+  <section class="ss-panel">
+    <h2>Plantios cadastrados</h2>
+    <div class="ss-table-wrap"><table class="ss-table">
+      <thead><tr><th>ID</th><th>Data do plantio</th><th>Talhão</th><th>Cultura</th><th>Colheita prevista</th><th>Status do sensor</th><th>Ações</th></tr></thead>
+      <tbody id="lista-plantios"><tr><td colspan="7" class="ss-empty">Carregando registros...</td></tr></tbody>
+    </table></div>
+  </section>
+</main>
+<footer class="ss-footer"><span>SafraScan · Gestão de plantios.</span><a href="index.html">Voltar ao início</a></footer>
+<script src="../js/plantio.js" defer></script>
+</body></html>

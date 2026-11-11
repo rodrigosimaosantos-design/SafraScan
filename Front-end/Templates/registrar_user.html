@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SafraScan — acompanhamento inteligente da lavoura.">
+  <title>Cadastro | SafraScan</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body class="pagina-auth">
+<header class="ss-header"><a class="ss-brand" href="index.html"><img src="../img/safra_logo_pricipal.svg" alt=""><span>SafraScan</span></a><nav class="ss-nav"><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="login.html">Entrar</a></nav></header>
+<main class="ss-auth-layout">
+  <aside class="ss-auth-aside"><p class="ss-eyebrow" style="color:#e5edcf">Faça parte</p><h1>Organize sua propriedade com o SafraScan.</h1><p>Crie seu cadastro para que a plataforma possa identificar o usuário e relacionar as informações da propriedade.</p></aside>
+  <section class="ss-auth-main"><div class="ss-auth-card"><h2>Criar conta</h2><p class="ss-muted">Preencha seus dados para iniciar o cadastro.</p>
+    <form id="form-cadastro"><div class="ss-field"><label for="nome-cadastro">Nome completo</label><input id="nome-cadastro" type="text" autocomplete="name" required></div><div class="ss-field"><label for="email-cadastro">E-mail</label><input id="email-cadastro" type="email" autocomplete="email" required></div><div class="ss-field"><label for="telefone-cadastro">Telefone</label><input id="telefone-cadastro" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div><div class="ss-field"><label for="tipo-cadastro">Tipo de usuário</label><select id="tipo-cadastro" required><option value="">Selecione</option><option value="Produtor">Produtor</option><option value="Administrador">Administrador</option></select></div><div class="ss-field"><label for="senha-cadastro">Senha</label><input id="senha-cadastro" type="password" autocomplete="new-password" minlength="8" required></div><div class="ss-field"><label for="confirmar-cadastro">Confirmar senha</label><input id="confirmar-cadastro" type="password" autocomplete="new-password" minlength="8" required></div><button class="ss-btn" type="submit">Criar cadastro</button></form>
+    <div id="cadastro-message" class="ss-note" role="status">O backend atual aceita o campo senha_hash no cadastro, mas não implementa geração segura de hash nem autenticação. O formulário não enviará a senha até essa parte ser implementada no servidor.</div>
+    <p class="ss-auth-switch">Já tem cadastro? <a href="login.html">Entrar</a></p>
+  </div></section>
+</main>
+<script src="../js/auth.js" defer></script>
+</body></html>
