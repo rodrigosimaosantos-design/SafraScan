@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, HTTPException, Response, status
 from database import supabase
 from models.cultura import CulturaEntrada, CulturaSaida
