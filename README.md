@@ -1,5 +1,7 @@
 SafraScan — telas atualizadas
+
 Estrutura
+
 backend/: backend enviado nesta conversa (FastAPI + Supabase).
 frontend/templates/: telas Início, Sobre, Plantios, Login e Cadastro.
 frontend/css/base.css: estilos compartilhados e estilos das novas telas.
