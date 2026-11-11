@@ -1,24 +1,71 @@
-from datetime import date
-from decimal import Decimal
-from pydantic import BaseModel, Field, field_validator
+from fastapi import APIRouter, HTTPException, Response, status
+from database import supabase
+from models.cultura import CulturaEntrada, CulturaSaida
 
-class CulturaEntrada(BaseModel):
-    nome_cultura: str = Field(min_length=1, max_length=150)
-    ciclo_medio_dias: Decimal = Field(
-        ge=0,
-        max_digits=10,
-        decimal_places=2,
+router = APIRouter(prefix="/cultura", tags=["Cultura"])
+
+# Cadastrar: o banco gera o ID.
+@router.post("", response_model=CulturaSaida,
+             status_code=status.HTTP_201_CREATED)
+def cadastrar_cultura(dados: CulturaEntrada):
+    conteudo = dados.model_dump(mode="json")
+    resposta = (
+        supabase.table("cultura")
+        .insert(conteudo)
+        .execute()
     )
+    if not resposta.data:
+        raise HTTPException(
+            status_code=502,
+            detail="O Supabase não retornou a cultura cadastrada.",
+        )
+    return resposta.data[0]
 
-    @field_validator("nome_cultura")
-    @classmethod
-    def validar_nome(cls, valor: str) -> str:
-        valor = valor.strip()
-        if not valor:
-            raise ValueError(
-                "O nome da cultura não pode ficar vazio."
-            )
-        return valor
+# Listar os registros acessíveis, ordenados pelo ID.
+@router.get("", response_model=list[CulturaSaida])
+def listar_cultura():
+    resposta = (
+        supabase.table("cultura")
+        .select("*")
+        .order("id_cultura")
+        .execute()
+    )
+    return resposta.data
 
-class CulturaSaida(CulturaEntrada):
-    id_cultura: int
+@router.get("/{id_cultura}", response_model=CulturaSaida)
+def consultar_cultura(id_cultura: int):
+    resposta = (
+        supabase.table("cultura")
+        .select("*")
+        .eq("id_cultura", id_cultura)
+        .execute()
+    )
+    if not resposta.data:
+        raise HTTPException(404, "Cultura não encontrada.")
+    return resposta.data[0]
+
+@router.put("/{id_cultura}", response_model=CulturaSaida)
+def atualizar_cultura(id_cultura: int, dados: CulturaEntrada):
+    conteudo = dados.model_dump(mode="json")
+    resposta = (
+        supabase.table("cultura")
+        .update(conteudo)
+        .eq("id_cultura", id_cultura)
+        .execute()
+    )
+    if not resposta.data:
+        raise HTTPException(404, "Cultura não encontrada.")
+    return resposta.data[0]
+
+@router.delete("/{id_cultura}",
+               status_code=status.HTTP_204_NO_CONTENT)
+def excluir_cultura(id_cultura: int):
+    resposta = (
+        supabase.table("cultura")
+        .delete()
+        .eq("id_cultura", id_cultura)
+        .execute()
+    )
+    if not resposta.data:
+        raise HTTPException(404, "Cultura não encontrada.")
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
