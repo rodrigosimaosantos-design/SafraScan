@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores | SafraScan</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/sensores.css">
+
+    <script src="../js/sensores.js" defer></script>
+</head>
+
+<body class="pagina-sensores">
+
+    <header class="ajustes-header"><nav class="menu-ajustes" aria-label="Navegação principal">
+        <a href="ajustes.html" class="item-menu"><span class="icone-menu icone-ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2 1.4 2.4-.2 1 2.2 2.2 1 .1 2.4 1.4 2-1.4 2 .1 2.4-2.2 1-1 2.2-2.4-.2-2 1.4-2-1.4-2.4.2-1-2.2-2.2-1-.1-2.4-1.4-2 1.4-2-.1-2.4 2.2-1 1-2.2 2.4.2z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#5c0d2e"/></svg></span><span>Ajustes</span></a>
+        <a href="dashboard.html" class="item-menu ativo" aria-current="page"><span class="icone-menu"><img src="../img/simbolos/home.svg" alt=""></span><span>Início</span></a>
+        <a href="plantio.html" class="item-menu"><span class="icone-menu icone-plantacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12C4 12 3 6 3 3c6 0 10 3 9 9zM12 15C12 8 18 4 22 4c0 7-3 11-10 11z" fill="currentColor"/></svg></span><span>Plantação</span></a>
+        <a href="sensores.html" class="item-menu"><span class="icone-menu"><img src="../img/simbolos/sensores.svg" alt=""></span><span>Sensores</span></a>
+        </nav><div class="nome-propriedade-header" id="nome-propriedade">Minha propriedade</div></header>
+    
+
+    <main class="conteudo">
+
+        <section class="painel">
+
+            <div class="titulo">
+                <h1>Sensores</h1>
+                <p id="estado-geral">Estado: Carregando...</p>
+            </div>
+
+            <div id="mensagem" class="mensagem" hidden></div>
+
+            <div id="lista-sensores" class="lista-sensores">
+                <p>Carregando sensores...</p>
+            </div>
+
+            <button id="adicionar-sensor" class="botao-adicionar" type="button">
+                +Adicionar sensor
+            </button>
+
+            <form id="form-sensor" class="formulario" hidden>
+
+                <h2>Adicionar sensor</h2>
+
+                <label for="id_talhao">Talhão</label>
+                <select id="id_talhao" required>
+                    <option value="">Selecione um talhão</option>
+                </select>
+
+                <label for="tipo_sensor">Tipo de sensor</label>
+                <input id="tipo_sensor" type="text"
+                    placeholder="Ex.: Sensor de umidade" required>
+
+                <label for="identificador_dispositivo">Identificador</label>
+                <input id="identificador_dispositivo" type="text"
+                    placeholder="Ex.: Sensor 03" required>
+
+                <label for="status_sensor">Status</label>
+                <select id="status_sensor" required>
+                    <option value="On-line">On-line</option>
+                    <option value="Off-line">Off-line</option>
+                </select>
+
+                <div class="botoes-formulario">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="cancelar">Cancelar</button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <img src="../img/logo/logo_base_branco.svg" alt="SafraScan">
+
+            <div>
+                <p>Contato: (12) 3456-7890</p>
+                <p>©Todos os direitos reservados.</p>
+            </div>
+        </div>
+
+        <a href="sobre.html">Precisa de ajuda?</a>
+    </footer>
+
+</body>
+</html>

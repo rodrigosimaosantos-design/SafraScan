@@ -1,0 +1,365 @@
+/* ==========================================================
+   EDITAR (TALHÕES E CULTURAS) - SAFRASCAN
+   Usa: <body class="pagina-ajustes-geral pagina-editar">
+   Reaproveita: .ajustes-header, .menu-ajustes, .item-menu, .icone-menu,
+   .nome-propriedade-header, .rodape-ajustes. Classes novas: prefixo "ed-".
+========================================================== */
+
+/* ---------- Cabeçalho (menu com 5 itens) ---------- */
+.ajustes-header .menu-ajustes.menu-editar {
+  width: auto;
+  min-height: 80px;
+  gap: 10px;
+  padding: 8px 30px;
+  justify-content: center;
+}
+
+.menu-editar .item-menu {
+  min-width: 52px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.menu-editar .item-menu.ativo { opacity: 0.55; }
+
+.menu-editar .icone-menu,
+.menu-editar .icone-plantacao {
+  width: 38px;
+  height: 38px;
+}
+
+.menu-editar .icone-ajustes {
+  padding: 7px;
+  border-radius: 50%;
+  background: var(--cor-texto-rodape);
+  color: var(--cor-vinho);
+}
+
+.pagina-editar .nome-propriedade-header {
+  font-size: 20px;
+}
+
+/* ---------- Estrutura ---------- */
+.ed-pagina {
+  flex: 1;
+  width: min(1212px, calc(100% - 48px));
+  margin: 0 auto 45px;
+}
+
+/* Alinha o título com a borda esquerda do menu */
+.ed-titulo-pagina {
+  margin: 20px 0 22px calc((100% - min(1128px, 100vw - 48px)) / 2 + 7px);
+  color: var(--cor-verde);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.ed-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 308px;
+  gap: 50px;
+  align-items: start;
+}
+
+/* ---------- Painel de talhões ---------- */
+.ed-painel {
+  padding: 34px 29px 24px;
+  border-radius: 50px;
+  background: var(--cor-fundo);
+  box-shadow: 0 20px 55px rgba(55, 45, 35, 0.18);
+}
+
+.ed-painel-cabecalho {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 18px;
+}
+
+.ed-painel-cabecalho h2 {
+  margin: 0;
+  color: var(--cor-verde);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.ed-painel-cabecalho p { font-size: 12px; }
+
+.ed-grupo { margin-top: 26px; }
+
+.ed-grupo-titulo {
+  margin: 0 0 13px 10px;
+  color: var(--cor-verde);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.ed-grupo-titulo sup {
+  font-size: 0.55em;
+  line-height: 0;
+}
+
+.ed-grid-talhoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px 14px;
+}
+
+/* Botão "+ Adicionar" do painel de talhões (canto inferior direito) */
+.ed-painel-rodape {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+  padding-right: 11px;
+}
+
+/* ---------- Card de talhão ---------- */
+.ed-talhao {
+  padding: 15px 13px 14px 18px;
+  border-radius: 24px;
+  background: #f6f2ec;
+  box-shadow: 0 5px 16px rgba(55, 45, 35, 0.10);
+}
+
+.ed-talhao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  margin: 0 0 6px;
+  color: var(--cor-verde);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ed-talhao-nome-input {
+  flex: 1;
+  min-width: 0;
+  height: 22px;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 12px;
+  background: var(--cor-campo);
+  color: var(--cor-verde);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ed-linha {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 20px;
+  margin-top: 6px;
+  color: var(--cor-verde);
+  font-size: 12px;
+}
+
+.ed-linha > label {
+  flex: none;
+  white-space: nowrap;
+}
+
+.ed-solo {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ed-solo .ed-pill { flex: 1 1 0; }
+
+/* Campos em "pílula" */
+.ed-pill {
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--cor-campo);
+  color: var(--cor-verde);
+  font-size: 11.5px;
+}
+
+select.ed-pill {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0h8L4 5z' fill='%232f5a0f'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  cursor: pointer;
+}
+
+.ed-linha .ed-pill[data-campo="area"],
+.ed-linha .ed-pill[data-campo="cultura"] {
+  width: 74px;
+  flex: none;
+}
+
+.ed-pill:focus-visible,
+.ed-talhao-nome-input:focus-visible {
+  outline: 2px solid var(--cor-verde);
+  outline-offset: 1px;
+}
+
+/* ---------- Botão de lápis ---------- */
+.ed-icone-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--cor-verde);
+  cursor: pointer;
+}
+
+.ed-icone-btn svg { width: 100%; height: 100%; }
+.ed-icone-btn:hover { opacity: 0.7; }
+
+.ed-icone-grande { width: 20px; height: 20px; }
+.ed-icone-btn[aria-pressed="true"] { color: var(--cor-vinho); }
+
+/* ---------- Painel de culturas ---------- */
+.ed-culturas {
+  padding: 26px 40px 24px;
+  border-radius: 50px;
+  background: var(--cor-fundo);
+  box-shadow: 0 20px 55px rgba(55, 45, 35, 0.18);
+}
+
+.ed-culturas-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.ed-culturas-cabecalho h2 {
+  margin: 0;
+  color: var(--cor-verde);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.ed-tabela {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center;
+}
+
+.ed-tabela th,
+.ed-tabela td {
+  height: 29px;
+  padding: 0 6px;
+  border: 1px solid var(--cor-verde);
+  color: var(--cor-verde);
+}
+
+.ed-tabela th {
+  background: var(--cor-verde);
+  color: var(--cor-texto-rodape);
+  font-weight: 400;
+}
+
+.ed-tabela th:nth-child(1) { width: 44%; }
+.ed-tabela th:nth-child(3),
+.ed-tabela td.ed-celula-remover { width: 28px; padding: 0; }
+
+.ed-tabela input {
+  width: 100%;
+  height: 21px;
+  padding: 0 6px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cor-campo);
+  color: var(--cor-verde);
+  font-size: 12px;
+  text-align: center;
+}
+
+.ed-btn-remover {
+  border: none;
+  background: transparent;
+  color: var(--cor-vinho);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ed-btn-remover:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Botão pílula verde (usado em Culturas e em Talhões) */
+.ed-btn-adicionar {
+  display: block;
+  height: 23px;
+  padding: 0 11px;
+  border: none;
+  border-radius: 20px;
+  background: var(--cor-verde);
+  color: var(--cor-texto-rodape);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ed-culturas .ed-btn-adicionar { margin: 20px auto 0; }
+
+.ed-btn-adicionar:hover { opacity: 0.85; }
+
+.ed-aviso {
+  margin-top: 10px;
+  color: var(--cor-erro);
+  font-size: 11px;
+  text-align: center;
+}
+
+.ed-aviso:empty { display: none; }
+
+/* Texto só para leitores de tela */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Rodapé desta tela ---------- */
+.pagina-editar .rodape-ajustes { min-height: 71px; }
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 1000px) {
+  .ed-layout { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (max-width: 800px) {
+  .ajustes-header .menu-ajustes.menu-editar { padding: 8px 18px; gap: 4px; }
+}
+
+@media (max-width: 560px) {
+  .ajustes-header .menu-ajustes.menu-editar {
+    max-width: 100%;
+    padding: 8px 10px;
+    gap: 0;
+  }
+  .menu-editar .item-menu { min-width: 46px; }
+
+  .ed-pagina { width: calc(100% - 28px); }
+  .ed-titulo-pagina { font-size: 28px; margin-left: 8px; }
+  .ed-painel { padding: 28px 14px 22px; border-radius: 34px; }
+  .ed-painel-cabecalho { padding: 0 10px; }
+  .ed-culturas { padding: 26px 22px 22px; border-radius: 34px; }
+  .ed-grid-talhoes { grid-template-columns: 1fr; }
+}

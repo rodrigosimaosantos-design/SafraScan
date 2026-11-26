@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar – SafraScan</title>
+
+  <!-- Ajuste os caminhos conforme a sua estrutura de pastas -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/talhao.css">
+</head>
+<body class="pagina-ajustes-geral pagina-editar">
+
+  <!-- ===== Cabeçalho: menu + nome da propriedade ===== -->
+  <header class="ajustes-header"><nav class="menu-ajustes" aria-label="Navegação principal">
+    <a href="ajustes.html" class="item-menu"><span class="icone-menu icone-ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2 1.4 2.4-.2 1 2.2 2.2 1 .1 2.4 1.4 2-1.4 2 .1 2.4-2.2 1-1 2.2-2.4-.2-2 1.4-2-1.4-2.4.2-1-2.2-2.2-1-.1-2.4-1.4-2 1.4-2-.1-2.4 2.2-1 1-2.2 2.4.2z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#5c0d2e"/></svg></span><span>Ajustes</span></a>
+    <a href="dashboard.html" class="item-menu ativo" aria-current="page"><span class="icone-menu"><img src="../img/simbolos/home.svg" alt=""></span><span>Início</span></a>
+    <a href="plantio.html" class="item-menu"><span class="icone-menu icone-plantacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12C4 12 3 6 3 3c6 0 10 3 9 9zM12 15C12 8 18 4 22 4c0 7-3 11-10 11z" fill="currentColor"/></svg></span><span>Plantação</span></a>
+    <a href="sensores.html" class="item-menu"><span class="icone-menu"><img src="../img/simbolos/sensores.svg" alt=""></span><span>Sensores</span></a>
+    </nav><div class="nome-propriedade-header" id="nome-propriedade">Minha propriedade</div></header>
+
+  <!-- ===== Conteúdo ===== -->
+  <main class="ed-pagina">
+    <h1 class="ed-titulo-pagina">Editar</h1>
+
+    <div class="ed-layout">
+
+      <!-- Painel de talhões (preenchido pelo editar.js) -->
+      <section class="ed-painel" aria-labelledby="titulo-talhoes">
+        <div class="ed-painel-cabecalho">
+          <h2 id="titulo-talhoes">Talhões</h2>
+          <p>Área total registrada: <span id="area-total">0</span>km²</p>
+        </div>
+
+        <div id="lista-talhoes"></div>
+
+        <div class="ed-painel-rodape">
+          <button type="button" class="ed-btn-adicionar" id="btn-adicionar-talhao">+ Adicionar</button>
+        </div>
+      </section>
+
+      <!-- Painel de culturas -->
+      <aside class="ed-culturas" aria-labelledby="titulo-culturas">
+        <div class="ed-culturas-cabecalho">
+          <h2 id="titulo-culturas">Culturas</h2>
+          <button type="button" class="ed-icone-btn ed-icone-grande" id="btn-editar-culturas"
+                  aria-pressed="false" aria-label="Editar culturas">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M3 17.250V21h3.750L17.810 9.940l-3.750-3.750L3 17.250zM20.710 7.040a1 1 0 0 0 0-1.410l-2.340-2.340a1 1 0 0 0-1.410 0l-1.830 1.830 3.750 3.750 1.830-1.830z"/>
+            </svg>
+          </button>
+        </div>
+
+        <table class="ed-tabela">
+          <thead>
+            <tr>
+              <th scope="col">Cultura</th>
+              <th scope="col">Ciclo médio de dias</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-culturas"></tbody>
+        </table>
+
+        <button type="button" class="ed-btn-adicionar" id="btn-adicionar-cultura">+ Adicionar</button>
+        <p class="ed-aviso" id="aviso-culturas" role="status"></p>
+      </aside>
+
+    </div>
+    
+    <div> </div>
+
+  </main>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="rodape-ajustes">
+
+    <div class="rodape-ajustes-esquerda">
+
+        <a href="index.html" class="logo-rodape">
+            <img src="../img/logo/logo_base_branco.svg"
+                 alt="SafraScan">
+        </a>
+
+        <div class="informacoes-rodape">
+
+            <p>Contato: (12) 3456-7890</p>
+
+            <p>© Todos os direitos reservados.</p>
+
+        </div>
+
+    </div>
+
+
+    <a href="sobre.html" class="link-ajuda-rodape">
+        Precisa de ajuda?
+    </a>
+
+</footer>
+
+  <script src="../js/talhao.js"></script>
+</body>
+</html>

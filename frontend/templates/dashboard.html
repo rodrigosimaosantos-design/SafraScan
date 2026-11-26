@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Início | SafraScan</title>
+<link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/dashboard.css">
+<script src="../js/sessao.js" defer></script><script src="../js/app.js" defer></script><script src="../js/dashboard.js" defer></script>
+</head><body class="pagina-ajustes-geral pagina-dashboard">
+<header class="ajustes-header"><nav class="menu-ajustes" aria-label="Navegação principal">
+<a href="ajustes.html" class="item-menu"><span class="icone-menu icone-ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2 1.4 2.4-.2 1 2.2 2.2 1 .1 2.4 1.4 2-1.4 2 .1 2.4-2.2 1-1 2.2-2.4-.2-2 1.4-2-1.4-2.4.2-1-2.2-2.2-1-.1-2.4-1.4-2 1.4-2-.1-2.4 2.2-1 1-2.2 2.4.2z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#5c0d2e"/></svg></span><span>Ajustes</span></a>
+<a href="dashboard.html" class="item-menu ativo" aria-current="page"><span class="icone-menu"><img src="../img/simbolos/home.svg" alt=""></span><span>Início</span></a>
+<a href="plantio.html" class="item-menu"><span class="icone-menu icone-plantacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12C4 12 3 6 3 3c6 0 10 3 9 9zM12 15C12 8 18 4 22 4c0 7-3 11-10 11z" fill="currentColor"/></svg></span><span>Plantação</span></a>
+<a href="sensores.html" class="item-menu"><span class="icone-menu"><img src="../img/simbolos/sensores.svg" alt=""></span><span>Sensores</span></a>
+</nav><div class="nome-propriedade-header" id="nome-propriedade">Minha propriedade</div></header>
+<main class="conteudo-ajustes dashboard-conteudo"><section class="painel-ajustes dashboard-painel">
+<div class="titulo-painel-ajustes dashboard-titulo"><div><p class="dash-eyebrow">PAINEL DE CONTROLE</p><h1>Visão geral da sua lavoura</h1><p class="dashboard-subtitulo">Acompanhe os dados cadastrados da propriedade e o estado dos seus sensores.</p></div><span id="data-atual" class="dash-date"></span></div>
+<p id="dash-message" class="dash-message" role="status" aria-live="polite">Carregando informações da API...</p>
+<section class="dash-kpis" aria-label="Resumo da propriedade">
+<article class="dash-card"><span class="dash-card-label">Área cadastrada</span><strong id="kpi-area">—</strong><small>hectares em talhões</small></article>
+<article class="dash-card"><span class="dash-card-label">Plantios registrados</span><strong id="kpi-plantios">—</strong><small>plantios cadastrados</small></article>
+<article class="dash-card"><span class="dash-card-label">Sensores on-line</span><strong id="kpi-online">—</strong><small id="kpi-total-sensores">de — sensores</small></article>
+<article class="dash-card"><span class="dash-card-label">Leituras registradas</span><strong id="kpi-leituras">—</strong><small>leituras recebidas</small></article></section>
+<section class="dash-grid">
+<article class="dash-panel"><div class="dash-panel-heading"><div><p class="dash-eyebrow">ACOMPANHAMENTO</p><h2>Plantios por cultura</h2></div><a href="plantio.html">Ver plantios</a></div><div id="lista-culturas" class="dash-culture-list"><p class="dash-empty">Aguardando dados...</p></div></article>
+<article class="dash-panel"><div class="dash-panel-heading"><div><p class="dash-eyebrow">DISPOSITIVOS</p><h2>Sensores disponíveis</h2></div><a href="sensores.html">Ver sensores</a></div><div id="lista-sensores" class="dash-sensor-list"><p class="dash-empty">Aguardando dados...</p></div></article>
+<article class="dash-panel"><div class="dash-panel-heading"><div><p class="dash-eyebrow">MONITORAMENTO</p><h2>Últimas leituras</h2></div></div><div id="lista-leituras" class="dash-reading-list"><p class="dash-empty">Aguardando dados...</p></div><p class="dash-footnote">Os valores são exibidos conforme os registros existentes na API. Sensores sem leituras não geram valores estimados.</p></article>
+<article class="dash-panel dash-actions"><p class="dash-eyebrow">ACESSO RÁPIDO</p><h2>Gerencie sua propriedade</h2><a class="dash-action" href="plantio.html"><span>🌱</span><span><strong>Plantios</strong><small>Consulte e cadastre plantios</small></span><b>›</b></a><a class="dash-action" href="talhao.html"><span>🗺️</span><span><strong>Talhões</strong><small>Organize as áreas de cultivo</small></span><b>›</b></a><a class="dash-action" href="sensores.html"><span>📡</span><span><strong>Sensores</strong><small>Confira os dispositivos</small></span><b>›</b></a></article>
+</section></section></main>
+<footer class="rodape-ajustes"><div class="rodape-ajustes-esquerda"><a href="index.html" class="logo-rodape"><img src="../img/logo/logo_base_branco.svg" alt="SafraScan"></a><div class="informacoes-rodape"><p>Contato: (12) 3456-7890</p><p>© Todos os direitos reservados.</p></div></div><a href="sobre.html" class="link-ajuda-rodape">Precisa de ajuda?</a></footer>
+</body></html>

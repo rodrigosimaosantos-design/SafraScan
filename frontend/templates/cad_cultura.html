@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cultura | Safrascan</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/sessao.js" defer></script>
+
+    <style>
+        /* Estrutura específica da página */
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pagina-cadastro {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 178px 20px 60px;
+        }
+
+        .card-cadastro {
+            width: 100%;
+            max-width: 325px;
+            min-height: 213px;
+            padding: 25px 35px 30px;
+            border-radius: 32px;
+            background: var(--bg-card);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.17);
+        }
+
+        .cadastro-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+
+        .cadastro-header h2 {
+            color: var(--cor-primaria);
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .botao-voltar {
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-size: 23px;
+            line-height: 1;
+        }
+
+        .form-cultura {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .form-cultura .campo {
+            gap: 2px;
+        }
+
+        .form-cultura label {
+            color: var(--cor-primaria);
+            font-size: 10px;
+            font-weight: 400;
+            padding-left: 6px;
+        }
+
+        .form-cultura input {
+            height: 18px;
+            padding: 2px 10px;
+            border: none;
+            border-radius: 20px;
+            background: #deddd6;
+            color: var(--text-main);
+            font-size: 11px;
+        }
+
+        .form-cultura input:focus {
+            outline: 1px solid var(--cor-primaria);
+        }
+
+        .campo-ciclo input {
+            max-width: 106px;
+        }
+
+        .acoes-cadastro {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+
+        .botao-registrar {
+            padding: 3px 10px;
+            border: none;
+            border-radius: 20px;
+            background: #829575;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .botao-registrar:hover {
+            background: var(--cor-primaria);
+        }
+
+        /* Rodapé */
+
+        .app-footer {
+            background: var(--cor-secundaria);
+            border: none;
+            padding: 15px 8%;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .footer-top {
+            justify-content: flex-start;
+            gap: 12px;
+        }
+
+        .footer-logo-mask {
+            width: 108px;
+            height: 30px;
+            background-color: #ffffff;
+        }
+
+        .footer-contato {
+            color: #ffffff;
+            font-size: 8px;
+            line-height: 1.5;
+        }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.7);
+            font-size: 7px;
+        }
+
+        .footer-link {
+            color: #ffffff;
+            font-size: 8px;
+        }
+
+        .footer-link:hover {
+            color: #d9c3c3;
+        }
+
+        @media (max-width: 600px) {
+            .pagina-cadastro {
+                padding-top: 100px;
+                align-items: flex-start;
+            }
+
+            .card-cadastro {
+                max-width: 340px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-top {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="pagina-cadastro">
+
+        <section class="card-cadastro">
+
+            <div class="cadastro-header">
+                <h2>Registre uma cultura</h2>
+
+                <a href="javascript:history.back()"
+                   class="botao-voltar"
+                   aria-label="Voltar">
+                    ←
+                </a>
+            </div>
+
+            <form class="form-cultura" action="#" method="POST">
+
+                <div class="campo">
+                    <label for="nome-cultura">
+                        Nome da cultura:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome-cultura"
+                        name="nome_cultura"
+                        required
+                    >
+                </div>
+
+                <div class="campo campo-ciclo">
+                    <label for="ciclo-medio">
+                        Ciclo médio de dias:
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ciclo-medio"
+                        name="ciclo_medio"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <div class="acoes-cadastro">
+                    <button
+                        type="submit"
+                        class="botao-registrar">
+                        Registrar
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-top">
+
+                <div class="footer-logo-mask"
+                     role="img"
+                     aria-label="Safrascan">
+                </div>
+
+                <div class="footer-contato">
+                    Contato: (12) 3456-7890
+
+                    <div class="footer-copy">
+                        © Todos os direitos reservados.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-links">
+                <a href="#" class="footer-link">
+                    Precisa de ajuda?
+                </a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

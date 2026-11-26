@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafraScan | Início</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/sessao.js" defer></script>
+    <style>
+        /* ==============================
+           PÁGINA INICIAL - SAFRASCAN
+        ============================== */
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-app);
+        }
+
+        .pagina-inicial {
+            min-height: 100vh;
+            padding: 35px 20px 60px;
+        }
+
+        /* Cabeçalho */
+
+        .inicio-header {
+            width: min(900px, 100%);
+            margin: 0 auto 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-size: 48px;
+            font-weight: 500;
+            letter-spacing: -3px;
+        }
+
+        .logo svg {
+            width: 43px;
+            height: 65px;
+            flex-shrink: 0;
+        }
+
+        .inicio-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .inicio-nav a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color var(--transition-fast);
+        }
+
+        .inicio-nav a:hover {
+            color: var(--cor-primaria);
+            text-decoration: underline;
+        }
+
+        /* Painel principal */
+
+        .inicio-conteudo {
+            width: min(875px, 100%);
+            margin: 0 auto;
+            padding: 55px 70px 60px;
+            border-radius: 65px;
+            background: var(--bg-card);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.13);
+        }
+
+        .inicio-titulo {
+            color: var(--cor-primaria);
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        /* Blocos de apresentação */
+
+        .inicio-bloco {
+            display: grid;
+            grid-template-columns: 1fr 192px;
+            align-items: center;
+            gap: 45px;
+            margin-bottom: 30px;
+        }
+
+        .inicio-bloco:last-child {
+            margin-bottom: 0;
+        }
+
+        .inicio-texto {
+            color: var(--cor-primaria);
+            font-size: 16px;
+            line-height: 1.45;
+            text-align: left;
+        }
+
+        .inicio-imagem {
+            width: 192px;
+            height: 164px;
+            object-fit: cover;
+            border-radius: 45px;
+            display: block;
+        }
+
+        /* Rodapé */
+
+        .inicio-rodape {
+            text-align: center;
+            margin-top: 35px;
+            color: var(--text-light);
+            font-size: 12px;
+        }
+
+        /* Responsividade */
+
+        @media (max-width: 760px) {
+
+            .pagina-inicial {
+                padding: 25px 16px 35px;
+            }
+
+            .inicio-header {
+                margin-bottom: 55px;
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo img {
+                width: 180px;
+                height: 65px;
+                object-fit: contain;
+                display: block;
+            }
+
+            .inicio-nav {
+                margin: 0;
+            }
+
+            .logo img {
+                width: 145px;
+                height: 55px;
+                object-fit: contain;
+            }
+
+            .inicio-conteudo {
+                padding: 35px 25px;
+                border-radius: 35px;
+            }
+
+            .inicio-titulo {
+                margin-bottom: 30px;
+            }
+
+            .inicio-bloco {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                margin-bottom: 35px;
+            }
+
+            .inicio-texto {
+                font-size: 15px;
+            }
+
+            .inicio-imagem {
+                width: 100%;
+                height: 200px;
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="pagina-inicial">
+
+        <!-- CABEÇALHO -->
+
+        <header class="inicio-header">
+
+            <a href="index.html" class="logo svg" aria-label="SafraScan - Página inicial">
+
+                <img
+                    src="../img/logo/logo_base_verde.svg"
+                    alt="Descrição da imagem" id="logo" height="100px">
+            </a>
+
+            <nav class="inicio-nav" aria-label="Navegação principal">
+
+                <a href="login.html">Login</a>
+
+                <a href="cad_usuario.html">Registre-se</a>
+
+            </nav>
+
+        </header>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <section class="inicio-conteudo">
+
+            <h1 class="inicio-titulo">SafraScan</h1>
+
+
+            <!-- PRIMEIRO BLOCO -->
+
+            <article class="inicio-bloco">
+
+                <p class="inicio-texto">
+                    O SafraScan é uma solução tecnológica desenvolvida
+                    para auxiliar produtores rurais no monitoramento
+                    inteligente de suas plantações. Por meio da integração
+                    entre sensores e tecnologia, o sistema permite
+                    acompanhar condições importantes da lavoura,
+                    contribuindo para uma gestão agrícola mais eficiente.
+                </p>
+
+                <img
+                    src="../img/imagens/sensor.png"
+                    alt="Descrição da imagem">
+
+            </article>
+
+
+            <!-- SEGUNDO BLOCO -->
+
+            <article class="inicio-bloco">
+
+                <p class="inicio-texto">
+                    Com o monitoramento das condições do solo e do ambiente,
+                    o SafraScan oferece informações que auxiliam na tomada
+                    de decisões durante o ciclo de cultivo. A plataforma
+                    busca facilitar o acompanhamento dos plantios,
+                    identificar possíveis alterações e gerar recomendações
+                    para contribuir com a produtividade e o uso consciente
+                    dos recursos agrícolas.
+                </p>
+
+                <img
+                    src="../img/imagens/monitoramento.png"
+                    alt="Descrição da imagem">
+
+            </article>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+
+        <footer class="inicio-rodape">
+            <p>SafraScan</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+/* ==========================================
+   CADASTRO DE TALHÃO - SAFRASCAN
+   Referência visual da imagem enviada
+========================================== */
+
+/* ESTRUTURA GERAL */
+
+body.pagina-talhao {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f3eee7;
+    color: #2f5a0f;
+    font-family: var(--fonte);
+}
+
+/* ÁREA PRINCIPAL */
+
+.cadastro-talhao-pagina {
+    flex: 1;
+    min-height: calc(100vh - 56px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px 45px;
+
+    background: #f3eee7;
+}
+
+/* CARD CENTRAL */
+
+.cadastro-talhao-card {
+    width: 325px;
+    min-height: 360px;
+
+    padding: 32px 36px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #f3eee7;
+
+    border-radius: 33px;
+
+    box-shadow:
+        0 15px 50px rgba(55, 45, 35, 0.20);
+
+    color: #2f5a0f;
+}
+
+/* CABEÇALHO */
+
+.cadastro-card-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+}
+
+.cadastro-card-cabecalho h1 {
+    margin: 0;
+
+    color: #087b19;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+/* BOTÃO VOLTAR */
+
+.voltar-talhao {
+    color: #087b19;
+
+    font-size: 23px;
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+.voltar-talhao:hover {
+    transform: translateX(-4px);
+}
+
+/* FORMULÁRIO */
+
+.cadastro-talhao-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+}
+
+/* GRUPOS DE CAMPOS */
+
+.campo-safra {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    margin-bottom: 9px;
+}
+
+.campo-safra label {
+    padding-left: 6px;
+
+    color: #087b19;
+
+    font-size: 10px;
+    font-weight: 400;
+}
+
+/* INPUTS E SELECTS */
+
+.campo-safra input,
+.campo-safra select {
+    width: 100%;
+    height: 18px;
+
+    padding: 2px 8px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 20px;
+
+    background: #dedbd4;
+
+    color: #315b17;
+
+    font-family: inherit;
+    font-size: 9px;
+}
+
+/* FOCO DOS CAMPOS */
+
+.campo-safra input:focus,
+.campo-safra select:focus {
+    box-shadow:
+        0 0 0 2px rgba(47, 90, 15, 0.35);
+}
+
+/* CAMPOS DE TIPO DE SOLO */
+
+.campos-solo {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.campos-solo select {
+    width: 50%;
+    min-width: 0;
+
+    cursor: pointer;
+}
+
+/* SEGUNDA SEÇÃO - CULTURA */
+
+.cadastro-talhao-card h2 {
+    margin: 29px 0 8px;
+
+    color: #087b19;
+
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* NOME DA CULTURA */
+
+.campo-cultura {
+    margin-bottom: 8px;
+}
+
+/* CICLO MÉDIO */
+
+.campo-ciclo {
+    width: 105px;
+    max-width: 100%;
+}
+
+/* AÇÕES */
+
+.acoes-talhao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+    padding: 18px 5px 0;
+}
+
+/* BOTÃO PULAR */
+
+.botao-pular {
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #315b17;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-style: italic;
+
+    cursor: pointer;
+}
+
+.botao-pular:hover {
+    text-decoration: underline;
+}
+
+/* BOTÃO AVANÇAR */
+
+.acoes-talhao button {
+    min-width: auto;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #087b19;
+
+    font-size: 23px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.acoes-talhao button:hover {
+    transform: translateX(5px);
+}
+
+/* MENSAGENS */
+
+.mensagem-talhao {
+    margin-top: 12px;
+    padding: 9px 11px;
+
+    border-radius: 10px;
+
+    background: #dfe8d2;
+    color: #2f5a0f;
+
+    font-size: 10px;
+}
+
+.mensagem-talhao.erro {
+    background: #f6dfd8;
+    color: #8a2b1c;
+}
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+.rodape-talhao {
+    width: 100%;
+    min-height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px max(calc((100% - 920px) / 2), 35px);
+
+    background: #5c0d2e;
+
+    color: #f3eee7;
+}
+
+.rodape-talhao-conteudo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.rodape-talhao img {
+    display: block;
+
+    width: 105px;
+    max-height: 32px;
+
+    object-fit: contain;
+
+    filter: brightness(0) invert(1);
+}
+
+.rodape-talhao p {
+    margin: 2px 0;
+
+    font-size: 8px;
+    line-height: 1.3;
+}
+
+.rodape-talhao p:last-child {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.rodape-talhao a {
+    color: #f3eee7;
+
+    font-size: 8px;
+    font-style: italic;
+
+    text-decoration: none;
+}
+
+.rodape-talhao a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .cadastro-talhao-pagina {
+        min-height: calc(100vh - 100px);
+        padding: 30px 16px;
+    }
+
+    .cadastro-talhao-card {
+        width: min(325px, 100%);
+        min-height: 360px;
+
+        padding: 30px 27px;
+
+        border-radius: 30px;
+    }
+
+    .cadastro-card-cabecalho h1 {
+        font-size: 17px;
+    }
+
+    .cadastro-talhao-card h2 {
+        font-size: 17px;
+    }
+
+    .rodape-talhao {
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 10px;
+
+        padding: 13px 15px;
+    }
+
+    .rodape-talhao-conteudo {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .rodape-talhao a {
+        text-align: center;
+    }
+}

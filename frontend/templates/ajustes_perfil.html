@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Conta | SafraScan</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/sessao.js" defer></script>
+
+    <style>
+        /* CONFIGURAÇÕES DA PÁGINA */
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f3eee6;
+            color: #006b13;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* ÁREA PRINCIPAL */
+
+        .pagina-conta {
+            width: min(930px, 84%);
+            margin: 39px auto 42px;
+            flex: 1;
+        }
+
+        /* MENU SUPERIOR */
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 21px;
+        }
+
+        .menu {
+            height: 66px;
+            width: 237px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 5px 12px;
+            background: #5c002e;
+            border-radius: 50px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.15);
+        }
+
+        .menu a {
+            width: 48px;
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: #f3eee6;
+            text-decoration: none;
+            font-size: 9px;
+        }
+
+        .menu svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+            stroke: currentColor;
+        }
+
+        .menu a:hover {
+            opacity: .75;
+        }
+
+        .nome-fazenda {
+            color: #65002e;
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 0;
+        }
+
+        /* CARTÃO MINHA CONTA */
+
+        .conta-card {
+    width: 607px;
+    min-height: 425px;
+    height: auto;
+
+    background: #f3eee6;
+    border-radius: 40px;
+
+    padding: 17px 31px 25px;
+
+    box-shadow: 0 12px 40px rgba(70, 60, 50, .20);
+
+    overflow: visible;
+    
+        }
+
+        /* CABEÇALHO DO CARTÃO */
+
+        .conta-cabecalho {
+            height: 37px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #b5c9a7;
+            padding: 0 11px 10px;
+        }
+
+        .titulo-conta {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 16px;
+            color: #006b13;
+        }
+
+        .titulo-conta svg {
+            width: 29px;
+            height: 29px;
+            fill: none;
+            stroke: #006b13;
+            stroke-width: 1.8;
+        }
+
+        .voltar {
+            color: #006b13;
+            font-size: 22px;
+            text-decoration: none;
+            font-weight: 300;
+        }
+
+        /* INFORMAÇÕES */
+
+        .informacoes {
+            padding: 18px 11px 0;
+            font-size: 11px;
+            color: #006b13;
+        }
+
+        .saudacao {
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        .tipo-usuario {
+            font-size: 11px;
+            font-style: italic;
+            line-height: 12px;
+        }
+
+        .dados-pessoais {
+            margin-top: 22px;
+            line-height: 16px;
+        }
+
+        .mostrar-senha {
+            display: block;
+            margin-top: 9px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: #4e5c0e;
+            font-size: 11px;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        /* PROPRIEDADE */
+
+        .propriedade {
+            margin-top: 34px;
+            line-height: 16px;
+        }
+
+        .propriedade strong {
+            font-size: 11px;
+        }
+
+        .editar-dados {
+            display: block;
+            margin-top: 10px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: #4e5c0e;
+            font-size: 11px;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        /* LOGOUT */
+
+        .logout {
+        display: inline-block;
+        margin-top: 43px;
+        margin-bottom: 5px;
+
+        color: #65002e;
+        font-size: 11px;
+        text-decoration: none;
+
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }
+
+        /* RODAPÉ */
+
+        .rodape {
+        width: 100%;
+        min-height: 54px;
+        height: 54px;
+
+        margin-top: auto;
+        flex-shrink: 0;
+
+        background: #5c002e;
+        color: #f3eee6;
+
+        display: flex;
+        align-items: center;
+    
+        }
+
+        .rodape-conteudo {
+            width: 930px;
+            max-width: 84%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .rodape-esquerda {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 21px;
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            color: #f3eee6;
+        }
+
+        .logo-simbolo {
+            font-size: 27px;
+            line-height: 1;
+        }
+
+        .contato {
+            font-size: 7px;
+            line-height: 10px;
+        }
+
+        .ajuda {
+            color: #f3eee6;
+            font-size: 8px;
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+
+            .pagina-conta {
+                width: 92%;
+                margin: 25px auto 35px;
+            }
+
+            .topo {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            .menu {
+                max-width: 100%;
+            }
+
+            .conta-card {
+                width: 100%;
+                height: auto;
+                min-height: 403px;
+                padding: 17px 20px 25px;
+            }
+
+            .informacoes {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .logout {
+                margin-top: 52px;
+                margin-bottom: 5px;
+            }
+
+            .rodape-conteudo {
+                max-width: 92%;
+            }
+
+        }
+
+        @media (max-width: 380px) {
+            .nome-fazenda {
+                font-size: 14px;
+            }
+
+            .menu {
+                width: 100%;
+                gap: 0;
+            }
+
+            .rodape {
+                height: auto;
+                min-height: 65px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .contato {
+                font-size: 6px;
+            }
+        }
+
+
+        /* AJUSTES DA VERSÃO FUNCIONAL */
+        a.mostrar-senha, a.editar-dados { text-decoration: none; }
+        a.mostrar-senha:hover, a.editar-dados:hover { text-decoration: underline; }
+        .erro-conta { color: #842f25; font-size: 11px; margin-bottom: 10px; }
+        .rodape .logo img { height: 34px; width: auto; display: block; }
+    </style>
+</head>
+
+<body data-sem-usuario>
+
+    <main class="pagina-conta">
+
+        <!-- MENU SUPERIOR -->
+
+        <header class="topo">
+
+            <nav class="menu">
+
+                <!-- AJUSTES -->
+                <a href="ajustes.html">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"
+                            fill="#b9a5b0" stroke="none"/>
+
+                        <path d="M12 5.5v2M12 16.5v2
+                        M5.5 12h2M16.5 12h2
+                        M7.4 7.4l1.4 1.4
+                        M15.2 15.2l1.4 1.4
+                        M16.6 7.4l-1.4 1.4
+                        M8.8 15.2l-1.4 1.4"
+                            stroke="#5c002e"
+                            stroke-width="1.5"/>
+                    </svg>
+
+                    <span>Ajustes</span>
+
+                </a>
+
+                <!-- INÍCIO -->
+                <a href="dashboard.html">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2 10.5L12 1l10 9.5h-2V22H4V10.5z"
+                            stroke="none"/>
+                    </svg>
+
+                    <span>Início</span>
+
+                </a>
+
+                <!-- PLANTAÇÃO -->
+                <a href="plantio.html">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V11
+                        C5 11 3 7 3 2
+                        C9 2 12 5 12 11
+                        C12 4 16 1 22 1
+                        C22 8 19 12 12 13Z"
+                            stroke="none"/>
+                    </svg>
+
+                    <span>Plantação</span>
+
+                </a>
+
+                <!-- SENSORES -->
+                <a href="sensores.html">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="17" r="2"
+                            stroke="none"/>
+
+                        <path d="M6 11a8 8 0 0 1 12 0
+                        M3 7a12 12 0 0 1 18 0"
+                            fill="none"
+                            stroke-width="2.8"
+                            stroke-linecap="round"/>
+                    </svg>
+
+                    <span>Sensores</span>
+
+                </a>
+
+            </nav>
+
+            <div class="nome-fazenda" id="nome-fazenda"></div>
+
+        </header>
+
+
+        <!-- CARTÃO DE CONTA -->
+
+        <section class="conta-card">
+
+            <!-- TÍTULO -->
+
+            <div class="conta-cabecalho">
+
+                <div class="titulo-conta">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"/>
+
+                        <path d="M3 21v-2
+                        a9 9 0 0 1 18 0v2z"/>
+                    </svg>
+
+                    <span>Minha Conta</span>
+
+                </div>
+
+                <a href="index.html" class="voltar" id="voltar" aria-label="Voltar">←</a>
+
+            </div>
+
+
+            <!-- DADOS DO USUÁRIO -->
+
+            <div class="informacoes">
+
+                <p id="mensagem-conta" class="erro-conta" role="alert" hidden></p>
+
+                <p class="saudacao" id="saudacao">Olá!</p>
+                <p class="tipo-usuario" id="tipo-usuario"></p>
+
+                <div class="dados-pessoais">
+                    <p>E-mail: <span id="email-usuario">…</span></p>
+                    <p>Telefone: <span id="telefone-usuario">…</span></p>
+                    <p>Senha: <span>**************</span></p>
+                    <a href="ajustes_perfil_alterar.html" class="mostrar-senha">Alterar senha</a>
+                </div>
+
+                <div class="propriedade">
+                    <strong>Propriedade</strong>
+
+                    <div id="dados-propriedade" hidden>
+                        <p>Nome: <span id="nome-propriedade"></span></p>
+                        <p>Município/Estado: <span id="local-propriedade"></span></p>
+                        <a href="ajustes_perfil_alterar.html" class="editar-dados">Editar Dados</a>
+                    </div>
+
+                    <p id="sem-propriedade" hidden>
+                        Nenhuma propriedade cadastrada.
+                        <a href="cad_propriedade.html" class="editar-dados">Cadastrar propriedade</a>
+                    </p>
+                </div>
+
+                <a href="#" id="logout" class="logout">LogOut →</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-esquerda">
+
+                <div class="logo">
+                    <img src="../img/logo/logo_base_branco.svg" alt="SafraScan">
+                </div>
+
+                <div class="contato">
+
+                    <p>Contato: (12) 3456-7890</p>
+
+                    <p>©Todos os direitos reservados.</p>
+
+                </div>
+
+            </div>
+
+            <a href="sobre.html" class="ajuda">
+                Precisa de ajuda?
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/minha_conta.js" defer></script>
+
+</body>
+</html>

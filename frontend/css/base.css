@@ -1,0 +1,1388 @@
+/* base.css - tokens, reset e rodapé compartilhados entre as telas do SafraScan */
+
+:root,
+:root[data-theme="padrao"] {
+  --cor-fundo: #f3eee7;       /* creme da página e do card */
+  --cor-verde: #2f5a0f;       /* textos e ícones */
+  --cor-campo: #dedbd4;       /* fundo dos campos */
+  --cor-vinho: #5c0d2e;       /* rodapé */
+  --cor-texto-rodape: #f3eee7;
+  --cor-erro: #8a2b1c;
+  --cor-erro-fundo: #f6dfd8;
+  --cor-ok: #2f5a0f;
+  --cor-ok-fundo: #dfe8d2;
+
+  --fonte: "Neue Haas Grotesk Text Pro", "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Logo do rodapé (usada como máscara). Ajuste para o nome real do seu arquivo. */
+  --logo-safrascan: url("../img/logo-safrascan.svg");
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cor-fundo);
+  color: var(--cor-verde);
+  font-family: var(--fonte);
+  line-height: 1.3;
+}
+
+h1, p { margin: 0; }
+
+input, select, button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--cor-verde);
+  outline-offset: 2px;
+}
+
+/* ---------- Card flutuante ---------- */
+.card-floating {
+  background: var(--cor-fundo);
+  border-radius: 40px;
+  box-shadow: 0 24px 60px rgba(60, 50, 35, 0.22);
+}
+
+/* ---------- Rodapé ---------- */
+.app-footer {
+  color: var(--cor-texto-rodape);
+  padding: 18px 24px;
+}
+.app-footer-vinho { background: var(--cor-vinho); }
+
+.footer-container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-logo-mask {
+  display: block;
+  flex: none;
+  width: 130px;
+  height: 34px;
+  background-color: var(--cor-texto-rodape);
+  -webkit-mask: var(--logo-safrascan) left center / contain no-repeat;
+          mask: var(--logo-safrascan) left center / contain no-repeat;
+}
+
+.footer-contato {
+  font-size: 10px;
+  line-height: 1.25;
+}
+.footer-contato em { opacity: 0.75; }
+
+.footer-link {
+  color: var(--cor-texto-rodape);
+  font-size: 10px;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.footer-link:hover { opacity: 1; text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .footer-top { flex-direction: column; align-items: flex-start; }
+}
+
+
+/* =====================================
+   CADASTRO DE PROPRIEDADE - SAFRASCAN
+===================================== */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f3eee7;
+}
+
+/* Área principal */
+
+.pagina-propriedade {
+  flex: 1;
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 35px 20px;
+}
+
+/* Cartão */
+
+.propriedade-card {
+  width: min(395px, 100%);
+
+  padding: 32px 40px;
+
+  border-radius: 40px;
+
+  background: #f3eee7;
+
+  box-shadow:
+      0 12px 40px rgba(55, 45, 35, 0.18);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+
+.propriedade-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.propriedade-header h1 {
+  color: #2f5a0f;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+.propriedade-voltar {
+  color: #2f5a0f;
+
+  font-size: 27px;
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition: transform 0.2s;
+}
+
+.propriedade-voltar:hover {
+  transform: translateX(-4px);
+}
+
+/* Formulário */
+
+.propriedade-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.campo-grupo label {
+  color: #2f5a0f;
+
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+/* Campos */
+
+.campo-grupo input,
+.campo-grupo select {
+  width: 100%;
+  height: 23px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 20px;
+
+  background: #dedbd4;
+  color: #2f5a0f;
+
+  padding: 3px 10px;
+
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus {
+  box-shadow: 0 0 0 2px rgba(47, 90, 15, 0.45);
+}
+
+.campo-grupo input::placeholder {
+  color: #858078;
+}
+
+/* Estado e município */
+
+.campo-linha {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 12px;
+}
+
+.campo-estado {
+  width: 65px;
+  flex: none;
+}
+
+.campo-municipio {
+  flex: 1;
+}
+
+/* Endereço: campo complementar */
+
+.campo-endereco {
+  margin-top: 1px;
+}
+
+/* Ações */
+
+.propriedade-acoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 30px;
+  margin-top: 2px;
+}
+
+.propriedade-avancar {
+  border: none;
+  background: transparent;
+
+  color: #2f5a0f;
+
+  font-size: 27px;
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+.propriedade-avancar:hover {
+  transform: translateX(5px);
+}
+
+.propriedade-avancar:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.propriedade-mensagem {
+  color: #2f5a0f;
+  font-size: 10px;
+}
+
+/* Rodapé */
+
+.rodape {
+  min-height: 70px;
+
+  background: #590d2e;
+  color: #f3eee7;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px max(calc((100% - 1120px) / 2), 35px);
+  gap: 20px;
+}
+
+.rodape-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rodape-logo {
+  width: 130px;
+  max-height: 40px;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+.rodape-contato {
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.rodape-ajuda {
+  color: #f3eee7;
+
+  font-size: 10px;
+  font-style: italic;
+
+  text-decoration: none;
+}
+
+.rodape-ajuda:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+
+  .pagina-propriedade {
+      padding: 25px 18px;
+  }
+
+  .propriedade-card {
+      padding: 30px 25px;
+      border-radius: 34px;
+  }
+
+  .propriedade-header h1 {
+      font-size: 18px;
+  }
+
+  .rodape {
+      padding: 15px 18px;
+
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .rodape-marca {
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+
+  .rodape-ajuda {
+      width: 100%;
+      text-align: center;
+  }
+}
+
+
+/* ==========================================
+   AJUSTES GERAIS - SAFRASCAN
+   Referência visual: página 13
+========================================== */
+
+
+/* ESTRUTURA */
+
+.pagina-ajustes-geral {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--cor-fundo);
+}
+
+
+/* CABEÇALHO */
+
+.ajustes-header {
+  width: min(1128px, calc(100% - 48px));
+
+  margin: 49px auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+/* MENU SUPERIOR */
+
+.menu-ajustes {
+  width: 288px;
+  min-height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 8px 12px;
+
+  background: var(--cor-vinho);
+
+  border-radius: 50px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+
+.item-menu {
+  min-width: 55px;
+  min-height: 63px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  color: var(--cor-texto-rodape);
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  transition: opacity 0.2s ease;
+}
+
+
+.item-menu:hover {
+  opacity: 0.75;
+}
+
+
+.item-menu.ativo {
+  color: var(--cor-texto-rodape);
+}
+
+
+.icone-menu {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.icone-menu img,
+.icone-menu svg {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+.icone-ajustes {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: rgba(243, 238, 231, 0.55);
+
+  padding: 5px;
+}
+
+
+.icone-plantacao {
+  width: 34px;
+  height: 34px;
+}
+
+
+/* NOME DA PROPRIEDADE */
+
+.nome-propriedade-header {
+  color: var(--cor-vinho);
+
+  font-size: 18px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* CONTEÚDO */
+
+.conteudo-ajustes {
+  width: min(1128px, calc(100% - 48px));
+
+  flex: 1;
+
+  margin: 0 auto 52px;
+
+  display: flex;
+}
+
+
+/* PAINEL PRINCIPAL */
+
+.painel-ajustes {
+  position: relative;
+
+  width: 738px;
+  min-height: 490px;
+
+  padding: 28px 40px;
+
+  border-radius: 50px;
+
+  background: var(--cor-fundo);
+
+  box-shadow: 0 20px 55px rgba(55, 45, 35, 0.18);
+}
+
+
+/* TÍTULO */
+
+.titulo-painel-ajustes {
+  padding: 0 15px 10px;
+
+  border-bottom: 1px solid rgba(92, 13, 46, 0.35);
+}
+
+
+.titulo-painel-ajustes h1 {
+  color: var(--cor-vinho);
+
+  font-size: 21px;
+  font-weight: 400;
+}
+
+
+/* OPÇÕES */
+
+.lista-opcoes-ajustes {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 47px;
+  margin-left: 12px;
+}
+
+
+.opcao-ajuste {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--cor-verde);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: transform 0.2s ease;
+}
+
+
+.opcao-ajuste:hover {
+  transform: translateX(5px);
+}
+
+
+.opcao-ajuste svg {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+}
+
+
+/* BOTÃO SAIR */
+
+.botao-sair {
+  position: absolute;
+
+  left: 48px;
+  bottom: 43px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: var(--cor-vinho);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: gap 0.2s ease;
+}
+
+
+.botao-sair:hover {
+  gap: 10px;
+}
+
+
+/* ÁREA DE AJUDA */
+
+.area-ajuda-ajustes {
+  position: absolute;
+
+  right: 15px;
+  bottom: 18px;
+
+  width: 253px;
+}
+
+
+.relatar-problema {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--cor-vinho);
+
+  text-align: center;
+
+  font-size: 12px;
+  font-style: italic;
+
+  text-decoration: none;
+}
+
+
+.relatar-problema:hover {
+  text-decoration: underline;
+}
+
+
+/* CARTÃO DE AJUDA */
+
+.cartao-ajuda {
+  position: relative;
+
+  min-height: 204px;
+
+  padding: 30px 39px;
+
+  display: flex;
+  align-items: flex-start;
+
+  border-radius: 48px;
+
+  background: var(--cor-fundo);
+
+  box-shadow: 0 15px 40px rgba(55, 45, 35, 0.15);
+}
+
+
+.cartao-ajuda p {
+  max-width: 175px;
+
+  color: var(--cor-vinho);
+
+  font-size: 21px;
+  font-weight: 400;
+
+  line-height: 1.48;
+}
+
+
+.botao-ajuda {
+  position: absolute;
+
+  right: 27px;
+  bottom: 24px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--cor-vinho);
+  border-radius: 50%;
+
+  color: var(--cor-vinho);
+
+  text-decoration: none;
+
+  font-size: 20px;
+
+  transition:
+      background 0.2s ease,
+      color 0.2s ease;
+}
+
+
+.botao-ajuda:hover {
+  background: var(--cor-vinho);
+  color: var(--cor-texto-rodape);
+}
+
+
+/* RODAPÉ */
+
+.rodape-ajustes {
+  min-height: 63px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 9px max(calc((100% - 1128px) / 2), 24px);
+
+  background: var(--cor-vinho);
+
+  color: var(--cor-texto-rodape);
+}
+
+
+.rodape-ajustes-esquerda {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.logo-rodape {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo-rodape img {
+  display: block;
+
+  width: 130px;
+  height: 38px;
+
+  object-fit: contain;
+}
+
+
+.informacoes-rodape {
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+
+.informacoes-rodape p:last-child {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+
+.link-ajuda-rodape {
+  color: var(--cor-texto-rodape);
+
+  font-size: 10px;
+  font-style: italic;
+
+  text-decoration: none;
+}
+
+
+.link-ajuda-rodape:hover {
+  text-decoration: underline;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+  .ajustes-header {
+      margin-top: 28px;
+
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .nome-propriedade-header {
+      width: 100%;
+      text-align: center;
+  }
+
+  .conteudo-ajustes {
+      justify-content: center;
+      margin-bottom: 35px;
+  }
+
+  .painel-ajustes {
+      width: 100%;
+      min-height: 510px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .ajustes-header {
+      width: calc(100% - 28px);
+  }
+
+  .menu-ajustes {
+      width: 100%;
+      max-width: 310px;
+  }
+
+  .conteudo-ajustes {
+      width: calc(100% - 28px);
+  }
+
+  .painel-ajustes {
+      min-height: 590px;
+
+      padding: 25px 22px;
+
+      border-radius: 35px;
+  }
+
+  .area-ajuda-ajustes {
+      right: 12px;
+      bottom: 20px;
+
+      width: min(235px, calc(100% - 24px));
+  }
+
+  .cartao-ajuda {
+      min-height: 190px;
+      padding: 25px 28px;
+  }
+
+  .cartao-ajuda p {
+      font-size: 19px;
+  }
+
+  .botao-sair {
+      left: 28px;
+      bottom: 42px;
+  }
+
+  .rodape-ajustes {
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 15px 12px;
+  }
+
+  .rodape-ajustes-esquerda {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .link-ajuda-rodape {
+      text-align: center;
+  }
+
+}
+
+.cadastro-talhao-pagina {
+  min-height: 100vh;
+  padding: 34px 24px 70px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-app);
+}
+
+.atalhos-safrascan {
+  position: absolute;
+  top: 28px;
+  left: max(24px, calc((100vw - 1120px) / 2));
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 13px 22px;
+  border-radius: 40px;
+  background: var(--cor-secundaria);
+  box-shadow: var(--shadow-floating);
+}
+
+.atalhos-safrascan a {
+  color: #f3eee6;
+  font-size: 23px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.atalhos-safrascan a:hover {
+  opacity: .75;
+}
+
+.cadastro-talhao-card {
+  width: min(100%, 430px);
+  margin: 76px auto 20px;
+  padding: 30px 34px;
+  border-radius: 30px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: var(--shadow-floating);
+}
+
+.cadastro-card-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cadastro-card-cabecalho h1,
+.cadastro-talhao-card h2 {
+  color: var(--cor-primaria);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.voltar-talhao {
+  color: var(--cor-primaria);
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.campo-safra {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.campo-safra label {
+  padding-left: 8px;
+  color: var(--cor-primaria);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.campo-safra input,
+.campo-safra select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  outline: none;
+  background: var(--bg-subtle);
+  color: var(--text-main);
+  font: inherit;
+}
+
+.campo-safra input:focus,
+.campo-safra select:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--cor-primaria) 18%, transparent);
+}
+
+.separador-cultura {
+  height: 1px;
+  margin: 24px 0 20px;
+  background: var(--divider-color) ;
+}
+
+.cadastro-talhao-card h2 {
+  margin-bottom: 16px;
+}
+
+.campo-ciclo {
+  max-width: 180px;
+}
+
+.acoes-talhao {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.acoes-talhao button {
+  min-width: 112px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font: inherit;
+  cursor: pointer;
+  transition: background var(--transition-fast),
+              opacity var(--transition-fast);
+}
+
+.acoes-talhao button:hover {
+  background: var(--btn-hover);
+}
+
+.acoes-talhao button:disabled {
+  cursor: wait;
+  opacity: .6;
+}
+
+.mensagem-talhao {
+  margin-top: 18px;
+  padding: 11px 13px;
+  border-radius: 9px;
+  background: #e7f3e4;
+  color: #24552a;
+  font-size: 13px;
+}
+
+.mensagem-talhao.erro {
+  background: #fae8e5;
+  color: #842f25;
+}
+
+@media (max-width: 600px) {
+
+  .cadastro-talhao-pagina {
+      padding: 90px 16px 28px;
+  }
+
+  .atalhos-safrascan {
+      top: 18px;
+      left: 16px;
+      gap: 14px;
+      padding: 11px 17px;
+  }
+
+  .cadastro-talhao-card {
+      margin: 20px auto;
+      padding: 25px 22px;
+  }
+
+}
+
+
+
+/* VISUAL DA PAGINA 20 - SAFRASCAN */
+
+* {
+  box-sizing: border-box;
+}
+
+body.pagina-sensores {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3eee5;
+  color: #315b17;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABECALHO */
+
+.cabecalho {
+  width: 100%;
+  height: 145px;
+  padding: 49px 8.7% 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  padding: 10px 25px;
+  background: #5c0d2e;
+  border-radius: 50px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.17);
+}
+
+.menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  text-decoration: none;
+  min-width: 35px;
+}
+
+.menu a span {
+  font-size: 27px;
+  line-height: 28px;
+}
+
+.menu a small {
+  font-size: 10px;
+}
+
+.menu a.selecionado {
+  opacity: .55;
+}
+
+.cabecalho h2 {
+  margin: 28px 0 0;
+  color: #5c0d2e;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* CONTEUDO */
+
+.conteudo {
+  width: 100%;
+  flex: 1;
+  padding: 35px 7% 55px;
+}
+
+.painel {
+  width: min(767px, 100%);
+  min-height: 343px;
+  padding: 40px 50px;
+  border-radius: 40px;
+  background: #f3eee5;
+  box-shadow: 0 15px 45px rgba(0,0,0,.13);
+}
+
+.titulo {
+  margin: 0 0 21px 5px;
+}
+
+.titulo h1 {
+  margin: 0;
+  color: #315b17;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.titulo p {
+  margin: 0;
+  color: #315b17;
+  font-size: 12px;
+}
+
+/* LISTA DE SENSORES */
+
+.lista-sensores {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.sensor-item {
+  min-height: 72px;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 1.15fr 1.1fr .8fr;
+  align-items: center;
+  gap: 12px;
+  border-radius: 22px;
+  background: #f3eee5;
+  box-shadow: 0 8px 24px rgba(0,0,0,.07);
+}
+
+.sensor-informacoes p {
+  margin: 0 0 3px;
+  color: #315b17;
+  font-size: 12px;
+}
+
+.sensor-informacoes .status-offline {
+  color: #5c0d2e;
+}
+
+.sensor-informacoes em {
+  color: #68752d;
+  font-size: 10px;
+}
+
+.sensor-datas p {
+  margin: 0 0 3px;
+  color: #315b17;
+  font-size: 12px;
+}
+
+.botao-excluir {
+  border: none;
+  background: transparent;
+  color: #5c0d2e;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botao-excluir:hover {
+  text-decoration: underline;
+}
+
+.botao-adicionar {
+  margin-top: 13px;
+  padding: 6px 11px;
+  border: none;
+  border-radius: 20px;
+  background: #eee9df;
+  color: #526522;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.botao-adicionar:hover {
+  background: #e3ddcf;
+}
+
+/* FORMULARIO */
+
+.formulario {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #eee9df;
+}
+
+.formulario h2 {
+  margin-top: 0;
+  color: #315b17;
+  font-size: 17px;
+}
+
+.formulario label {
+  display: block;
+  margin: 12px 0 5px;
+  font-size: 12px;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d5cfc4;
+  border-radius: 9px;
+  background: #f8f5ef;
+  color: #315b17;
+}
+
+.botoes-formulario {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.botoes-formulario button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #5c0d2e;
+  color: white;
+  cursor: pointer;
+}
+
+.botoes-formulario button:last-child {
+  background: #ded8cd;
+  color: #315b17;
+}
+
+.mensagem {
+  margin-bottom: 12px;
+  color: #5c0d2e;
+  font-size: 12px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* RODAPE */
+
+.rodape {
+  width: 100%;
+  min-height: 69px;
+  padding: 12px 9%;
+  background: #5c0d2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.rodape-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rodape img {
+  width: 130px;
+  max-height: 40px;
+}
+
+.rodape p {
+  margin: 2px 0;
+  font-size: 9px;
+}
+
+.rodape a {
+  color: white;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 750px) {
+  .cabecalho {
+      height: auto;
+      padding: 25px 15px;
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .menu {
+      gap: 13px;
+      padding: 10px 15px;
+      max-width: 100%;
+  }
+
+  .menu a span {
+      font-size: 22px;
+  }
+
+  .cabecalho h2 {
+      margin: 0;
+  }
+
+  .conteudo {
+      padding: 20px 15px 35px;
+  }
+
+  .painel {
+      padding: 28px 20px;
+      border-radius: 30px;
+  }
+
+  .sensor-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+  }
+
+  .botao-excluir {
+      text-align: left;
+  }
+
+  .rodape {
+      gap: 15px;
+      flex-wrap: wrap;
+  }
+}

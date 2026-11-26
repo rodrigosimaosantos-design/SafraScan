@@ -1,0 +1,165 @@
+/* cad_usuario.css - tela "Registre-se" do SafraScan */
+
+body.pagina-registro {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Área central: o card fica no meio do espaço acima do rodapé */
+  .registro-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 20px 40px; /* centraliza o card na janela, descontando o rodapé */
+  }
+  
+  .card-registro {
+    width: 100%;
+    max-width: 394px;
+    padding: 34px 46px 34px;
+  }
+  
+  /* ---------- Topo: título + seta de voltar ---------- */
+  .registro-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  
+  .registro-topo h1 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  
+  /* Seta (voltar / enviar) */
+  .icone-seta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--cor-verde);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.18s ease;
+  }
+  .icone-seta svg { width: 100%; height: 100%; display: block; }
+  
+  /* A seta anda um pouco na direção que aponta (resposta ao hover/foco) */
+  .registro-topo .icone-seta:hover,
+  .registro-topo .icone-seta:focus-visible { transform: translateX(-3px); }
+  .acoes-registro .icone-seta:hover,
+  .acoes-registro .icone-seta:focus-visible { transform: translateX(3px); }
+  
+  .icone-seta:disabled { opacity: 0.4; cursor: wait; transform: none; }
+  
+  /* ---------- Mensagens de retorno ---------- */
+  .mensagem {
+    margin: 0 0 12px 9px;
+    padding: 9px 14px;
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 1.35;
+    background: var(--cor-ok-fundo);
+    color: var(--cor-ok);
+  }
+  .mensagem.erro {
+    background: var(--cor-erro-fundo);
+    color: var(--cor-erro);
+  }
+  .mensagem[hidden] { display: none; }
+  
+  /* ---------- Formulário ---------- */
+  .form-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 0 0 9px;
+  }
+  
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .campo label,
+  .campo-tipo label {
+    font-size: 13px;
+    line-height: 1.2;
+    padding-left: 7px;
+  }
+  
+  .campo input {
+    width: 100%;
+    height: 22px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--cor-campo);
+    color: var(--cor-verde);
+    font-size: 13px;
+    outline-offset: 2px;
+  }
+  .campo input:focus-visible { outline: 2px solid var(--cor-verde); }
+  
+  /* Campo inválido, marcado só depois que a pessoa tenta enviar */
+  .form-registro.tentou-enviar .campo input:invalid {
+    box-shadow: inset 0 0 0 1.5px var(--cor-erro);
+  }
+  
+  /* ---------- Tipo de usuário ---------- */
+  .campo-tipo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .campo-tipo label { font-size: 13px; padding-left: 7px; }
+  
+  .campo-tipo select {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 22px;
+    padding: 0 24px 0 9px;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--cor-campo);
+    /* setinha do select */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4z' fill='%232f5a0f'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    background-size: 7px 4px;
+    color: var(--cor-verde);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  /* ---------- Ação de enviar ---------- */
+  .acoes-registro {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+    padding-right: 4px;
+  }
+  
+  /* ---------- Telas estreitas ---------- */
+  @media (max-width: 440px) {
+    .registro-main { padding: 32px 14px; }
+    .card-registro { padding: 28px 24px 32px; border-radius: 32px; }
+    .form-registro { padding-left: 0; }
+    .mensagem { margin-left: 0; }
+    .campo-tipo { flex-wrap: wrap; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .icone-seta { transition: none; }
+  }  

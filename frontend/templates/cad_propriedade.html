@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafraScan | Registrar propriedade</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cad_propriedade.css">
+    <script src="../js/sessao.js" defer></script>
+    
+</head>
+
+<body data-theme="padrao">
+
+    <main class="pagina-propriedade">
+
+        <section class="propriedade-card">
+
+            <header class="propriedade-header">
+                <h1>Registre sua propriedade</h1>
+
+                <a href="javascript:history.back()"
+                   class="propriedade-voltar"
+                   aria-label="Voltar">
+                    ←
+                </a>
+            </header>
+
+            <form id="formPropriedade" class="propriedade-form">
+
+                <div class="campo-grupo">
+                    <label for="nome_propriedade">Nome:</label>
+                    <input
+                        type="text"
+                        id="nome_propriedade"
+                        name="nome_propriedade"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="tamanho_ha">Tamanho (Ha):</label>
+                    <input
+                        type="number"
+                        id="tamanho_ha"
+                        name="tamanho_ha"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="campo-linha">
+
+                    <div class="campo-grupo campo-estado">
+                        <label for="estado_propriedade">Estado:</label>
+
+                        <select
+                            id="estado_propriedade"
+                            name="estado_propriedade"
+                            required
+                        >
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR" selected>PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo campo-municipio">
+                        <label for="municipio_propriedade">Município:</label>
+                        <input
+                            type="text"
+                            id="municipio_propriedade"
+                            name="municipio_propriedade"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="cep_propriedade">CEP:</label>
+                    <input
+                        type="text"
+                        id="cep_propriedade"
+                        name="cep_propriedade"
+                        maxlength="9"
+                        placeholder="00000-000"
+                        inputmode="numeric"
+                        required
+                    >
+                </div>
+
+                <div class="campo-grupo campo-endereco">
+                    <label for="endereco_propriedade">Endereço:</label>
+                    <input
+                        type="text"
+                        id="endereco_propriedade"
+                        name="endereco_propriedade"
+                        maxlength="200"
+                        required
+                    >
+                </div>
+
+                <input type="hidden" id="id_usuario" name="id_usuario">
+
+                <div class="propriedade-acoes">
+                    <p id="mensagemPropriedade"
+                       class="propriedade-mensagem"
+                       role="status"
+                       aria-live="polite"></p>
+
+                    <button
+                        type="submit"
+                        class="propriedade-avancar"
+                        aria-label="Registrar propriedade"
+                        title="Registrar propriedade"
+                    >
+                        →
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+
+        <div class="rodape-marca">
+
+            <img
+                src="../img/logo/logo_base_verde.svg"
+                alt="SafraScan"
+                class="rodape-logo"
+            >
+
+            <div class="rodape-contato">
+                <p>Contato: (12) 3456-7890</p>
+                <p>© Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+
+        <a href="mailto:suporte@safrascan.com"
+           class="rodape-ajuda">
+            Precisa de ajuda?
+        </a>
+
+    </footer>
+
+    <script src="../js/cad_propriedade.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="padrao">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafraScan - Registrar Senha</title>
+
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- Movimento discreto e comportamento compartilhado entre as telas. -->
+    <script src="../js/sessao.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/cadastro.js" defer></script>
+</head>
+<body class="pagina-registro">
+ 
+  <main class="registro-main">
+    <section class="card-floating card-registro" aria-labelledby="titulo-registro">
+ 
+      <header class="registro-topo">
+        <h1 id="titulo-registro">Registre-se</h1>
+        <a class="icone-seta" href="login.html" aria-label="Voltar para o login">
+          <svg viewBox="0 0 40 10" aria-hidden="true" focusable="false">
+            <path d="M39 5H2M2 5l5-3.5M2 5l5 3.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </header>
+ 
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+ 
+      <form id="form-registro" class="form-registro" novalidate>
+        <div class="campo">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+ 
+        <div class="campo">
+          <label for="nome">Nome:</labelvoura, mais perto dos seus dados.
+            Acesse a plataforma para orga>
+          <input type="text" id="nome" name="nome" autocomplete="name" required>
+        </div>
+        
+        <div class="campo">
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" required>
+        </div>
+ 
+        <div class="campo">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" autocomplete="new-password" minlength="8" required>
+        </div>
+ 
+        <div class="campo">
+          <label for="confirmar-senha">Confirmar Senha:</label>
+          <input type="password" id="confirmar-senha" name="confirmar_senha" autocomplete="new-password" minlength="8" required>
+        </div>
+ 
+        <div class="campo-tipo">
+          <label for="tipo-usuario">Tipo de usuário:</label>
+          <select id="tipo-usuario" name="tipo_usuario" required>
+            <option value="produtor" selected>Produtor</option>
+            <option value="comprador">Comprador</option>
+          </select>
+        </div>
+ 
+        <div class="acoes-registro">
+          <button type="submit" id="botao-registrar" class="icone-seta" aria-label="Criar conta">
+            <svg viewBox="0 0 40 10" aria-hidden="true" focusable="false">
+              <path d="M1 5h37M38 5l-5-3.5M38 5l-5 3.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+ 
+    </section>
+  </main>
+ 
+  <footer class="rodape-ajustes">
+
+    <div class="rodape-ajustes-esquerda">
+
+        <a href="index.html" class="logo-rodape">
+            <img src="../img/logo/logo_base_branco.svg"
+                 alt="SafraScan">
+        </a>
+
+        <div class="informacoes-rodape">
+
+            <p>Contato: (12) 3456-7890</p>
+
+            <p>© Todos os direitos reservados.</p>
+
+        </div>
+
+    </div>
+
+
+    <a href="sobre.html" class="link-ajuda-rodape">
+        Precisa de ajuda?
+    </a>
+
+</footer>
+ 
+</body>
+</html>

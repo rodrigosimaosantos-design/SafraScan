@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saindo… | SafraScan</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <noscript><meta http-equiv="refresh" content="3;url=index.html"></noscript>
+  <style>
+    body.pagina-saida {
+      min-height: 100vh; margin: 0;
+      display: grid; place-items: center; padding: 24px;
+      background: var(--bg-app, #f3eee6);
+      color: var(--cor-primaria, #305c0e);
+    }
+    .saida { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+    .saida img { width: 120px; height: auto; }
+    .saida h1 { margin: 0; font-size: 22px; font-weight: 400; }
+    .saida p { margin: 0; font-size: 13px; color: var(--text-muted, #4e5c0e); }
+    .saida a { color: var(--cor-secundaria, #5c0e30); font-style: italic; font-size: 12px; text-decoration: none; }
+    .saida a:hover { text-decoration: underline; }
+
+    .barra { width: 180px; height: 4px; border-radius: 999px; overflow: hidden;
+      background: color-mix(in srgb, var(--cor-primaria, #305c0e) 18%, transparent); }
+    .barra span { display: block; height: 100%; width: 0; border-radius: inherit;
+      background: var(--cor-primaria, #305c0e);
+      animation: encher 1.8s ease-in-out forwards; }
+    @keyframes encher { to { width: 100%; } }
+
+    .saida { animation: entrar .4s ease both; }
+    @keyframes entrar { from { opacity: 0; transform: translateY(8px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .saida, .barra span { animation: none; }
+      .barra span { width: 100%; }
+    }
+  </style>
+</head>
+<body class="pagina-saida" data-sem-usuario>
+  <main class="saida" role="status" aria-live="polite">
+    <img src="../img/logo/logo_alto_verde.svg" alt="SafraScan">
+    <h1>Você saiu da sua conta</h1>
+    <p>Até logo! Levando você para a página inicial…</p>
+    <div class="barra" aria-hidden="true"><span></span></div>
+    <a href="index.html" id="ir-agora">Ir agora</a>
+  </main>
+
+  <script>
+    // Tempo da transição em milissegundos (a barra acompanha: veja "encher" no CSS).
+    const ESPERA = 1800;
+    // replace: a tela de saída não fica no histórico do navegador.
+    setTimeout(() => window.location.replace("index.html"), ESPERA);
+    document.getElementById("ir-agora").addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.replace("index.html");
+    });
+  </script>
+</body>
+</html>

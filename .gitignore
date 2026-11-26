@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Ambientes virtuais
+venv/
+.venv/
+env/
+**/venv/
+**/.venv/
+
+# Credenciais
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporários
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
