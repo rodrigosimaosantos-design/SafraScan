@@ -23,8 +23,6 @@ class TalhaoEntrada(BaseModel):
 
     id_propriedade: int = Field(gt=0)
 
-    id_cultura: int = Field(gt=0)
-
     @field_validator("nome_talhao", "tipo_solo")
     @classmethod
     def validar_textos(cls, valor: str) -> str:
@@ -38,10 +36,9 @@ class TalhaoEntrada(BaseModel):
         return valor
 
 
-class TalhaoSaida(TalhaoEntrada):
+class TalhaoSaida(BaseModel):
     id_talhao: int
-
-    # Permite consultar registros antigos que ainda
-    # não receberam os novos valores no banco.
     nome_talhao: str | None = None
-    id_cultura: int | None = None
+    area_ha: Decimal
+    tipo_solo: str
+    id_propriedade: int

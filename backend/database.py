@@ -17,3 +17,4 @@ if not url or not chave:
 
 # Acesso à Data API por HTTPS.
 supabase: Client = create_client(url, chave)
+

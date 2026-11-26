@@ -22,14 +22,11 @@ router = APIRouter(
 
 
 # ============================================================
-# VALIDAR REFERENCIAS
+# VALIDAR PROPRIEDADE
 # ============================================================
 
-def validar_referencias(
-    id_propriedade: int,
-    id_cultura: int
-):
-    # Verificar se a propriedade existe.
+def validar_propriedade(id_propriedade: int):
+
     propriedade = (
         supabase.table("propriedade")
         .select("id_propriedade")
@@ -44,21 +41,6 @@ def validar_referencias(
             detail="A propriedade informada não existe."
         )
 
-    # Verificar se a cultura existe.
-    cultura = (
-        supabase.table("cultura")
-        .select("id_cultura")
-        .eq("id_cultura", id_cultura)
-        .limit(1)
-        .execute()
-    )
-
-    if not cultura.data:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="A cultura informada não existe."
-        )
-
 
 # ============================================================
 # CADASTRAR TALHAO
@@ -71,11 +53,10 @@ def validar_referencias(
 )
 def cadastrar_talhao(dados: TalhaoEntrada):
 
-    validar_referencias(
-        dados.id_propriedade,
-        dados.id_cultura
-    )
+    # Verificar se a propriedade existe.
+    validar_propriedade(dados.id_propriedade)
 
+    # Converter os dados para formato JSON.
     conteudo = dados.model_dump(mode="json")
 
     resposta = (
@@ -110,6 +91,9 @@ def listar_talhoes():
         .order("id_talhao")
         .execute()
     )
+
+    print("Dados retornados pelo Supabase:")
+    print(resposta.data)
 
     return resposta.data
 
@@ -152,15 +136,9 @@ def consultar_talhao(
     response_model=TalhaoSaida
 )
 def atualizar_talhao(
-    id_talhao: int,
-    dados: TalhaoEntrada
+    id_talhao: int = Path(gt=0),
+    dados: TalhaoEntrada = ...
 ):
-
-    if id_talhao <= 0:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="O ID do talhão deve ser positivo."
-        )
 
     # Verificar se o talhão existe.
     talhao_existente = (
@@ -177,11 +155,8 @@ def atualizar_talhao(
             detail="Talhão não encontrado."
         )
 
-    # Validar propriedade e cultura.
-    validar_referencias(
-        dados.id_propriedade,
-        dados.id_cultura
-    )
+    # Verificar se a propriedade existe.
+    validar_propriedade(dados.id_propriedade)
 
     conteudo = dados.model_dump(mode="json")
 
@@ -229,7 +204,7 @@ def excluir_talhao(
             detail="Talhão não encontrado."
         )
 
-    # Verificar se existem sensores vinculados.
+    # Verificar sensores vinculados.
     sensores = (
         supabase.table("sensor")
         .select("id_sensor")
@@ -247,7 +222,7 @@ def excluir_talhao(
             )
         )
 
-    # Verificar se existem plantios vinculados.
+    # Verificar plantios vinculados.
     plantios = (
         supabase.table("plantio")
         .select("id_plantio")
@@ -265,7 +240,7 @@ def excluir_talhao(
             )
         )
 
-    # Excluir o talhão.
+    # Excluir talhão.
     supabase.table("talhao").delete().eq(
         "id_talhao", id_talhao
     ).execute()
