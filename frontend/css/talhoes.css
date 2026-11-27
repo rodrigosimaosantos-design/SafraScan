@@ -1,0 +1,141 @@
+/* Tela "Talhões": lista de talhões com plantio e sensores. Carregar depois de base.css. */
+
+/* O menu tem 5 itens aqui (nas outras telas são 4) */
+.pagina-talhoes .menu-ajustes { width: auto; gap: 6px; padding: 8px 22px; }
+.pagina-talhoes .ajustes-header { width: min(1128px, calc(100% - 48px)); }
+
+.tl-pagina {
+  width: min(1246px, calc(100% - 48px));
+  margin: 8px auto 64px;
+  flex: 1;
+}
+
+.tl-visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.tl-aviso { min-height: 1.4em; margin: 0 0 14px 24px; color: var(--cor-erro); font-size: 14px; }
+.tl-aviso a { color: inherit; }
+
+/* ---------- Cartão de cada talhão ---------- */
+#lista-talhoes { display: grid; gap: 72px; }
+
+.tl-talhao {
+  padding: 58px 56px 52px;
+  border-radius: 100px;
+  background: var(--cor-fundo);
+  box-shadow: 0 20px 55px rgba(55, 45, 35, 0.18);
+}
+
+.tl-titulo {
+  margin: 0;
+  padding: 0 0 8px 33px;
+  border-bottom: 1px solid var(--cor-verde);
+  color: var(--cor-verde);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.tl-subtitulo { margin-top: 50px; }
+
+/* ---------- Plantio ---------- */
+.tl-plantios {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  margin: 46px 0 0 3px;
+}
+
+.tl-plantio {
+  display: block;
+  width: min(538px, 100%);
+  min-height: 205px;
+  padding: 28px 38px;
+  border-radius: 40px;
+  background: var(--cor-fundo);
+  box-shadow: 0 14px 38px rgba(55, 45, 35, 0.16);
+  color: var(--cor-verde);
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.tl-plantio:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(55, 45, 35, 0.22); }
+
+.tl-plantio h3 { margin: 0; font-size: 32px; font-weight: 400; line-height: 1.2; }
+.tl-plantio p { margin: 4px 0 0; color: #4e5c0e; font-size: 22px; font-style: italic; }
+.tl-plantio h3 + p { margin-top: 10px; }
+
+.tl-livre { margin: 40px 0 0 33px; color: var(--cor-verde); font-size: 32px; }
+
+/* ---------- Sensores ---------- */
+.tl-sensores { display: grid; gap: 22px; margin: 22px 0 0; }
+
+.tl-sensor {
+  padding: 28px 52px 30px;
+  border-radius: 50px;
+  background: var(--cor-fundo);
+  box-shadow: 0 12px 34px rgba(55, 45, 35, 0.15);
+  color: var(--cor-verde);
+}
+
+.tl-sensor-topo { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.tl-sensor-topo strong { font-size: 22px; font-weight: 400; }
+.tl-sensor-topo small { color: #4e5c0e; font-size: 12px; font-style: italic; }
+
+.tl-metricas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 6px;
+  text-align: center;
+}
+.tl-metrica-rotulo { font-size: 26px; line-height: 1.2; }
+.tl-metrica-valor { margin-top: 2px; font-size: 62px; line-height: 1.1; }
+.tl-sem-leitura { margin: 14px 0 0; font-size: 18px; font-style: italic; color: #4e5c0e; }
+
+.tl-vazio { margin: 26px 0 0 33px; color: #4e5c0e; font-size: 18px; font-style: italic; }
+
+/* ---------- Telas menores ---------- */
+@media (max-width: 800px) {
+  .pagina-talhoes .menu-ajustes { padding: 8px 14px; }
+  #lista-talhoes { gap: 40px; }
+  .tl-talhao { padding: 36px 24px 32px; border-radius: 56px; }
+  .tl-titulo { padding-left: 12px; font-size: 20px; }
+  .tl-plantio { padding: 24px 28px; }
+  .tl-plantio h3 { font-size: 26px; }
+  .tl-plantio p { font-size: 18px; }
+  .tl-sensor { padding: 24px 24px 26px; border-radius: 36px; }
+  .tl-metrica-rotulo { font-size: 20px; }
+  .tl-metrica-valor { font-size: 48px; }
+}
+
+.acoes-talhao {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-talhao {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-plantio {
+    background-color: #2e7d32; 
+}
+
+.btn-plantio:hover {
+    background-color: #1b5e20;
+}
+
+.btn-sensor {
+    background-color: #0277bd;
+}
+
+.btn-sensor:hover {
+    background-color: #01579b;
+}

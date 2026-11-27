@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talhões | SafraScan</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/talhoes.css">
+  <script src="../js/sessao.js" defer></script>
+  <script src="../js/talhoes.js" defer></script>
+</head>
+<body class="pagina-ajustes-geral pagina-talhoes">
+
+  <!-- ===== Cabeçalho: menu + nome da propriedade ===== -->
+  <header class="ajustes-header">
+    <nav class="menu-ajustes" aria-label="Navegação principal">
+      <a href="dashboard.html" class="item-menu">
+        <span class="icone-menu"><img src="../img/simbolos/home.svg" alt=""></span><span>Início</span>
+      </a>
+      <a href="sensores.html" class="item-menu">
+        <span class="icone-menu"><img src="../img/simbolos/sensores.svg" alt=""></span><span>Sensores</span>
+      </a>
+      <a href="plantio.html" class="item-menu">
+        <span class="icone-menu icone-plantacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12C4 12 3 6 3 3c6 0 10 3 9 9zM12 15C12 8 18 4 22 4c0 7-3 11-10 11z" fill="currentColor"/></svg></span><span>Plantação</span>
+      </a>
+      <a href="talhoes.html" class="item-menu ativo" aria-current="page">
+        <span class="icone-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l9 9-9 9-9-9z" fill="currentColor"/><path d="M7.5 10.5l9 9M16.5 10.5l-9 9" stroke="#5c0d2e" stroke-width="1.3"/><path d="M12 6V2.5M12 4.5c-2.5 0-3.5-1.2-3.5-2.5 2.2 0 3.5 1 3.5 2.5zM12 4.5c0-1.5 1.3-2.5 3.5-2.5 0 1.3-1 2.5-3.5 2.5z" fill="currentColor" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/></svg></span><span>Talhões</span>
+      </a>
+      <a href="ajustes.html" class="item-menu">
+        <span class="icone-menu icone-ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2 1.4 2.4-.2 1 2.2 2.2 1 .1 2.4 1.4 2-1.4 2 .1 2.4-2.2 1-1 2.2-2.4-.2-2 1.4-2-1.4-2.4.2-1-2.2-2.2-1-.1-2.4-1.4-2 1.4-2-.1-2.4 2.2-1 1-2.2 2.4.2z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#5c0d2e"/></svg></span><span>Ajustes</span>
+      </a>
+    </nav>
+    <div class="nome-propriedade-header" id="nome-propriedade"></div>
+  </header>
+
+  <!-- ===== Conteúdo (montado pelo talhoes.js) ===== -->
+  <main class="tl-pagina">
+    <h1 class="tl-visualmente-oculto">Talhões</h1>
+    <p class="tl-aviso" id="aviso" role="status" aria-live="polite"></p>
+    <div id="lista-talhoes"></div>
+  </main>
+
+  <footer class="rodape-ajustes">
+    <div class="rodape-ajustes-esquerda">
+      <a href="index.html" class="logo-rodape">
+        <img src="../img/logo/logo_base_branco.svg" alt="SafraScan">
+      </a>
+      <div class="informacoes-rodape">
+        <p>Contato: (12) 3456-7890</p>
+        <p>© Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <a href="sobre.html" class="link-ajuda-rodape">Precisa de ajuda?</a>
+  </footer>
+
+</body>
+</html>

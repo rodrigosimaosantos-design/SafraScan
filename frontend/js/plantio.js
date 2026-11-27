@@ -15,6 +15,46 @@ let talhoes = [];
 let culturas = [];
 let editando = null;
 
+const campoDataPlantio = document.querySelector("#data_plantio");
+const campoDataColheita = document.querySelector("#data_colheita_prevista");
+const ajudaColheita = document.querySelector("#ajuda-colheita");
+
+// Ciclos médios aproximados em dias. Podem variar conforme cultivar,
+// clima, região e manejo; a previsão continua editável pelo produtor.
+const ciclosMedios = [
+  { termos: ["soja"], dias: 120, nome: "soja" },
+  { termos: ["milho"], dias: 120, nome: "milho" },
+  { termos: ["trigo"], dias: 120, nome: "trigo" },
+  { termos: ["batata doce", "batata-doce"], dias: 150, nome: "batata-doce" },
+  { termos: ["feijao", "feijão"], dias: 90, nome: "feijão" },
+  { termos: ["arroz"], dias: 120, nome: "arroz" },
+  { termos: ["sorgo"], dias: 110, nome: "sorgo" },
+  { termos: ["girassol"], dias: 100, nome: "girassol" }
+];
+
+function calcularPrevisaoColheita() {
+  const dataPlantio = campoDataPlantio.value;
+  const culturaSelecionada = culturas.find(c => String(c.id_cultura) === selectCultura.value);
+  if (!dataPlantio || !culturaSelecionada) return;
+
+  const nome = String(culturaSelecionada.nome_cultura || "").toLocaleLowerCase("pt-BR");
+  const ciclo = ciclosMedios.find(item => item.termos.some(termo => nome.includes(termo)));
+  if (!ciclo) {
+    ajudaColheita.textContent = "Não há ciclo médio cadastrado para esta cultura. Informe a previsão manualmente.";
+    return;
+  }
+
+  // Usa UTC para evitar que mudanças de fuso/horário alterem o dia calculado.
+  const [ano, mes, dia] = dataPlantio.split("-").map(Number);
+  const data = new Date(Date.UTC(ano, mes - 1, dia));
+  data.setUTCDate(data.getUTCDate() + ciclo.dias);
+  campoDataColheita.value = [data.getUTCFullYear(), String(data.getUTCMonth() + 1).padStart(2, "0"), String(data.getUTCDate()).padStart(2, "0")].join("-");
+  ajudaColheita.textContent = `Previsão automática: ${ciclo.dias} dias após o plantio (${ciclo.nome}). É uma estimativa e pode ser ajustada.`;
+}
+
+campoDataPlantio.addEventListener("change", calcularPrevisaoColheita);
+selectCultura.addEventListener("change", calcularPrevisaoColheita);
+
 function mostrarMensagem(texto, tipo = "") {
   msg.textContent = texto;
   msg.className = `ss-message ${tipo}`.trim();
@@ -59,8 +99,12 @@ async function carregarOpcoes() {
   }
 }
 function nomeTalhao(id) {
-  const t = talhoes.find(x => x.id_talhao === id);
-  return t ? `#${t.id_talhao} (${t.area_ha} ha)` : `#${id}`;
+  const t = talhoes.find(x => String(x.id_talhao) === String(id));
+  if (!t) return `Talhão #${id}`;
+
+  // Exibe o nome cadastrado do talhão no histórico de plantios.
+  const nome = t.nome_talhao || `Talhão #${t.id_talhao}`;
+  return t.area_ha != null ? `${nome} (${t.area_ha} ha)` : nome;
 }
 function nomeCultura(id) {
   return culturas.find(x => x.id_cultura === id)?.nome_cultura || `#${id}`;
@@ -101,6 +145,7 @@ function iniciarEdicao(p) {
   selectTalhao.value = p.id_talhao;
   selectCultura.value = p.id_cultura;
   document.querySelector("#data_colheita_prevista").value = p.data_colheita_prevista;
+  ajudaColheita.textContent = "Previsão registrada. Altere a data do plantio ou a cultura para recalcular automaticamente.";
   document.querySelector("#status_sensor").value = p.status_sensor;
   document.querySelector("#titulo-form").textContent = `Editar plantio #${p.id_plantio}`;
   btnSalvar.textContent = "Salvar alterações";
@@ -143,5 +188,4 @@ async function excluirPlantio(id) {
   } catch (erro) { mostrarMensagem(`Não foi possível excluir: ${erro.message}`, "error"); }
 }
 btnCancelar.addEventListener("click", () => { limparEdicao(); esconderMensagem(); });
-form.addEventListener("reset", () => { if (editando !== null) limparEdicao(); });
 (async function iniciar() { await carregarOpcoes(); await carregarPlantios(); })();

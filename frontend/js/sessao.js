@@ -55,11 +55,10 @@
     estilo.textContent = `
       .ss-usuario { position: fixed; top: 12px; right: 12px; z-index: 1000;
         display: inline-flex; align-items: center; padding: 8px 16px;
-        font: 600 14px/1.2 var(--font-family, Arial, sans-serif);
-        color: var(--text-main, #201e1a); text-decoration: none;
+        font: 600 16px/1.2 var(--font-family, Arial, sans-serif);
+        color: var(--text-main, #5c0e30); text-decoration: none;
         background: var(--bg-card, #f3eee6);
-        border: 1px solid var(--border-color, #d8d2c8); border-radius: 999px;
-        box-shadow: var(--shadow-floating, 0 6px 16px rgba(0,0,0,.12));
+        border: 0px solid var(--border-color, #d8d2c8); border-radius: 999px;
         transition: background .15s ease; }
       .ss-usuario:hover { background: color-mix(in srgb, var(--cor-primaria, #305c0e) 10%, var(--bg-card, #f3eee6)); }
       .ss-usuario--nav { position: static; box-shadow: none; }`;
@@ -69,7 +68,7 @@
     link.className = "ss-usuario";
     link.href = PAGINA_CONTA;
     link.title = "Minha conta";
-    link.textContent = "Olá, " + usuario.nome_usuario.trim().split(/\s+/)[0]; // textContent evita injeção de HTML
+    link.textContent = usuario.nome_usuario.trim().split(/\s+/)[0]; // textContent evita injeção de HTML
 
     // Na página inicial o nome ocupa o lugar de "Login / Registre-se".
     const navInicio = document.querySelector(".inicio-nav");

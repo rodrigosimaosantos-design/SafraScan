@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - SafraScan</title>
     <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- Fonte Inter e Ícones do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <script src="../js/sessao.js" defer></script>
 </head>
 <body>
 
@@ -26,16 +26,21 @@
                 <span class="material-symbols-outlined">local_florist</span>
                 <span>Plantio</span>
             </a>
-            <a href="talhao.html" class="nav-item">
+            <a href="talhoes.html" class="nav-item">
                 <span class="material-symbols-outlined">inventory_2</span>
-                <span>Talhoes</span>
+                <span>Talhões</span>
             </a>
             <a href="ajustes.html" class="nav-item">
                 <span class="material-symbols-outlined">settings</span>
                 <span>Ajustes</span>
             </a>
+            <a href="sobre.html" class="nav-item">
+                <span class="material-symbols-outlined">info</span>
+                <span>Sobre</span>
+            </a>
         </nav>
-        <div class="farm-name">Joseir's Farm</div>
+
+        <div class="farm-name" id="nome-fazenda">Carregando...</div>
     </header>
 
     <!-- GRID DE CONTEÚDO PRINCIPAL -->
@@ -48,14 +53,11 @@
             <div class="card card-light">
                 <div class="card-header">
                     <h2>Talhões</h2>
-                    <a href="#" class="btn-editar">Editar</a>
+                    <a href="editar_talhao.html" class="btn-editar">Editar</a>
                 </div>
-                <p class="subtitle">Área total registrada: 0,8km²</p>
-                <ul class="data-list mt-3">
-                    <li>2 Talhões de Milho - área: 0,25km²</li>
-                    <li>3 Talhões de Trigo - área: 0,2km²</li>
-                    <li>4 Talhões de Café - área: 0,2km²</li>
-                    <li>1 Talhão de Repolho - área: 0,15km²</li>
+                <p class="subtitle" id="area-total-talhoes">Área total registrada: ...</p>
+                <ul class="data-list mt-3" id="lista-talhoes-dashboard">
+                    <li>Carregando talhões...</li>
                 </ul>
             </div>
 
@@ -63,21 +65,18 @@
             <div class="card card-light">
                 <div class="card-header">
                     <h2>Culturas</h2>
-                    <a href="#" class="btn-editar">Editar</a>
+                    <a href="editar_talhao.html" class="btn-editar">Editar</a>
                 </div>
-                <ul class="data-list mt-2">
-                    <li>Milho - Ciclo Médio: 120 dias</li>
-                    <li>Repolho - Ciclo Médio: 80 dias</li>
-                    <li>Trigo - Ciclo Médio: 180 dias</li>
-                    <li>Café - Ciclo Médio: 200 dias</li>
+                <ul class="data-list mt-2" id="lista-culturas-dashboard">
+                    <li>Carregando culturas...</li>
                 </ul>
             </div>
 
             <!-- BOTÃO: Descubra mais -->
-            <div class="card-pill-button">
+            <a href="sobre.html" class="card-pill-button">
                 <span>Descubra mais sobre nossos recursos</span>
                 <span class="material-symbols-outlined arrow-icon">arrow_right_alt</span>
-            </div>
+            </a>
 
         </div>
 
@@ -88,25 +87,17 @@
             <div class="card card-green">
                 <div class="card-header">
                     <h2 class="text-white">Sensores disponíveis</h2>
-                    <span class="material-symbols-outlined text-white">arrow_right_alt</span>
+                    <a href="sensores.html" title="Ir para Sensores">
+                        <span class="material-symbols-outlined text-white">arrow_right_alt</span>
+                    </a>
                 </div>
                 
                 <div class="sensors-container">
-                    <div class="sensor-list">
+                    <div class="sensor-list" id="lista-sensores-dashboard">
                         <div class="sensor-item">
-                            <span>Sensor 01</span>
-                            <span class="status online">• On-line</span>
-                        </div>
-                        <div class="sensor-item">
-                            <span>Sensor 02</span>
-                            <span class="status offline">• Off-line</span>
-                        </div>
-                        <div class="sensor-item">
-                            <span>Sensor 03</span>
-                            <span class="status online">• On-line</span>
+                            <span>Carregando sensores...</span>
                         </div>
                     </div>
-                    <!-- Barra de rolagem visual -->
                     <div class="custom-scrollbar"></div>
                 </div>
             </div>
@@ -115,15 +106,15 @@
             <div class="card card-light dual-col-card">
                 <div class="inner-col">
                     <h2>Solo (média global)</h2>
-                    <p>Umidade: 78%</p>
-                    <p>Temperatura: 33°C</p>
-                    <span class="material-symbols-outlined arrow-bottom">arrow_right_alt</span>
+                    <p id="solo-umidade">Umidade: ...</p>
+                    <p id="solo-temperatura">Temperatura: ...</p>
+                    <a href="sensores.html" title="Ver detalhes">
+                        <span class="material-symbols-outlined arrow-bottom">arrow_right_alt</span>
+                    </a>
                 </div>
                 <div class="inner-col">
                     <h2>Ar (média)</h2>
-                    <p>Umidade: 47%</p>
-                    <p>Temperatura: 29°C</p>
-                    <p>Luminosidade: 1 lx</p>
+                    <p id="ar-umidade">Umidade: ...</p>
                 </div>
             </div>
 
@@ -134,7 +125,6 @@
     <!-- RODAPÉ -->
     <footer class="footer">
         <div class="footer-left">
-            <!-- Logo SafraScan -->
             <div class="logo-footer">
                 <span class="material-symbols-outlined logo-icon">spa</span>
                 <span class="logo-text">safrascan</span>
@@ -145,11 +135,10 @@
             </div>
         </div>
         <div class="footer-right">
-            <a href="#">Precisa de ajuda?</a>
+            <a href="sobre.html">Precisa de ajuda?</a>
         </div>
     </footer>
 
-    <!-- Chamada do ficheiro JavaScript -->
-    <script src="../js/dashboard.js"></script>
+    <script src="../js/dashboard.js" defer></script>
 </body>
 </html>

@@ -35,8 +35,9 @@ body {
     background-color: var(--color-burgundy);
     border-radius: 50px;
     display: flex;
+    flex-wrap: wrap;
     padding: 10px 20px;
-    gap: 15px;
+    gap: 8px;
     box-shadow: var(--shadow-soft);
 }
 
@@ -49,8 +50,13 @@ body {
     font-size: 11px;
     opacity: 0.7;
     transition: 0.3s;
-    padding: 5px 15px;
+    padding: 5px 10px;
     border-radius: 20px;
+}
+
+.nav-item:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 .nav-item.active {
@@ -154,6 +160,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    max-height: 205px;
+    overflow-y: auto;
+    padding-right: 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sensor-list::-webkit-scrollbar {
+    display: none;
 }
 
 .sensor-item {
@@ -172,7 +187,7 @@ body {
 
 .custom-scrollbar {
     width: 6px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     position: relative;
 }
@@ -228,8 +243,14 @@ body {
     color: var(--color-text-green-dark);
     font-size: 20px;
     font-weight: 500;
+    text-decoration: none;
     cursor: pointer;
     margin-top: 10px;
+    transition: 0.3s;
+}
+
+.card-pill-button:hover {
+    transform: translateY(-3px);
 }
 
 .card-pill-button .arrow-icon {

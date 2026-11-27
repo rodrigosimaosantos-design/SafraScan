@@ -1,0 +1,314 @@
+        /* CONFIGURAÇÕES DA PÁGINA */
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f3eee6;
+            color: #006b13;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+/* ÁREA PRINCIPAL */
+.pagina-conta {
+    width: min(1100px, 92%); /* Aumentou o limite de largura */
+    margin: 40px auto 50px;
+    flex: 1;
+}
+        /* MENU SUPERIOR */
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 21px;
+        }
+
+        .menu {
+            height: 66px;
+            width: 237px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 5px 12px;
+            background: #5c002e;
+            border-radius: 50px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.15);
+        }
+
+        .menu a {
+            width: 48px;
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: #f3eee6;
+            text-decoration: none;
+            font-size: 9px;
+        }
+
+        .menu svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+            stroke: currentColor;
+        }
+
+        .menu a:hover {
+            opacity: .75;
+        }
+
+        .nome-fazenda {
+            color: #65002e;
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 0;
+        }
+/* CARTÃO MINHA CONTA */
+.conta-card {
+    width: 900px; /* Cartão ainda maior e mais largo */
+    max-width: 100%;
+    min-height: 580px; /* Mais alto para acomodar as letras maiores */
+    height: auto;
+    background: #f3eee6;
+    border-radius: 40px;
+    padding: 40px 60px; /* Margens internas maiores para respirar bem */
+    box-shadow: 0 12px 40px rgba(70, 60, 50, .20);
+    overflow: visible;
+}
+/* CABEÇALHO DO CARTÃO */
+.conta-cabecalho {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #b5c9a7;
+    padding: 0 15px 15px; /* Espaço ajustado na linha separadora */
+}
+
+.titulo-conta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px; /* Letra maior (era 16px) */
+    color: #006b13;
+}
+
+.titulo-conta svg {
+    width: 38px; /* Ícone de utilizador maior */
+    height: 38px;
+    fill: none;
+    stroke: #006b13;
+    stroke-width: 1.8;
+}
+
+.voltar {
+    color: #006b13;
+    font-size: 28px; /* Seta de voltar maior */
+    text-decoration: none;
+    font-weight: 300;
+}
+
+ /* INFORMAÇÕES E TEXTOS */
+ .informacoes {
+    padding: 30px 15px 0;
+    font-size: 15px; /* Letras base maiores (era 11px) */
+    color: #006b13;
+}
+
+.saudacao {
+    font-size: 24px; /* Nome maior (era 16px) */
+    line-height: 28px;
+}
+
+.tipo-usuario {
+    font-size: 15px; /* (era 11px) */
+    font-style: italic;
+    line-height: 20px;
+    margin-top: 4px;
+}
+
+.dados-pessoais {
+    margin-top: 35px; /* Mais espaço entre blocos */
+    line-height: 24px; /* Linhas mais separadas (era 16px) */
+}
+
+.mostrar-senha {
+    display: block;
+    margin-top: 15px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #4e5c0e;
+    font-size: 14px; /* (era 11px) */
+    font-style: italic;
+    cursor: pointer;
+}
+
+/* PROPRIEDADE */
+.propriedade {
+    margin-top: 45px; /* Mais espaço antes de "Propriedade" */
+    line-height: 24px; 
+}
+
+.propriedade strong {
+    font-size: 16px; /* Título Propriedade maior (era 11px) */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.editar-dados {
+    display: block;
+    margin-top: 15px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #4e5c0e;
+    font-size: 14px; /* (era 11px) */
+    font-style: italic;
+    cursor: pointer;
+}
+
+ /* LOGOUT */
+ .logout {
+    display: inline-block;
+    margin-top: 60px; /* Empurrado um pouco mais para baixo */
+    margin-bottom: 10px;
+    color: #65002e;
+    font-size: 15px; /* Letra do botão sair maior (era 11px) */
+    text-decoration: none;
+}
+
+        /* RODAPÉ */
+
+        .rodape {
+        width: 100%;
+        min-height: 54px;
+        height: 54px;
+
+        margin-top: auto;
+        flex-shrink: 0;
+
+        background: #5c002e;
+        color: #f3eee6;
+
+        display: flex;
+        align-items: center;
+    
+        }
+
+        .rodape-conteudo {
+            width: 930px;
+            max-width: 84%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .rodape-esquerda {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 21px;
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            color: #f3eee6;
+        }
+
+        .logo-simbolo {
+            font-size: 27px;
+            line-height: 1;
+        }
+
+        .contato {
+            font-size: 7px;
+            line-height: 10px;
+        }
+
+        .ajuda {
+            color: #f3eee6;
+            font-size: 8px;
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+
+            .pagina-conta {
+                width: 92%;
+                margin: 25px auto 35px;
+            }
+
+            .topo {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            .menu {
+                max-width: 100%;
+            }
+
+            .conta-card {
+                width: 100%;
+                height: auto;
+                min-height: 403px;
+                padding: 17px 20px 25px;
+            }
+
+            .informacoes {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .logout {
+                margin-top: 52px;
+                margin-bottom: 5px;
+            }
+
+            .rodape-conteudo {
+                max-width: 92%;
+            }
+
+        }
+
+        @media (max-width: 380px) {
+            .nome-fazenda {
+                font-size: 14px;
+            }
+
+            .menu {
+                width: 100%;
+                gap: 0;
+            }
+
+            .rodape {
+                height: auto;
+                min-height: 65px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .contato {
+                font-size: 6px;
+            }
+        }
+
+
+        /* AJUSTES DA VERSÃO FUNCIONAL */
+        a.mostrar-senha, a.editar-dados { text-decoration: none; }
+        a.mostrar-senha:hover, a.editar-dados:hover { text-decoration: underline; }
+        .erro-conta { color: #842f25; font-size: 11px; margin-bottom: 10px; }
+        .rodape .logo img { height: 34px; width: auto; display: block; }
