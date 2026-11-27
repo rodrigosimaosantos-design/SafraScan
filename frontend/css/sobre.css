@@ -1,0 +1,164 @@
+/* Tela Sobre — referência visual: página 12 do arquivo de páginas */
+.pagina-sobre {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background: #f3eee5;
+    color: #315b17;
+    font-family: "Neue Haas Grotesk Text Pro", "Helvetica Neue", Arial, sans-serif;
+  }
+  .pagina-sobre .sobre-cabecalho {
+    width: min(1128px, calc(100% - 48px));
+    height: 177px;
+    flex: 0 0 177px;
+    margin: 0 auto;
+    padding-top: 49px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .pagina-sobre .sobre-menu {
+    width: 288px;
+    min-height: 80px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4px;
+    border-radius: 50px;
+    background: #5c0d2e;
+    box-shadow: 0 12px 30px rgba(0,0,0,.16);
+  }
+  .pagina-sobre .sobre-item {
+    min-width: 55px;
+    min-height: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #f3eee5;
+    text-decoration: none;
+    font-size: 10px;
+  }
+  .pagina-sobre .sobre-item:hover { opacity: .78; }
+  .pagina-sobre .sobre-icone {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagina-sobre .sobre-icone img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+  .pagina-sobre .sobre-icone-plantio { width: 34px; height: 34px; }
+  .pagina-sobre .sobre-propriedade {
+    padding-top: 28px;
+    color: #5c0d2e;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pagina-sobre .sobre-conteudo {
+    width: min(1128px, calc(100% - 48px));
+    margin: 0 auto 42px;
+    flex: 1 0 auto;
+  }
+  .pagina-sobre .sobre-painel {
+    position: relative;
+    min-height: 620px;
+    padding: 38px 48px 46px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 252px;
+    column-gap: 58px;
+    border-radius: 62px;
+    background: #f3eee5;
+    box-shadow: 0 20px 55px rgba(55,45,35,.18);
+  }
+  .pagina-sobre .sobre-textos { min-width: 0; }
+  .pagina-sobre .sobre-bloco h1,
+  .pagina-sobre .sobre-bloco h2 {
+    margin: 0 0 27px;
+    color: #315b17;
+    font-size: 21px;
+    line-height: 1.35;
+    font-weight: 400;
+  }
+  .pagina-sobre .sobre-bloco p {
+    margin: 0 0 24px;
+    color: #315b17;
+    font-size: 21px;
+    line-height: 1.48;
+    font-weight: 400;
+  }
+  .pagina-sobre .sobre-nos { margin-top: 66px; }
+  .pagina-sobre .sobre-nos h2 { margin-bottom: 27px; }
+  .pagina-sobre .sobre-voltar {
+    position: absolute;
+    top: 37px;
+    right: 410px;
+    color: #315b17;
+    font-size: 28px;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .pagina-sobre .sobre-voltar:hover { transform: translateX(-4px); }
+  .pagina-sobre .sobre-imagens {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .pagina-sobre .sobre-imagens img {
+    display: block;
+    width: 252px;
+    height: 164px;
+    border-radius: 90px;
+    object-fit: cover;
+  }
+  .pagina-sobre .sobre-rodape {
+    position: relative;
+    z-index: 2;
+    min-height: 66px;
+    margin-top: auto;
+    padding: 12px max(calc((100% - 1120px) / 2), 35px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #5c0d2e;
+    color: #f3eee5;
+  }
+  .pagina-sobre .sobre-rodape-marca { display: flex; align-items: center; gap: 14px; }
+  .pagina-sobre .sobre-rodape-marca > img { width: 130px; max-height: 40px; object-fit: contain; }
+  .pagina-sobre .sobre-contato { display: flex; flex-direction: column; font-size: 9px; line-height: 1.5; }
+  .pagina-sobre .sobre-contato em { opacity: .75; }
+  .pagina-sobre .sobre-rodape > a { color: #f3eee5; font-size: 10px; font-style: italic; text-decoration: none; }
+  .pagina-sobre .sobre-rodape > a:hover { text-decoration: underline; }
+  @media (max-width: 850px) {
+    .pagina-sobre .sobre-cabecalho { height: auto; min-height: 145px; flex-basis: auto; padding-top: 24px; align-items: flex-start; }
+    .pagina-sobre .sobre-menu { width: min(288px, 70vw); }
+    .pagina-sobre .sobre-propriedade { font-size: 14px; padding-top: 22px; }
+    .pagina-sobre .sobre-painel { grid-template-columns: 1fr 180px; gap: 28px; padding: 32px; }
+    .pagina-sobre .sobre-imagens img { width: 180px; height: 135px; }
+    .pagina-sobre .sobre-bloco p { font-size: 17px; }
+    .pagina-sobre .sobre-voltar { right: 250px; }
+  }
+  @media (max-width: 600px) {
+    .pagina-sobre .sobre-cabecalho { width: calc(100% - 28px); flex-direction: column; gap: 10px; padding-top: 18px; padding-bottom: 24px; }
+    .pagina-sobre .sobre-menu { width: 100%; min-height: 72px; }
+    .pagina-sobre .sobre-propriedade { align-self: flex-end; padding-top: 0; }
+    .pagina-sobre .sobre-conteudo { width: calc(100% - 28px); margin-bottom: 24px; }
+    .pagina-sobre .sobre-painel { min-height: 0; grid-template-columns: 1fr; padding: 28px 24px 34px; border-radius: 36px; }
+    .pagina-sobre .sobre-imagens { grid-row: 1; flex-direction: row; justify-content: center; margin-bottom: 24px; }
+    .pagina-sobre .sobre-imagens img { width: calc(50% - 5px); height: 110px; border-radius: 38px; }
+    .pagina-sobre .sobre-bloco h1, .pagina-sobre .sobre-bloco h2 { font-size: 18px; margin-bottom: 16px; }
+    .pagina-sobre .sobre-bloco p { font-size: 15px; line-height: 1.55; }
+    .pagina-sobre .sobre-nos { margin-top: 30px; }
+    .pagina-sobre .sobre-voltar { top: 155px; right: 25px; }
+    .pagina-sobre .sobre-rodape { padding: 15px 18px; flex-wrap: wrap; justify-content: center; }
+    .pagina-sobre .sobre-rodape-marca { justify-content: center; flex-wrap: wrap; }
+    .pagina-sobre .sobre-rodape > a { width: 100%; text-align: center; }
+  }

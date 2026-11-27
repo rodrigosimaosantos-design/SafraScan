@@ -1,10 +1,27 @@
-<header class="ajustes-header"><nav class="menu-ajustes" aria-label="Navegação principal">
-    <a href="ajustes.html" class="item-menu"><span class="icone-menu icone-ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2 1.4 2.4-.2 1 2.2 2.2 1 .1 2.4 1.4 2-1.4 2 .1 2.4-2.2 1-1 2.2-2.4-.2-2 1.4-2-1.4-2.4.2-1-2.2-2.2-1-.1-2.4-1.4-2 1.4-2-.1-2.4 2.2-1 1-2.2 2.4.2z" fill="currentColor"/><circle cx="12" cy="12" r="3.2" fill="#5c0d2e"/></svg></span><span>Ajustes</span></a>
-    <a href="dashboard.html" class="item-menu ativo" aria-current="page"><span class="icone-menu"><img src="../img/simbolos/home.svg" alt=""></span><span>Início</span></a>
-    <a href="plantio.html" class="item-menu"><span class="icone-menu icone-plantacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12C4 12 3 6 3 3c6 0 10 3 9 9zM12 15C12 8 18 4 22 4c0 7-3 11-10 11z" fill="currentColor"/></svg></span><span>Plantação</span></a>
-    <a href="sensores.html" class="item-menu"><span class="icone-menu"><img src="../img/simbolos/sensores.svg" alt=""></span><span>Sensores</span></a>
-    </nav><div class="nome-propriedade-header" id="nome-propriedade">Minha propriedade</div></header>
+<header class="sobre-cabecalho">
+    <nav class="sobre-menu" aria-label="Navegação principal">
+      
+      <a class="sobre-item" href="dashboard.html">
+            <span class="sobre-icone"><img src="../img/simbolos/home.svg" alt=""></span>
+            <span>Início</span>
+      </a>
 
+        <a class="sobre-item" href="ajustes.html">
+        <span class="sobre-icone"><img src="../img/simbolos/Símbolo Ajustes Safrascan.svg" alt=""></span>
+        <span>Ajustes</span>
+      </a>
+     
+      <a class="sobre-item" href="plantio.html">
+        <span class="sobre-icone sobre-icone-plantio"><img src="../img/simbolos/plantacao.svg" alt=""></span>
+        <span>Plantação</span>
+      </a>
+      <a class="sobre-item" href="sensores.html">
+        <span class="sobre-icone"><img src="../img/simbolos/sensores.svg" alt=""></span>
+        <span>Sensores</span>
+      </a>
+    </nav>
+    <div class="sobre-propriedade">Joseir’s Farm</div>
+  </header>
 
 <footer class="rodape-ajustes">
 

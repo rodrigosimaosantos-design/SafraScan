@@ -1,14 +1,284 @@
-/* Dashboard: mesma identidade visual da tela Ajustes */
-.pagina-dashboard{min-height:100vh;display:flex;flex-direction:column;background:var(--cor-fundo);color:var(--cor-verde)}
-.dashboard-conteudo{width:min(1128px,calc(100% - 48px));flex:1;margin:0 auto 52px;display:block}
-.dashboard-painel{width:100%;min-height:0;padding:30px 38px 38px;border-radius:50px;background:var(--cor-fundo);box-shadow:0 20px 55px rgba(55,45,35,.18)}
-.dashboard-titulo{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:0 15px 18px;border-bottom:1px solid rgba(92,13,46,.35)}
-.dashboard-titulo h1{color:var(--cor-vinho);font-size:23px;font-weight:500;margin:0 0 7px}.dashboard-subtitulo{color:var(--cor-verde);opacity:.78;font-size:12px}
-.dash-eyebrow{color:var(--cor-verde);font-size:10px;font-weight:800;letter-spacing:.13em;margin:0 0 7px}.dash-date{color:var(--cor-vinho);font-size:11px;white-space:nowrap}
-.dash-message{margin:18px 0;padding:11px 14px;border-radius:14px;background:var(--cor-campo);color:var(--cor-verde);font-size:12px}.dash-message.erro{color:var(--cor-erro);background:var(--cor-erro-fundo)}.dash-message.ok{color:var(--cor-ok);background:var(--cor-ok-fundo)}
-.dash-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 17px}.dash-card,.dash-panel{min-width:0;background:rgba(255,255,255,.32);border:1px solid rgba(92,13,46,.16);border-radius:22px;box-shadow:0 7px 20px rgba(55,45,35,.07)}.dash-card{display:flex;flex-direction:column;gap:5px;padding:16px 17px}.dash-card-label{color:var(--cor-vinho);font-size:11px;font-weight:650}.dash-card strong{color:var(--cor-verde);font-size:27px;line-height:1.2}.dash-card small{color:var(--cor-verde);opacity:.7;font-size:10px}
-.dash-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.dash-panel{padding:18px 19px}.dash-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.dash-panel-heading h2,.dash-actions h2{color:var(--cor-vinho);font-size:15px;font-weight:600;margin:0}.dash-panel-heading a{color:var(--cor-verde);font-size:10px;font-weight:700;text-decoration:underline}
-.dash-culture-list,.dash-sensor-list,.dash-reading-list{display:flex;flex-direction:column;gap:11px}.dash-culture-row{display:grid;grid-template-columns:minmax(75px,1fr) 2fr auto;align-items:center;gap:10px;color:var(--cor-verde);font-size:11px}.dash-track{height:8px;overflow:hidden;border-radius:99px;background:var(--cor-campo)}.dash-track span{display:block;height:100%;border-radius:99px;background:var(--cor-verde)}.dash-count{color:var(--cor-vinho);font-size:10px;font-weight:750}
-.dash-sensor-row,.dash-reading-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(92,13,46,.13)}.dash-sensor-row:last-child,.dash-reading-row:last-child{border-bottom:0}.dash-sensor-name,.dash-reading-row strong{color:var(--cor-verde);font-size:11px;font-weight:700}.dash-sensor-type,.dash-reading-row small{display:block;color:var(--cor-verde);opacity:.68;font-size:9px}.dash-status{padding:5px 8px;border-radius:99px;background:var(--cor-campo);color:var(--cor-verde);font-size:9px;font-weight:800;white-space:nowrap}.dash-status.online{background:var(--cor-ok-fundo);color:var(--cor-ok)}.dash-status.offline{background:var(--cor-erro-fundo);color:var(--cor-erro)}.dash-reading-value{color:var(--cor-vinho);font-size:12px;font-weight:800;white-space:nowrap}
-.dash-footnote,.dash-empty{color:var(--cor-verde);opacity:.7;font-size:10px}.dash-footnote{margin-top:12px;line-height:1.45}.dash-actions{display:flex;flex-direction:column;gap:10px}.dash-actions>.dash-eyebrow{margin-bottom:-5px}.dash-action{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid rgba(92,13,46,.16);border-radius:14px;color:var(--cor-verde);text-decoration:none;transition:.18s ease}.dash-action:hover{border-color:var(--cor-vinho);transform:translateY(-2px)}.dash-action>span:first-child{font-size:19px}.dash-action>span:nth-child(2){display:flex;flex:1;flex-direction:column}.dash-action strong{font-size:11px}.dash-action small{font-size:9px;opacity:.7}.dash-action b{color:var(--cor-vinho);font-size:19px}.dash-empty{padding:8px 0}
-@media(max-width:900px){.dash-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-grid{grid-template-columns:1fr}}@media(max-width:800px){.dashboard-conteudo{margin-bottom:35px}.dashboard-painel{padding:26px 25px 30px}}@media(max-width:520px){.dashboard-conteudo{width:calc(100% - 28px)}.dashboard-painel{padding:23px 17px 25px;border-radius:35px}.dashboard-titulo{align-items:flex-start;flex-direction:column}.dash-kpis{gap:9px}.dash-card{padding:13px 11px}.dash-card strong{font-size:22px}.dash-culture-row{grid-template-columns:70px 1fr auto}}
+/* ================= VARIÁVEIS DE CORES ================= */
+:root {
+    --bg-color: #F3EFE9; /* Fundo creme claro */
+    --color-burgundy: #59192C; /* Vinho */
+    --color-green-dark: #37591E; /* Verde escuro do cartão */
+    --color-text-green-dark: #2E471C; /* Títulos dos cartões claros */
+    --color-text-green-light: #4D7330; /* Textos das listas */
+    --card-bg-light: #F4F2EB; /* Fundo dos cartões claros */
+    --shadow-soft: 10px 15px 35px rgba(0, 0, 0, 0.08), -5px -5px 25px rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= CABEÇALHO ================= */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.nav-pill {
+    background-color: var(--color-burgundy);
+    border-radius: 50px;
+    display: flex;
+    padding: 10px 20px;
+    gap: 15px;
+    box-shadow: var(--shadow-soft);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    opacity: 0.7;
+    transition: 0.3s;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.nav-item.active {
+    opacity: 1;
+    font-weight: 600;
+}
+
+.nav-item .material-symbols-outlined {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.farm-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-burgundy);
+}
+
+/* ================= GRID PRINCIPAL ================= */
+.dashboard-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 60px 60px 60px;
+    flex: 1;
+}
+
+.col-left, .col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ================= CARTÕES GERAIS ================= */
+.card {
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+}
+
+.card-light {
+    background-color: var(--card-bg-light);
+    color: var(--color-text-green-dark);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.btn-editar {
+    font-size: 14px;
+    color: var(--color-text-green-dark);
+    font-style: italic;
+    text-decoration: none;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--color-text-green-dark);
+    margin-bottom: 20px;
+}
+
+.data-list {
+    list-style: none;
+}
+
+.data-list li {
+    font-size: 15px;
+    color: var(--color-text-green-light);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.mt-2 { margin-top: 15px; }
+.mt-3 { margin-top: 25px; }
+
+/* ================= CARTÃO SENSORES (VERDE) ================= */
+.card-green {
+    background-color: var(--color-green-dark);
+    width: 450px;
+}
+
+.text-white { color: #fff; }
+
+.sensors-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.sensor-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sensor-item {
+    background-color: var(--card-bg-light);
+    padding: 15px 25px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--color-text-green-light);
+}
+
+.status { font-weight: 700; }
+.status.online { color: var(--color-green-dark); }
+.status.offline { color: var(--color-burgundy); }
+
+.custom-scrollbar {
+    width: 6px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    position: relative;
+}
+
+.custom-scrollbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+/* ================= CARTÃO DUPLO (SOLO E AR) ================= */
+.dual-col-card {
+    display: flex;
+    gap: 40px;
+}
+
+.inner-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-col h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.inner-col p {
+    color: var(--color-text-green-light);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.arrow-bottom {
+    margin-top: 20px;
+    color: var(--color-text-green-light);
+}
+
+/* ================= BOTÃO PÍLULA DESCUBRA MAIS ================= */
+.card-pill-button {
+    background-color: var(--card-bg-light);
+    border-radius: 50px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+    color: var(--color-text-green-dark);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-pill-button .arrow-icon {
+    border: 1px solid var(--color-text-green-dark);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* ================= RODAPÉ ================= */
+.footer {
+    background-color: var(--color-burgundy);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    margin-top: auto;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-footer .logo-icon {
+    font-size: 32px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.footer-contact {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.footer-right a {
+    color: #fff;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    opacity: 0.8;
+}

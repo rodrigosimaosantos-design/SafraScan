@@ -232,7 +232,10 @@
 
             area_ha: Number(campoArea.value).toFixed(2),
 
-            tipo_solo: campoSolo.value
+            tipo_solo: campoSolo.value,
+
+            // O backend exige um nome: usa o padrão "Talhão de <cultura>".
+            nome_talhao: `Talhão de ${campoCultura.value.trim()}`.slice(0, 100)
 
         };
 
